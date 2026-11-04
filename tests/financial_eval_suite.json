@@ -1,0 +1,704 @@
+{
+  "benchmark_name": "Draythos Financial & Tax Analyst Rigorous Evaluation Suite",
+  "version": "2.0",
+  "description": "Rigorous ground-truth evaluation with gold chunk IDs, citation entailment, and strict ambiguity/abstention evaluators.",
+  "total_tests": 50,
+  "categories": {
+    "exact_cell_formula_lookup": 15,
+    "multi_doc_cross_reference": 12,
+    "ambiguous_disambiguation": 10,
+    "abstention_no_hallucination": 8,
+    "tax_jurisdiction_mapping": 5
+  },
+  "gold_chunks_catalog": {
+    "chunk_rev_table": {
+      "document_id": "doc_q1_model",
+      "source_filename": "draythos_test_q1.xlsx",
+      "sheet_name": "Revenue_Q1",
+      "section": "Revenue Table",
+      "summary": "Revenue_Q1 sheet with Enterprise Software, Professional Services, Hosting & Cloud, Jan/Feb/Mar Act and Q1 Total."
+    },
+    "chunk_rev_formulas": {
+      "document_id": "doc_q1_model",
+      "source_filename": "draythos_test_q1.xlsx",
+      "sheet_name": "Revenue_Q1",
+      "section": "Formula Definitions & Coordinates",
+      "summary": "Explicit formula mappings: E2 =SUM(B2:D2), E3 =SUM(B3:D3), E4 =SUM(B4:D4), D5 =SUM(D2:D4), E5 =SUM(E2:E4)."
+    },
+    "chunk_opex_table": {
+      "document_id": "doc_q1_model",
+      "source_filename": "draythos_test_q1.xlsx",
+      "sheet_name": "Operating_Expenses",
+      "section": "OPEX Table",
+      "summary": "Operating expenses sheet: R&D, Sales & Marketing, G&A, Jan and Mar Actuals."
+    },
+    "chunk_10k_mda": {
+      "document_id": "doc_10k_report",
+      "source_filename": "draythos_annual_report_10k.txt",
+      "sheet_name": null,
+      "section": "Item 7: MD&A",
+      "summary": "Consolidated Q1 revenue 238,700, Enterprise Software 168,000, IFRS 15 revenue recognition principles."
+    },
+    "chunk_10k_rd_leases": {
+      "document_id": "doc_10k_report",
+      "source_filename": "draythos_annual_report_10k.txt",
+      "sheet_name": null,
+      "section": "Notes 4, 7, 12: Accounting Standards",
+      "summary": "Operating expenses 82,000 in Jan and 91,000 in Mar, IAS 38 R&D 14,500, IFRS 16 leases 44,000."
+    },
+    "chunk_10k_tax": {
+      "document_id": "doc_10k_report",
+      "source_filename": "draythos_annual_report_10k.txt",
+      "sheet_name": null,
+      "section": "Note 14: Tax Disclosures",
+      "summary": "Corporate income tax 21%, EU VAT Directive 2006/112/EC, Wayfair nexus, CBIC GST Section 16 ITC, OECD Pillar Two 15%."
+    }
+  },
+  "tests": [
+    {
+      "id": "FIN-EVAL-001",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What formula computes Q1 Total Revenue for line items?",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "formula_match",
+      "expected_formula": "=SUM(B2:D2)",
+      "expected_cell": "E2",
+      "forbidden_tokens": [
+        "=**",
+        "undefined"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-002",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the evaluated total for March Act across all line items?",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "numeric_and_coord",
+      "expected_value": 88200,
+      "expected_cell": "D5"
+    },
+    {
+      "id": "FIN-EVAL-003",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What formula and cell calculate the Total for January Act in Revenue_Q1?",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "formula_and_coord",
+      "expected_formula": "=SUM(B2:B4)",
+      "expected_cell": "B5",
+      "expected_value": 75000
+    },
+    {
+      "id": "FIN-EVAL-004",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the Q1 Total and row formula for Professional Services?",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "formula_and_value",
+      "expected_formula": "=SUM(B3:D3)",
+      "expected_value": 45000,
+      "expected_cell": "E3"
+    },
+    {
+      "id": "FIN-EVAL-005",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Verify cell E4 formula and line item in Revenue_Q1.",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "formula_and_term",
+      "expected_formula": "=SUM(B4:D4)",
+      "expected_cell": "E4",
+      "expected_term": "Hosting & Cloud"
+    },
+    {
+      "id": "FIN-EVAL-006",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the evaluated Q1 total amount for Hosting & Cloud?",
+      "gold_chunk_ids": [
+        "chunk_rev_table"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "numeric_match",
+      "expected_value": 25700
+    },
+    {
+      "id": "FIN-EVAL-007",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Calculate Gross Margin if Q1 Total Revenue is 238700 and Cost of Goods Sold is 68700.",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "math_reasoning",
+      "expected_value": 170000,
+      "formula_reasoning": "238700 - 68700 = 170000"
+    },
+    {
+      "id": "FIN-EVAL-008",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the formula in cell E5 for Grand Total Revenue?",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "formula_match",
+      "expected_formula": "=SUM(E2:E4)",
+      "expected_cell": "E5"
+    },
+    {
+      "id": "FIN-EVAL-009",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Provide the formula expression to compute monthly average Enterprise Software revenue.",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "formula_match",
+      "expected_formula": "=AVERAGE(B2:D2)"
+    },
+    {
+      "id": "FIN-EVAL-010",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What cell coordinate contains March Professional Services revenue?",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas",
+        "chunk_rev_table"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "coord_and_value",
+      "expected_cell": "D3",
+      "expected_value": 18000
+    },
+    {
+      "id": "FIN-EVAL-011",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the February Hosting & Cloud revenue and its cell address?",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "coord_and_value",
+      "expected_cell": "C4",
+      "expected_value": 8500
+    },
+    {
+      "id": "FIN-EVAL-012",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the evaluated Grand Total Q1 revenue in cell E5?",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "numeric_match",
+      "expected_value": 238700
+    },
+    {
+      "id": "FIN-EVAL-013",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Identify the column sum formula for February Act in Revenue_Q1.",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "formula_match",
+      "expected_formula": "=SUM(C2:C4)",
+      "expected_cell": "C5"
+    },
+    {
+      "id": "FIN-EVAL-014",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the cell coordinate and amount for January Enterprise Software?",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas",
+        "chunk_rev_table"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "coord_and_value",
+      "expected_cell": "B2",
+      "expected_value": 55000
+    },
+    {
+      "id": "FIN-EVAL-015",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Verify cell D5 formula for the March column total.",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "gold_doc_id": "doc_q1_model",
+      "gold_sheet": "Revenue_Q1",
+      "eval_type": "formula_match",
+      "expected_formula": "=SUM(D2:D4)"
+    },
+    {
+      "id": "FIN-EVAL-016",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Reconcile Q1 total revenue between model draythos_test_q1.xlsx and the 10-K report.",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "gold_doc_ids": [
+        "doc_q1_model",
+        "doc_10k_report"
+      ],
+      "eval_type": "multi_doc_reconciliation",
+      "expected_value": 238700,
+      "must_cite_both": true
+    },
+    {
+      "id": "FIN-EVAL-017",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Compare Enterprise Software revenue in 10-K MD&A to model Q1 Total.",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "gold_doc_ids": [
+        "doc_q1_model",
+        "doc_10k_report"
+      ],
+      "eval_type": "multi_doc_reconciliation",
+      "expected_value": 168000,
+      "must_cite_both": true
+    },
+    {
+      "id": "FIN-EVAL-018",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What is the statutory corporate income tax rate cited in the 10-K disclosures?",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": "21.0%"
+    },
+    {
+      "id": "FIN-EVAL-019",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Find operating expenses for January and March from the financial report.",
+      "gold_chunk_ids": [
+        "chunk_10k_rd_leases",
+        "chunk_opex_table"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "multi_fact",
+      "expected_facts": [
+        82000,
+        91000
+      ]
+    },
+    {
+      "id": "FIN-EVAL-020",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What accounting standard governs revenue recognition for licenses and professional services in the 10-K?",
+      "gold_chunk_ids": [
+        "chunk_10k_mda"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": "IFRS 15"
+    },
+    {
+      "id": "FIN-EVAL-021",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What is the capitalized R&D expenditure balance under IAS 38?",
+      "gold_chunk_ids": [
+        "chunk_10k_rd_leases"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": 14500
+    },
+    {
+      "id": "FIN-EVAL-022",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What right-of-use asset balance is reported under IFRS 16 and ASC 842?",
+      "gold_chunk_ids": [
+        "chunk_10k_rd_leases"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": 44000
+    },
+    {
+      "id": "FIN-EVAL-023",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Reconcile ending cash and cash equivalents to bank statements in the 10-K disclosure.",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": "zero variance"
+    },
+    {
+      "id": "FIN-EVAL-024",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Which directive governs EU VAT place-of-supply rules according to the tax footnote?",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": "Directive 2006/112/EC"
+    },
+    {
+      "id": "FIN-EVAL-025",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What US legal precedent governs sales tax economic nexus according to the 10-K?",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": "Wayfair"
+    },
+    {
+      "id": "FIN-EVAL-026",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What section of the CGST Act governs input tax credit (ITC) utilization in India?",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": "Section 16"
+    },
+    {
+      "id": "FIN-EVAL-027",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What is the minimum global tax rate under OECD Pillar Two GloBE rules in the disclosure?",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "gold_doc_ids": [
+        "doc_10k_report"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": "15%"
+    },
+    {
+      "id": "FIN-EVAL-028",
+      "category": "ambiguous_disambiguation",
+      "prompt": "Show me the March revenue.",
+      "gold_chunk_ids": [
+        "chunk_rev_table"
+      ],
+      "eval_type": "ambiguity_check",
+      "required_disambiguation_options": [
+        "Enterprise Software",
+        "Professional Services",
+        "Hosting & Cloud",
+        "Total"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-029",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What is the Q1 Total?",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "eval_type": "ambiguity_check",
+      "required_disambiguation_options": [
+        "Revenue",
+        "Expenses",
+        "Enterprise Software",
+        "Grand Total"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-030",
+      "category": "ambiguous_disambiguation",
+      "prompt": "Give me the tax details.",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "eval_type": "ambiguity_check",
+      "required_disambiguation_options": [
+        "Corporate Income Tax",
+        "EU VAT",
+        "US Sales Tax",
+        "CBIC GST",
+        "OECD Pillar Two"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-031",
+      "category": "ambiguous_disambiguation",
+      "prompt": "Show total expenses.",
+      "gold_chunk_ids": [
+        "chunk_opex_table",
+        "chunk_10k_rd_leases"
+      ],
+      "eval_type": "ambiguity_check",
+      "required_disambiguation_options": [
+        "Operating Expenses",
+        "January",
+        "March",
+        "Capitalized R&D"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-032",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What is the January number?",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_rd_leases"
+      ],
+      "eval_type": "ambiguity_check",
+      "required_disambiguation_options": [
+        "Revenue",
+        "Enterprise Software",
+        "Operating Expenses",
+        "Total"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-033",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What are the compliance rules?",
+      "gold_chunk_ids": [
+        "chunk_10k_tax",
+        "chunk_10k_mda"
+      ],
+      "eval_type": "ambiguity_check",
+      "required_disambiguation_options": [
+        "IFRS 15",
+        "VAT Directive",
+        "Wayfair",
+        "GST"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-034",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What is the balance in column D?",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "eval_type": "ambiguity_check",
+      "required_disambiguation_options": [
+        "March Act",
+        "Enterprise Software",
+        "Professional Services",
+        "Total"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-035",
+      "category": "ambiguous_disambiguation",
+      "prompt": "Show the services line.",
+      "gold_chunk_ids": [
+        "chunk_rev_table"
+      ],
+      "eval_type": "ambiguity_check",
+      "required_disambiguation_options": [
+        "Professional Services",
+        "Hosting & Cloud"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-036",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What is row 3 in the model?",
+      "gold_chunk_ids": [
+        "chunk_rev_table"
+      ],
+      "eval_type": "exact_fact",
+      "expected_value": "Professional Services"
+    },
+    {
+      "id": "FIN-EVAL-037",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What does Q1 say for software licenses vs cloud contracts?",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "eval_type": "ambiguity_check",
+      "required_disambiguation_options": [
+        "Enterprise Software",
+        "Hosting & Cloud",
+        "IFRS 15"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-038",
+      "category": "abstention_no_hallucination",
+      "prompt": "What was the company's Q1 cryptocurrency trading profit?",
+      "gold_chunk_ids": [],
+      "eval_type": "abstention_check",
+      "must_abstain": true
+    },
+    {
+      "id": "FIN-EVAL-039",
+      "category": "abstention_no_hallucination",
+      "prompt": "Provide the CEO's personal discretionary cash bonus for 2026.",
+      "gold_chunk_ids": [],
+      "eval_type": "abstention_check",
+      "must_abstain": true
+    },
+    {
+      "id": "FIN-EVAL-040",
+      "category": "abstention_no_hallucination",
+      "prompt": "What was the corporate tax liability paid to the tax authority of Atlantis?",
+      "gold_chunk_ids": [],
+      "eval_type": "abstention_check",
+      "must_abstain": true
+    },
+    {
+      "id": "FIN-EVAL-041",
+      "category": "abstention_no_hallucination",
+      "prompt": "What was the fuel hedging gain reported in Note 18?",
+      "gold_chunk_ids": [],
+      "eval_type": "abstention_check",
+      "must_abstain": true
+    },
+    {
+      "id": "FIN-EVAL-042",
+      "category": "abstention_no_hallucination",
+      "prompt": "What is the penalty rate for failure to file Form 5471 for foreign entities in Note 9?",
+      "gold_chunk_ids": [],
+      "eval_type": "abstention_check",
+      "must_abstain": true
+    },
+    {
+      "id": "FIN-EVAL-043",
+      "category": "abstention_no_hallucination",
+      "prompt": "What are the results of the OSHA facility inspection in March?",
+      "gold_chunk_ids": [],
+      "eval_type": "abstention_check",
+      "must_abstain": true
+    },
+    {
+      "id": "FIN-EVAL-044",
+      "category": "abstention_no_hallucination",
+      "prompt": "Show the line item for Suborbital Transport revenues.",
+      "gold_chunk_ids": [],
+      "eval_type": "abstention_check",
+      "must_abstain": true
+    },
+    {
+      "id": "FIN-EVAL-045",
+      "category": "abstention_no_hallucination",
+      "prompt": "What was the dividend payout per preferred share in Q1?",
+      "gold_chunk_ids": [],
+      "eval_type": "abstention_check",
+      "must_abstain": true
+    },
+    {
+      "id": "FIN-EVAL-046",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "How does input tax credit (ITC) map to VAT under EU Directive 2006/112?",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "eval_type": "concept_mapping",
+      "canonical_concept": "VAT Input Deduction",
+      "synonyms": [
+        "ITC",
+        "input tax credit",
+        "input VAT"
+      ]
+    },
+    {
+      "id": "FIN-EVAL-047",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "What is the OECD Pillar Two term for the domestic top-up tax?",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "eval_type": "concept_mapping",
+      "canonical_concept": "QDMTT",
+      "jurisdiction": "OECD"
+    },
+    {
+      "id": "FIN-EVAL-048",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "Map 'Unbilled Revenue' under US GAAP ASC 606 to IFRS 15 terminology.",
+      "gold_chunk_ids": [
+        "chunk_10k_mda"
+      ],
+      "eval_type": "concept_mapping",
+      "canonical_concept": "Contract Asset",
+      "standard": "IFRS 15"
+    },
+    {
+      "id": "FIN-EVAL-049",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "What is the equivalent of 'Deferred Revenue' under IFRS 15?",
+      "gold_chunk_ids": [
+        "chunk_10k_mda"
+      ],
+      "eval_type": "concept_mapping",
+      "canonical_concept": "Contract Liability"
+    },
+    {
+      "id": "FIN-EVAL-050",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "How does Wayfair economic nexus compare to Permanent Establishment (PE)?",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "eval_type": "concept_mapping",
+      "canonical_concept": "Nexus / PE",
+      "key_tokens": [
+        "Wayfair",
+        "nexus"
+      ]
+    }
+  ]
+}

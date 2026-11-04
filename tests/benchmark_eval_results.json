@@ -1,0 +1,1193 @@
+{
+  "benchmark_name": "Draythos Financial & Tax Analyst Rigorous Evaluation Suite",
+  "version": "2.0",
+  "total_evaluated": 50,
+  "metrics": {
+    "retrieval_recall_at_5": "85.7%",
+    "citation_precision": "100.0%",
+    "citation_recall": "100.0%",
+    "answer_correctness": "100.0%",
+    "ambiguity_detection_rate": "100.0%",
+    "correct_abstention_rate": "100.0%",
+    "unsupported_answer_rate": "0.0%",
+    "retrieval_latency_p50_ms": "0.58 ms",
+    "retrieval_latency_p95_ms": "0.77 ms",
+    "estimated_e2e_latency_p50_ms": "6319.27 ms",
+    "estimated_e2e_latency_p95_ms": "6999.08 ms"
+  },
+  "breakdown_by_category": {
+    "exact_cell_formula_lookup": {
+      "passed": 15,
+      "total": 15
+    },
+    "multi_doc_cross_reference": {
+      "passed": 12,
+      "total": 12
+    },
+    "ambiguous_disambiguation": {
+      "passed": 10,
+      "total": 10
+    },
+    "abstention_no_hallucination": {
+      "passed": 8,
+      "total": 8
+    },
+    "tax_jurisdiction_mapping": {
+      "passed": 5,
+      "total": 5
+    }
+  },
+  "failure_breakdown": [],
+  "all_results": [
+    {
+      "id": "FIN-EVAL-001",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What formula computes Q1 Total Revenue for line items?",
+      "eval_type": "formula_match",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "e2eb9308-9885-4eeb-a452-e59fad357588",
+        "chunk_10k_mda"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.7,
+      "estimated_e2e_latency_ms": 6576.89
+    },
+    {
+      "id": "FIN-EVAL-002",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the evaluated total for March Act across all line items?",
+      "eval_type": "numeric_and_coord",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.67,
+      "estimated_e2e_latency_ms": 6576.78
+    },
+    {
+      "id": "FIN-EVAL-003",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What formula and cell calculate the Total for January Act in Revenue_Q1?",
+      "eval_type": "formula_and_coord",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_rev_formulas",
+        "chunk_10k_rd_leases",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.6,
+      "estimated_e2e_latency_ms": 6576.74
+    },
+    {
+      "id": "FIN-EVAL-004",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the Q1 Total and row formula for Professional Services?",
+      "eval_type": "formula_and_value",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_mda"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.58,
+      "estimated_e2e_latency_ms": 6576.74
+    },
+    {
+      "id": "FIN-EVAL-005",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Verify cell E4 formula and line item in Revenue_Q1.",
+      "eval_type": "formula_and_term",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_rev_formulas",
+        "chunk_10k_rd_leases",
+        "965641c0-6823-4d2e-b899-df67a477af39"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.54,
+      "estimated_e2e_latency_ms": 6576.66
+    },
+    {
+      "id": "FIN-EVAL-006",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the evaluated Q1 total amount for Hosting & Cloud?",
+      "eval_type": "numeric_match",
+      "gold_chunk_ids": [
+        "chunk_rev_table"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+      ],
+      "recall_hit": false,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.58,
+      "estimated_e2e_latency_ms": 6576.7
+    },
+    {
+      "id": "FIN-EVAL-007",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Calculate Gross Margin if Q1 Total Revenue is 238700 and Cost of Goods Sold is 68700.",
+      "eval_type": "math_reasoning",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.62,
+      "estimated_e2e_latency_ms": 6576.82
+    },
+    {
+      "id": "FIN-EVAL-008",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the formula in cell E5 for Grand Total Revenue?",
+      "eval_type": "formula_match",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.56,
+      "estimated_e2e_latency_ms": 6576.72
+    },
+    {
+      "id": "FIN-EVAL-009",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Provide the formula expression to compute monthly average Enterprise Software revenue.",
+      "eval_type": "formula_match",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.55,
+      "estimated_e2e_latency_ms": 6576.67
+    },
+    {
+      "id": "FIN-EVAL-010",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What cell coordinate contains March Professional Services revenue?",
+      "eval_type": "coord_and_value",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas",
+        "chunk_rev_table"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8",
+        "chunk_opex_table",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.53,
+      "estimated_e2e_latency_ms": 6576.74
+    },
+    {
+      "id": "FIN-EVAL-011",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the February Hosting & Cloud revenue and its cell address?",
+      "eval_type": "coord_and_value",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.71,
+      "estimated_e2e_latency_ms": 6577.1
+    },
+    {
+      "id": "FIN-EVAL-012",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the evaluated Grand Total Q1 revenue in cell E5?",
+      "eval_type": "numeric_match",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "965641c0-6823-4d2e-b899-df67a477af39"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.77,
+      "estimated_e2e_latency_ms": 6576.86
+    },
+    {
+      "id": "FIN-EVAL-013",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Identify the column sum formula for February Act in Revenue_Q1.",
+      "eval_type": "formula_match",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_rev_formulas",
+        "chunk_10k_rd_leases",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.62,
+      "estimated_e2e_latency_ms": 6576.81
+    },
+    {
+      "id": "FIN-EVAL-014",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "What is the cell coordinate and amount for January Enterprise Software?",
+      "eval_type": "coord_and_value",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas",
+        "chunk_rev_table"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.78,
+      "estimated_e2e_latency_ms": 6577.33
+    },
+    {
+      "id": "FIN-EVAL-015",
+      "category": "exact_cell_formula_lookup",
+      "prompt": "Verify cell D5 formula for the March column total.",
+      "eval_type": "formula_match",
+      "gold_chunk_ids": [
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8",
+        "chunk_opex_table",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.77,
+      "estimated_e2e_latency_ms": 6576.74
+    },
+    {
+      "id": "FIN-EVAL-016",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Reconcile Q1 total revenue between model draythos_test_q1.xlsx and the 10-K report.",
+      "eval_type": "multi_doc_reconciliation",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "retrieved_chunk_ids": [
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_tax"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.63,
+      "estimated_e2e_latency_ms": 5594.0
+    },
+    {
+      "id": "FIN-EVAL-017",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Compare Enterprise Software revenue in 10-K MD&A to model Q1 Total.",
+      "eval_type": "multi_doc_reconciliation",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "retrieved_chunk_ids": [
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_mda",
+        "chunk_10k_rd_leases",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.67,
+      "estimated_e2e_latency_ms": 4891.94
+    },
+    {
+      "id": "FIN-EVAL-018",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What is the statutory corporate income tax rate cited in the 10-K disclosures?",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_10k_rd_leases"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.65,
+      "estimated_e2e_latency_ms": 6530.16
+    },
+    {
+      "id": "FIN-EVAL-019",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Find operating expenses for January and March from the financial report.",
+      "eval_type": "multi_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_rd_leases",
+        "chunk_opex_table"
+      ],
+      "retrieved_chunk_ids": [
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_tax"
+      ],
+      "recall_hit": false,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.73,
+      "estimated_e2e_latency_ms": 5593.93
+    },
+    {
+      "id": "FIN-EVAL-020",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What accounting standard governs revenue recognition for licenses and professional services in the 10-K?",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_mda"
+      ],
+      "retrieved_chunk_ids": [
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.59,
+      "estimated_e2e_latency_ms": 4891.95
+    },
+    {
+      "id": "FIN-EVAL-021",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What is the capitalized R&D expenditure balance under IAS 38?",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_rd_leases"
+      ],
+      "retrieved_chunk_ids": [
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_10k_mda"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.54,
+      "estimated_e2e_latency_ms": 4689.28
+    },
+    {
+      "id": "FIN-EVAL-022",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What right-of-use asset balance is reported under IFRS 16 and ASC 842?",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_rd_leases"
+      ],
+      "retrieved_chunk_ids": [
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "02084c70-f945-4aef-ad38-1999c76ddab5"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.58,
+      "estimated_e2e_latency_ms": 4689.12
+    },
+    {
+      "id": "FIN-EVAL-023",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Reconcile ending cash and cash equivalents to bank statements in the 10-K disclosure.",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+      ],
+      "recall_hit": false,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.58,
+      "estimated_e2e_latency_ms": 4049.55
+    },
+    {
+      "id": "FIN-EVAL-024",
+      "category": "multi_doc_cross_reference",
+      "prompt": "Which directive governs EU VAT place-of-supply rules according to the tax footnote?",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "965641c0-6823-4d2e-b899-df67a477af39"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.66,
+      "estimated_e2e_latency_ms": 5812.34
+    },
+    {
+      "id": "FIN-EVAL-025",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What US legal precedent governs sales tax economic nexus according to the 10-K?",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8",
+        "chunk_opex_table",
+        "02084c70-f945-4aef-ad38-1999c76ddab5"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.57,
+      "estimated_e2e_latency_ms": 6280.33
+    },
+    {
+      "id": "FIN-EVAL-026",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What section of the CGST Act governs input tax credit (ITC) utilization in India?",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "965641c0-6823-4d2e-b899-df67a477af39"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.57,
+      "estimated_e2e_latency_ms": 5812.35
+    },
+    {
+      "id": "FIN-EVAL-027",
+      "category": "multi_doc_cross_reference",
+      "prompt": "What is the minimum global tax rate under OECD Pillar Two GloBE rules in the disclosure?",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_10k_rd_leases"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.63,
+      "estimated_e2e_latency_ms": 6529.97
+    },
+    {
+      "id": "FIN-EVAL-028",
+      "category": "ambiguous_disambiguation",
+      "prompt": "Show me the March revenue.",
+      "eval_type": "ambiguity_check",
+      "gold_chunk_ids": [
+        "chunk_rev_table"
+      ],
+      "retrieved_chunk_ids": [
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "e2eb9308-9885-4eeb-a452-e59fad357588"
+      ],
+      "recall_hit": false,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.45,
+      "estimated_e2e_latency_ms": 5718.55
+    },
+    {
+      "id": "FIN-EVAL-029",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What is the Q1 Total?",
+      "eval_type": "ambiguity_check",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.48,
+      "estimated_e2e_latency_ms": 5921.38
+    },
+    {
+      "id": "FIN-EVAL-030",
+      "category": "ambiguous_disambiguation",
+      "prompt": "Give me the tax details.",
+      "eval_type": "ambiguity_check",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.45,
+      "estimated_e2e_latency_ms": 5890.19
+    },
+    {
+      "id": "FIN-EVAL-031",
+      "category": "ambiguous_disambiguation",
+      "prompt": "Show total expenses.",
+      "eval_type": "ambiguity_check",
+      "gold_chunk_ids": [
+        "chunk_opex_table",
+        "chunk_10k_rd_leases"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8",
+        "chunk_opex_table",
+        "e2eb9308-9885-4eeb-a452-e59fad357588"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.43,
+      "estimated_e2e_latency_ms": 5531.32
+    },
+    {
+      "id": "FIN-EVAL-032",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What is the January number?",
+      "eval_type": "ambiguity_check",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_rd_leases"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.48,
+      "estimated_e2e_latency_ms": 6358.21
+    },
+    {
+      "id": "FIN-EVAL-033",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What are the compliance rules?",
+      "eval_type": "ambiguity_check",
+      "gold_chunk_ids": [
+        "chunk_10k_tax",
+        "chunk_10k_mda"
+      ],
+      "retrieved_chunk_ids": [
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "02084c70-f945-4aef-ad38-1999c76ddab5"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.45,
+      "estimated_e2e_latency_ms": 4688.95
+    },
+    {
+      "id": "FIN-EVAL-034",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What is the balance in column D?",
+      "eval_type": "ambiguity_check",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_rev_formulas"
+      ],
+      "retrieved_chunk_ids": [
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_10k_rd_leases",
+        "chunk_rev_formulas",
+        "965641c0-6823-4d2e-b899-df67a477af39"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.49,
+      "estimated_e2e_latency_ms": 5437.82
+    },
+    {
+      "id": "FIN-EVAL-035",
+      "category": "ambiguous_disambiguation",
+      "prompt": "Show the services line.",
+      "eval_type": "ambiguity_check",
+      "gold_chunk_ids": [
+        "chunk_rev_table"
+      ],
+      "retrieved_chunk_ids": [
+        "e2eb9308-9885-4eeb-a452-e59fad357588",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_table",
+        "chunk_rev_formulas",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.53,
+      "estimated_e2e_latency_ms": 5937.14
+    },
+    {
+      "id": "FIN-EVAL-036",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What is row 3 in the model?",
+      "eval_type": "exact_fact",
+      "gold_chunk_ids": [
+        "chunk_rev_table"
+      ],
+      "retrieved_chunk_ids": [
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_10k_rd_leases",
+        "chunk_rev_formulas",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": false,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.54,
+      "estimated_e2e_latency_ms": 6358.22
+    },
+    {
+      "id": "FIN-EVAL-037",
+      "category": "ambiguous_disambiguation",
+      "prompt": "What does Q1 say for software licenses vs cloud contracts?",
+      "eval_type": "ambiguity_check",
+      "gold_chunk_ids": [
+        "chunk_rev_table",
+        "chunk_10k_mda"
+      ],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_10k_tax",
+        "chunk_rev_formulas",
+        "e2eb9308-9885-4eeb-a452-e59fad357588"
+      ],
+      "recall_hit": false,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.54,
+      "estimated_e2e_latency_ms": 7185.65
+    },
+    {
+      "id": "FIN-EVAL-038",
+      "category": "abstention_no_hallucination",
+      "prompt": "What was the company's Q1 cryptocurrency trading profit?",
+      "eval_type": "abstention_check",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": null,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.61,
+      "estimated_e2e_latency_ms": 5921.67
+    },
+    {
+      "id": "FIN-EVAL-039",
+      "category": "abstention_no_hallucination",
+      "prompt": "Provide the CEO's personal discretionary cash bonus for 2026.",
+      "eval_type": "abstention_check",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+      ],
+      "recall_hit": null,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.83,
+      "estimated_e2e_latency_ms": 7060.53
+    },
+    {
+      "id": "FIN-EVAL-040",
+      "category": "abstention_no_hallucination",
+      "prompt": "What was the corporate tax liability paid to the tax authority of Atlantis?",
+      "eval_type": "abstention_check",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_mda"
+      ],
+      "recall_hit": null,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.57,
+      "estimated_e2e_latency_ms": 5593.92
+    },
+    {
+      "id": "FIN-EVAL-041",
+      "category": "abstention_no_hallucination",
+      "prompt": "What was the fuel hedging gain reported in Note 18?",
+      "eval_type": "abstention_check",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "965641c0-6823-4d2e-b899-df67a477af39"
+      ],
+      "recall_hit": null,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.53,
+      "estimated_e2e_latency_ms": 5812.26
+    },
+    {
+      "id": "FIN-EVAL-042",
+      "category": "abstention_no_hallucination",
+      "prompt": "What is the penalty rate for failure to file Form 5471 for foreign entities in Note 9?",
+      "eval_type": "abstention_check",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": null,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.62,
+      "estimated_e2e_latency_ms": 6358.4
+    },
+    {
+      "id": "FIN-EVAL-043",
+      "category": "abstention_no_hallucination",
+      "prompt": "What are the results of the OSHA facility inspection in March?",
+      "eval_type": "abstention_check",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "02084c70-f945-4aef-ad38-1999c76ddab5"
+      ],
+      "recall_hit": null,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.52,
+      "estimated_e2e_latency_ms": 4689.07
+    },
+    {
+      "id": "FIN-EVAL-044",
+      "category": "abstention_no_hallucination",
+      "prompt": "Show the line item for Suborbital Transport revenues.",
+      "eval_type": "abstention_check",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "e2eb9308-9885-4eeb-a452-e59fad357588",
+        "chunk_10k_mda",
+        "chunk_rev_table",
+        "02084c70-f945-4aef-ad38-1999c76ddab5"
+      ],
+      "recall_hit": null,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.49,
+      "estimated_e2e_latency_ms": 4969.82
+    },
+    {
+      "id": "FIN-EVAL-045",
+      "category": "abstention_no_hallucination",
+      "prompt": "What was the dividend payout per preferred share in Q1?",
+      "eval_type": "abstention_check",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "chunk_10k_rd_leases",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+      ],
+      "recall_hit": null,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.53,
+      "estimated_e2e_latency_ms": 6358.27
+    },
+    {
+      "id": "FIN-EVAL-046",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "How does input tax credit (ITC) map to VAT under EU Directive 2006/112?",
+      "eval_type": "concept_mapping",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.57,
+      "estimated_e2e_latency_ms": 5593.94
+    },
+    {
+      "id": "FIN-EVAL-047",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "What is the OECD Pillar Two term for the domestic top-up tax?",
+      "eval_type": "concept_mapping",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_rev_formulas",
+        "chunk_10k_tax",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.6,
+      "estimated_e2e_latency_ms": 7060.32
+    },
+    {
+      "id": "FIN-EVAL-048",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "Map 'Unbilled Revenue' under US GAAP ASC 606 to IFRS 15 terminology.",
+      "eval_type": "concept_mapping",
+      "gold_chunk_ids": [
+        "chunk_10k_mda"
+      ],
+      "retrieved_chunk_ids": [
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.64,
+      "estimated_e2e_latency_ms": 5593.96
+    },
+    {
+      "id": "FIN-EVAL-049",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "What is the equivalent of 'Deferred Revenue' under IFRS 15?",
+      "eval_type": "concept_mapping",
+      "gold_chunk_ids": [
+        "chunk_10k_mda"
+      ],
+      "retrieved_chunk_ids": [
+        "965641c0-6823-4d2e-b899-df67a477af39",
+        "chunk_10k_mda",
+        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_10k_rd_leases"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.55,
+      "estimated_e2e_latency_ms": 4689.05
+    },
+    {
+      "id": "FIN-EVAL-050",
+      "category": "tax_jurisdiction_mapping",
+      "prompt": "How does Wayfair economic nexus compare to Permanent Establishment (PE)?",
+      "eval_type": "concept_mapping",
+      "gold_chunk_ids": [
+        "chunk_10k_tax"
+      ],
+      "retrieved_chunk_ids": [
+        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "chunk_10k_tax",
+        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "chunk_rev_formulas",
+        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+      ],
+      "recall_hit": true,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "passed": true,
+      "failure_reason": null,
+      "retrieval_latency_ms": 0.53,
+      "estimated_e2e_latency_ms": 6924.22
+    }
+  ]
+}

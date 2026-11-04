@@ -1,0 +1,3596 @@
+{
+  "dataset_name": "Draythos Independent Held-Out Financial Benchmark",
+  "total_test_cases": 175,
+  "metrics": {
+    "evidence_completeness_recall_at_5": {
+      "rate": 46.86,
+      "wilson_95_ci": [
+        39.61,
+        54.24
+      ]
+    },
+    "claim_citation_entailment": {
+      "rate": 41.71,
+      "wilson_95_ci": [
+        34.66,
+        49.12
+      ]
+    },
+    "grounded_answer_correctness": {
+      "rate": 46.86,
+      "wilson_95_ci": [
+        39.61,
+        54.24
+      ]
+    },
+    "ambiguity_handling_rate": {
+      "rate": 100.0,
+      "wilson_95_ci": [
+        86.68,
+        100.0
+      ]
+    },
+    "missing_evidence_abstention_rate": {
+      "rate": 0.0,
+      "wilson_95_ci": [
+        0.0,
+        13.32
+      ]
+    },
+    "unsupported_answer_rate": {
+      "rate": 14.29,
+      "wilson_95_ci": [
+        9.87,
+        20.24
+      ]
+    },
+    "retrieval_latency_ms": {
+      "p50": 4.16,
+      "p95": 16.21
+    }
+  },
+  "category_breakdown": {
+    "exact_lookup": {
+      "count": 25,
+      "evidence_recall_pct": 60.0,
+      "accuracy_pct": 64.0
+    },
+    "multihop_calculation": {
+      "count": 25,
+      "evidence_recall_pct": 32.0,
+      "accuracy_pct": 36.0
+    },
+    "period_ambiguity": {
+      "count": 25,
+      "evidence_recall_pct": 32.0,
+      "accuracy_pct": 100.0
+    },
+    "units_and_scaling": {
+      "count": 20,
+      "evidence_recall_pct": 50.0,
+      "accuracy_pct": 55.0
+    },
+    "conflicting_sources": {
+      "count": 20,
+      "evidence_recall_pct": 40.0,
+      "accuracy_pct": 45.0
+    },
+    "formula_interpretation": {
+      "count": 20,
+      "evidence_recall_pct": 5.0,
+      "accuracy_pct": 15.0
+    },
+    "missing_evidence_abstention": {
+      "count": 25,
+      "evidence_recall_pct": 100.0,
+      "accuracy_pct": 0.0
+    },
+    "statutory_hard_negatives": {
+      "count": 15,
+      "evidence_recall_pct": 46.67,
+      "accuracy_pct": 60.0
+    }
+  },
+  "per_case_results": [
+    {
+      "id": "held_out_exact_001",
+      "category": "exact_lookup",
+      "question": "What was Draythos's total consolidated revenue in FY24 according to the 10-K?",
+      "expected_answer": "842,600",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 16.34
+    },
+    {
+      "id": "held_out_exact_002",
+      "category": "exact_lookup",
+      "question": "What was the GAAP Gross Margin percentage for FY24?",
+      "expected_answer": "73.0%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.98
+    },
+    {
+      "id": "held_out_exact_003",
+      "category": "exact_lookup",
+      "question": "What was the GAAP Gross Profit in FY23?",
+      "expected_answer": "507,820",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.14
+    },
+    {
+      "id": "held_out_exact_004",
+      "category": "exact_lookup",
+      "question": "What was the Research and Development (R&D) expense in FY24?",
+      "expected_answer": "218,500",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.91
+    },
+    {
+      "id": "held_out_exact_005",
+      "category": "exact_lookup",
+      "question": "What was the Sales and Marketing (S&M) expense in FY23?",
+      "expected_answer": "178,000",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 11.84
+    },
+    {
+      "id": "held_out_exact_006",
+      "category": "exact_lookup",
+      "question": "How much did Draythos spend on restructuring in FY24?",
+      "expected_answer": "8,400",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...CEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS INC. PART I. ITEM 1. BUSINESS Draythos Technologies Holdings Inc. (\"Draythos\", the \"Company\", \"we\", \"us\", or \"our\"",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 5,
+      "latency_ms": 4.24
+    },
+    {
+      "id": "held_out_exact_007",
+      "category": "exact_lookup",
+      "question": "What was Draythos's GAAP Net Income for the year ended December 31, 2024?",
+      "expected_answer": "78,900",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.37
+    },
+    {
+      "id": "held_out_exact_008",
+      "category": "exact_lookup",
+      "question": "What was the Non-GAAP Adjusted EBITDA for FY24?",
+      "expected_answer": "208,800",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.24
+    },
+    {
+      "id": "held_out_exact_009",
+      "category": "exact_lookup",
+      "question": "How much stock-based compensation (SBC) was added back in FY24 Adjusted EBITDA?",
+      "expected_answer": "42,800",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...00 34,200 EBITDA $ 153,100 $ 112,320 Adjustments: Stock-based compensation expense (SBC) 42,800 36,500 Restructuring & severance charges 8,400 - Litigation settlement contingency 4,500 - Non-GAAP",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 14.06
+    },
+    {
+      "id": "held_out_exact_010",
+      "category": "exact_lookup",
+      "question": "What was the net debt-to-Adjusted EBITDA leverage ratio covenant limit under the credit facility?",
+      "expected_answer": "3.25x",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.36
+    },
+    {
+      "id": "held_out_exact_011",
+      "category": "exact_lookup",
+      "question": "What was the actual net debt to Adjusted EBITDA leverage ratio as of December 31, 2024?",
+      "expected_answer": "0.67x",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.26
+    },
+    {
+      "id": "held_out_exact_012",
+      "category": "exact_lookup",
+      "question": "What was the total outstanding debt under the Senior Credit Facility at year-end 2024?",
+      "expected_answer": "325.0",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 8.18
+    },
+    {
+      "id": "held_out_exact_013",
+      "category": "exact_lookup",
+      "question": "What was the cash and cash equivalents balance at December 31, 2024?",
+      "expected_answer": "184.2",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.63
+    },
+    {
+      "id": "held_out_exact_014",
+      "category": "exact_lookup",
+      "question": "What was North America revenue in FY24 in millions?",
+      "expected_answer": "512.4",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.08
+    },
+    {
+      "id": "held_out_exact_015",
+      "category": "exact_lookup",
+      "question": "What was EMEA revenue in FY23 in millions?",
+      "expected_answer": "186.5",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 8.63
+    },
+    {
+      "id": "held_out_exact_016",
+      "category": "exact_lookup",
+      "question": "What was APAC revenue in FY24 in millions?",
+      "expected_answer": "115.0",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.0
+    },
+    {
+      "id": "held_out_exact_017",
+      "category": "exact_lookup",
+      "question": "What was fourth quarter FY24 revenue reported on the earnings call?",
+      "expected_answer": "231.4",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.64
+    },
+    {
+      "id": "held_out_exact_018",
+      "category": "exact_lookup",
+      "question": "By how much did Q4 FY24 revenue beat the top end of guidance?",
+      "expected_answer": "4.2",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...ed revenue for the year ended December 31, 2024 (\"FY24\") was $842.6 million, an increase of 18.4% compared to $711.5 million for the year ended December 31, 2023 (\"FY23\"). North America revenue w",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 11.37
+    },
+    {
+      "id": "held_out_exact_019",
+      "category": "exact_lookup",
+      "question": "What was full-year FY24 Free Cash Flow reported on the earnings call?",
+      "expected_answer": "141.0",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.96
+    },
+    {
+      "id": "held_out_exact_020",
+      "category": "exact_lookup",
+      "question": "What was the full-year FY24 CapEx spend?",
+      "expected_answer": "29.4",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 13.29
+    },
+    {
+      "id": "held_out_exact_021",
+      "category": "exact_lookup",
+      "question": "What is the projected revenue range for FY25 provided in guidance?",
+      "expected_answer": "985.0 to 1,005.0",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 9.0
+    },
+    {
+      "id": "held_out_exact_022",
+      "category": "exact_lookup",
+      "question": "What was the enterprise dollar-based net expansion rate at year-end FY24?",
+      "expected_answer": "122%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.19
+    },
+    {
+      "id": "held_out_exact_023",
+      "category": "exact_lookup",
+      "question": "What is the contractual cloud hosting commitment for the year 2025?",
+      "expected_answer": "45.0",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.16
+    },
+    {
+      "id": "held_out_exact_024",
+      "category": "exact_lookup",
+      "question": "What is the contractual cloud hosting commitment for the year 2026?",
+      "expected_answer": "50.0",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 10.79
+    },
+    {
+      "id": "held_out_exact_025",
+      "category": "exact_lookup",
+      "question": "Who is the Chief Executive Officer of Draythos?",
+      "expected_answer": "Marcus Vance",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.9
+    },
+    {
+      "id": "held_out_multihop_026",
+      "category": "multihop_calculation",
+      "question": "What was the year-over-year dollar growth in Non-GAAP Adjusted EBITDA from FY23 to FY24?",
+      "expected_answer": "59,980",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 10.06
+    },
+    {
+      "id": "held_out_multihop_027",
+      "category": "multihop_calculation",
+      "question": "What was the difference between GAAP Operating Income and Non-GAAP Adjusted EBITDA in FY24?",
+      "expected_answer": "97,200",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.19
+    },
+    {
+      "id": "held_out_multihop_028",
+      "category": "multihop_calculation",
+      "question": "Calculate the percentage contribution of North America to total FY24 revenue.",
+      "expected_answer": "60.8%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n... ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS ",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 24.55
+    },
+    {
+      "id": "held_out_multihop_029",
+      "category": "multihop_calculation",
+      "question": "Calculate the percentage contribution of EMEA to total FY24 revenue.",
+      "expected_answer": "25.5%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n... ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS ",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.79
+    },
+    {
+      "id": "held_out_multihop_030",
+      "category": "multihop_calculation",
+      "question": "Calculate the percentage contribution of APAC to total FY24 revenue.",
+      "expected_answer": "13.6%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n... ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS ",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.42
+    },
+    {
+      "id": "held_out_multihop_031",
+      "category": "multihop_calculation",
+      "question": "What is the sum of total contractual cloud hosting commitments from 2025 through 2027?",
+      "expected_answer": "150.0",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.61
+    },
+    {
+      "id": "held_out_multihop_032",
+      "category": "multihop_calculation",
+      "question": "What was the year-over-year increase in Research and Development (R&D) expense from FY23 to FY24?",
+      "expected_answer": "33,500",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.09
+    },
+    {
+      "id": "held_out_multihop_033",
+      "category": "multihop_calculation",
+      "question": "What was the Net Debt at December 31, 2024 calculated as Total Debt minus Cash and Equivalents?",
+      "expected_answer": "140.8",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.25
+    },
+    {
+      "id": "held_out_multihop_034",
+      "category": "multihop_calculation",
+      "question": "How much did GAAP Net Income increase in FY24 compared to FY23 in thousands of dollars?",
+      "expected_answer": "30,760",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...rating Expenses 503,600 431,200 Operating Income (GAAP) $ 111,600 $ 76,620 Operating Margin (GAAP) 13.2% 10.8% Other Income / (Expense): Interest expense, net (14,200) (16,800) Other non-operatin",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.83
+    },
+    {
+      "id": "held_out_multihop_035",
+      "category": "multihop_calculation",
+      "question": "What was the total Non-GAAP add-backs to EBITDA (SBC + Restructuring + Litigation) in FY24?",
+      "expected_answer": "55,700",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.19
+    },
+    {
+      "id": "held_out_multihop_036",
+      "category": "multihop_calculation",
+      "question": "By how many basis points did the GAAP Gross Margin expand from FY23 to FY24?",
+      "expected_answer": "160",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...illion, beating the top end of our guidance range by $4.2 million.\nQ4 GAAP operating income came in at $34.2 million, and Non-GAAP Adjusted EBITDA for Q4 reached $61.5 million.\nTurning to capital",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.08
+    },
+    {
+      "id": "held_out_multihop_037",
+      "category": "multihop_calculation",
+      "question": "By how many basis points did the GAAP Operating Margin expand from FY23 to FY24?",
+      "expected_answer": "240",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...illion, beating the top end of our guidance range by $4.2 million.\nQ4 GAAP operating income came in at $34.2 million, and Non-GAAP Adjusted EBITDA for Q4 reached $61.5 million.\nTurning to capital",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.71
+    },
+    {
+      "id": "held_out_multihop_038",
+      "category": "multihop_calculation",
+      "question": "What was the total Cost of Revenue increase from FY23 to FY24 in thousands of dollars?",
+      "expected_answer": "23,720",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.74
+    },
+    {
+      "id": "held_out_multihop_039",
+      "category": "multihop_calculation",
+      "question": "Calculate the difference between FY24 Free Cash Flow and FY24 GAAP Net Income in millions.",
+      "expected_answer": "62.1",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n... ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS ",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.66
+    },
+    {
+      "id": "held_out_multihop_040",
+      "category": "multihop_calculation",
+      "question": "What is the midpoint of the FY25 revenue guidance range?",
+      "expected_answer": "995.0",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.23
+    },
+    {
+      "id": "held_out_multihop_041",
+      "category": "multihop_calculation",
+      "question": "What is the midpoint of the FY25 Non-GAAP Adjusted EBITDA guidance range?",
+      "expected_answer": "260.0",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 7.57
+    },
+    {
+      "id": "held_out_multihop_042",
+      "category": "multihop_calculation",
+      "question": "What is the midpoint of the FY25 CapEx guidance range?",
+      "expected_answer": "40.0",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.05
+    },
+    {
+      "id": "held_out_multihop_043",
+      "category": "multihop_calculation",
+      "question": "Calculate the projected dollar growth at the midpoint of FY25 revenue over FY24 actual revenue.",
+      "expected_answer": "152.4",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...er FY24 revenue alone was $231.4 million, beating the top end of our guidance range by $4.2 million.\nQ4 GAAP operating income came in at $34.2 million, and Non-GAAP Adjusted EBITDA for Q4 reached",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.53
+    },
+    {
+      "id": "held_out_multihop_044",
+      "category": "multihop_calculation",
+      "question": "Calculate the difference between FY24 EBITDA ($153,100K) and FY24 Operating Income ($111,600K).",
+      "expected_answer": "41,500",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n... ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS ",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.87
+    },
+    {
+      "id": "held_out_multihop_045",
+      "category": "multihop_calculation",
+      "question": "What was the expansion in enterprise dollar-based net expansion rate from FY23 to FY24?",
+      "expected_answer": "4%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.8
+    },
+    {
+      "id": "held_out_multihop_046",
+      "category": "multihop_calculation",
+      "question": "Calculate the total Operating Expenses excluding Restructuring for FY24.",
+      "expected_answer": "495,200",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...er FY24 revenue alone was $231.4 million, beating the top end of our guidance range by $4.2 million.\nQ4 GAAP operating income came in at $34.2 million, and Non-GAAP Adjusted EBITDA for Q4 reached",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.68
+    },
+    {
+      "id": "held_out_multihop_047",
+      "category": "multihop_calculation",
+      "question": "What was the ratio of FY24 R&D expense to total revenue?",
+      "expected_answer": "25.9%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.72
+    },
+    {
+      "id": "held_out_multihop_048",
+      "category": "multihop_calculation",
+      "question": "What was the ratio of FY24 S&M expense to total revenue?",
+      "expected_answer": "24.0%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.49
+    },
+    {
+      "id": "held_out_multihop_049",
+      "category": "multihop_calculation",
+      "question": "What was the ratio of FY24 G&A expense to total revenue?",
+      "expected_answer": "8.8%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.1
+    },
+    {
+      "id": "held_out_multihop_050",
+      "category": "multihop_calculation",
+      "question": "What was the total Non-GAAP Adjusted EBITDA expansion in margin percentage from FY23 to FY24?",
+      "expected_answer": "3.9%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.68
+    },
+    {
+      "id": "held_out_period_051",
+      "category": "period_ambiguity",
+      "question": "What was revenue in Q4?",
+      "expected_answer": "231.4",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.17
+    },
+    {
+      "id": "held_out_period_052",
+      "category": "period_ambiguity",
+      "question": "What was total revenue?",
+      "expected_answer": "842,600",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 8.26
+    },
+    {
+      "id": "held_out_period_053",
+      "category": "period_ambiguity",
+      "question": "What was Net Income?",
+      "expected_answer": "78,900",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 15.1
+    },
+    {
+      "id": "held_out_period_054",
+      "category": "period_ambiguity",
+      "question": "What was Gross Margin?",
+      "expected_answer": "73.0%",
+      "model_answer": "[Source 1: wb3_multisheet_cross_ref.xlsx, page 3]\nWorkbook: wb3_multisheet_cross_ref.xlsx\nSheet: Executive_Summary\nKPI / Metric | Q1 | Q2 | Q3 | Q4 | Full_Year\nGross Revenue\nTotal Operating Costs\nNet Operating Margin\nOperating Margin %\n\n[Source 2: fo",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.56
+    },
+    {
+      "id": "held_out_period_055",
+      "category": "period_ambiguity",
+      "question": "What was Operating Income?",
+      "expected_answer": "111,600",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.26
+    },
+    {
+      "id": "held_out_period_056",
+      "category": "period_ambiguity",
+      "question": "What was Adjusted EBITDA?",
+      "expected_answer": "208,800",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.87
+    },
+    {
+      "id": "held_out_period_057",
+      "category": "period_ambiguity",
+      "question": "What was R&D expense?",
+      "expected_answer": "218,500",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.69
+    },
+    {
+      "id": "held_out_period_058",
+      "category": "period_ambiguity",
+      "question": "What was S&M expense?",
+      "expected_answer": "202,200",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.05
+    },
+    {
+      "id": "held_out_period_059",
+      "category": "period_ambiguity",
+      "question": "What was G&A expense?",
+      "expected_answer": "74,500",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 7.51
+    },
+    {
+      "id": "held_out_period_060",
+      "category": "period_ambiguity",
+      "question": "What was the effective tax rate?",
+      "expected_answer": "21.5%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 44.98
+    },
+    {
+      "id": "held_out_period_061",
+      "category": "period_ambiguity",
+      "question": "What was CapEx?",
+      "expected_answer": "29.4",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.68
+    },
+    {
+      "id": "held_out_period_062",
+      "category": "period_ambiguity",
+      "question": "What was the net retention rate?",
+      "expected_answer": "122%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.12
+    },
+    {
+      "id": "held_out_period_063",
+      "category": "period_ambiguity",
+      "question": "What was North America revenue?",
+      "expected_answer": "512.4",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.58
+    },
+    {
+      "id": "held_out_period_064",
+      "category": "period_ambiguity",
+      "question": "What was EMEA revenue?",
+      "expected_answer": "215.2",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.13
+    },
+    {
+      "id": "held_out_period_065",
+      "category": "period_ambiguity",
+      "question": "What was APAC revenue?",
+      "expected_answer": "115.0",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.24
+    },
+    {
+      "id": "held_out_period_066",
+      "category": "period_ambiguity",
+      "question": "What was Subscription revenue?",
+      "expected_answer": "695,400",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.77
+    },
+    {
+      "id": "held_out_period_067",
+      "category": "period_ambiguity",
+      "question": "What was Professional Services revenue?",
+      "expected_answer": "147,200",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.72
+    },
+    {
+      "id": "held_out_period_068",
+      "category": "period_ambiguity",
+      "question": "What was interest expense?",
+      "expected_answer": "14,200",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.59
+    },
+    {
+      "id": "held_out_period_069",
+      "category": "period_ambiguity",
+      "question": "What was stock-based compensation?",
+      "expected_answer": "42,800",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.04
+    },
+    {
+      "id": "held_out_period_070",
+      "category": "period_ambiguity",
+      "question": "What was Depreciation and Amortization?",
+      "expected_answer": "38,400",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 1.97
+    },
+    {
+      "id": "held_out_period_071",
+      "category": "period_ambiguity",
+      "question": "What was EBITDA before non-GAAP adjustments?",
+      "expected_answer": "153,100",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.35
+    },
+    {
+      "id": "held_out_period_072",
+      "category": "period_ambiguity",
+      "question": "What was the restructuring charge?",
+      "expected_answer": "8,400",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.16
+    },
+    {
+      "id": "held_out_period_073",
+      "category": "period_ambiguity",
+      "question": "What was Free Cash Flow?",
+      "expected_answer": "141.0",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.63
+    },
+    {
+      "id": "held_out_period_074",
+      "category": "period_ambiguity",
+      "question": "What was Cost of Subscription revenue?",
+      "expected_answer": "139,080",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.94
+    },
+    {
+      "id": "held_out_period_075",
+      "category": "period_ambiguity",
+      "question": "What was Cost of Professional Services?",
+      "expected_answer": "88,320",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.21
+    },
+    {
+      "id": "held_out_units_076",
+      "category": "units_and_scaling",
+      "question": "State Draythos FY24 revenue in millions of dollars.",
+      "expected_answer": "842.6",
+      "model_answer": "[Source 1: wb4_styled_financial_ratios.xlsx, page 1]\nWorkbook: wb4_styled_financial_ratios.xlsx\nSheet: Financial_Ratios\nMetric Name | Historical FY23 | Actual FY24 | Target FY25 | Variance % | Status\nTotal Revenue ($M) | 125000000 | 148500000 | 17500",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "c475326f-7fb6-4c67-a301-c1333f82a243",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 5,
+      "latency_ms": 2.13
+    },
+    {
+      "id": "held_out_units_077",
+      "category": "units_and_scaling",
+      "question": "State Draythos FY24 revenue in thousands of dollars.",
+      "expected_answer": "842,600",
+      "model_answer": "[Source 1: wb4_styled_financial_ratios.xlsx, page 1]\nWorkbook: wb4_styled_financial_ratios.xlsx\nSheet: Financial_Ratios\nMetric Name | Historical FY23 | Actual FY24 | Target FY25 | Variance % | Status\nTotal Revenue ($M) | 125000000 | 148500000 | 17500",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "c475326f-7fb6-4c67-a301-c1333f82a243",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "b11e069a-dc12-4229-9607-39d10ac82624"
+      ],
+      "citations_count": 5,
+      "latency_ms": 2.66
+    },
+    {
+      "id": "held_out_units_078",
+      "category": "units_and_scaling",
+      "question": "State Draythos FY24 GAAP Net Income in millions of dollars.",
+      "expected_answer": "78.9",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "b11e069a-dc12-4229-9607-39d10ac82624"
+      ],
+      "citations_count": 5,
+      "latency_ms": 2.69
+    },
+    {
+      "id": "held_out_units_079",
+      "category": "units_and_scaling",
+      "question": "State Draythos FY24 GAAP Net Income in thousands of dollars.",
+      "expected_answer": "78,900",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "b11e069a-dc12-4229-9607-39d10ac82624"
+      ],
+      "citations_count": 5,
+      "latency_ms": 2.53
+    },
+    {
+      "id": "held_out_units_080",
+      "category": "units_and_scaling",
+      "question": "State Draythos FY24 Non-GAAP Adjusted EBITDA in millions of dollars.",
+      "expected_answer": "208.8",
+      "model_answer": "[Source 1: wb4_styled_financial_ratios.xlsx, page 1]\nWorkbook: wb4_styled_financial_ratios.xlsx\nSheet: Financial_Ratios\nMetric Name | Historical FY23 | Actual FY24 | Target FY25 | Variance % | Status\nTotal Revenue ($M) | 125000000 | 148500000 | 17500",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.9
+    },
+    {
+      "id": "held_out_units_081",
+      "category": "units_and_scaling",
+      "question": "State Draythos FY24 Non-GAAP Adjusted EBITDA in thousands of dollars.",
+      "expected_answer": "208,800",
+      "model_answer": "[Source 1: wb4_styled_financial_ratios.xlsx, page 1]\nWorkbook: wb4_styled_financial_ratios.xlsx\nSheet: Financial_Ratios\nMetric Name | Historical FY23 | Actual FY24 | Target FY25 | Variance % | Status\nTotal Revenue ($M) | 125000000 | 148500000 | 17500",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.46
+    },
+    {
+      "id": "held_out_units_082",
+      "category": "units_and_scaling",
+      "question": "What is the FY24 Gross Margin expressed as a basis point figure?",
+      "expected_answer": "7300",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.57
+    },
+    {
+      "id": "held_out_units_083",
+      "category": "units_and_scaling",
+      "question": "What is the FY24 Operating Margin expressed as a basis point figure?",
+      "expected_answer": "1320",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.49
+    },
+    {
+      "id": "held_out_units_084",
+      "category": "units_and_scaling",
+      "question": "What is the FY24 Net Margin expressed as a percentage?",
+      "expected_answer": "9.4%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.51
+    },
+    {
+      "id": "held_out_units_085",
+      "category": "units_and_scaling",
+      "question": "What is the FY24 Adjusted EBITDA Margin expressed as a percentage?",
+      "expected_answer": "24.8%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.16
+    },
+    {
+      "id": "held_out_units_086",
+      "category": "units_and_scaling",
+      "question": "Convert the FY24 restructuring charge of $8,400 thousand into millions of dollars.",
+      "expected_answer": "8.4",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n... ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS ",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.8
+    },
+    {
+      "id": "held_out_units_087",
+      "category": "units_and_scaling",
+      "question": "Convert the FY24 stock-based compensation of $42,800 thousand into millions of dollars.",
+      "expected_answer": "42.8",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n... ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS ",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.49
+    },
+    {
+      "id": "held_out_units_088",
+      "category": "units_and_scaling",
+      "question": "Convert the FY24 depreciation expense of $38,400 thousand into millions of dollars.",
+      "expected_answer": "38.4",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n... ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS ",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.68
+    },
+    {
+      "id": "held_out_units_089",
+      "category": "units_and_scaling",
+      "question": "What was FY24 CapEx in thousands of dollars?",
+      "expected_answer": "29,400",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.23
+    },
+    {
+      "id": "held_out_units_090",
+      "category": "units_and_scaling",
+      "question": "What was FY24 Free Cash Flow in thousands of dollars?",
+      "expected_answer": "141,000",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.99
+    },
+    {
+      "id": "held_out_units_091",
+      "category": "units_and_scaling",
+      "question": "State the total outstanding debt under the Senior Credit Facility in thousands of dollars.",
+      "expected_answer": "325,000",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.25
+    },
+    {
+      "id": "held_out_units_092",
+      "category": "units_and_scaling",
+      "question": "State the cash and cash equivalents balance at year-end 2024 in thousands of dollars.",
+      "expected_answer": "184,200",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.62
+    },
+    {
+      "id": "held_out_units_093",
+      "category": "units_and_scaling",
+      "question": "What was the FY24 Net Debt expressed in thousands of dollars?",
+      "expected_answer": "140,800",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.1
+    },
+    {
+      "id": "held_out_units_094",
+      "category": "units_and_scaling",
+      "question": "Express the FY25 expected effective tax rate as a decimal.",
+      "expected_answer": "0.22",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...er FY24 revenue alone was $231.4 million, beating the top end of our guidance range by $4.2 million.\nQ4 GAAP operating income came in at $34.2 million, and Non-GAAP Adjusted EBITDA for Q4 reached",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.38
+    },
+    {
+      "id": "held_out_units_095",
+      "category": "units_and_scaling",
+      "question": "Express the FY24 effective tax rate as a decimal.",
+      "expected_answer": "0.215",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...er FY24 revenue alone was $231.4 million, beating the top end of our guidance range by $4.2 million.\nQ4 GAAP operating income came in at $34.2 million, and Non-GAAP Adjusted EBITDA for Q4 reached",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.04
+    },
+    {
+      "id": "held_out_conflict_096",
+      "category": "conflicting_sources",
+      "question": "What was Draythos's operating profit for FY24 under GAAP versus Non-GAAP Adjusted EBITDA?",
+      "expected_answer": "111,600 vs 208,800",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.49
+    },
+    {
+      "id": "held_out_conflict_097",
+      "category": "conflicting_sources",
+      "question": "Compare Draythos's Net Income under GAAP with its Non-GAAP Adjusted EBITDA for FY24.",
+      "expected_answer": "78,900 vs 208,800",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.36
+    },
+    {
+      "id": "held_out_conflict_098",
+      "category": "conflicting_sources",
+      "question": "Does GAAP Operating Income include stock-based compensation and restructuring?",
+      "expected_answer": "Yes",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...rating Expenses 503,600 431,200 Operating Income (GAAP) $ 111,600 $ 76,620 Operating Margin (GAAP) 13.2% 10.8% Other Income / (Expense): Interest expense, net (14,200) (16,800) Other non-operatin",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.03
+    },
+    {
+      "id": "held_out_conflict_099",
+      "category": "conflicting_sources",
+      "question": "What is the difference between Q4 FY24 revenue announced on the call and full-year FY24 revenue in the 10-K?",
+      "expected_answer": "231.4 vs 842.6",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.05
+    },
+    {
+      "id": "held_out_conflict_100",
+      "category": "conflicting_sources",
+      "question": "What was the GAAP effective tax rate in FY24 versus the projected FY25 tax rate on the earnings call?",
+      "expected_answer": "21.5% vs 22.0%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.46
+    },
+    {
+      "id": "held_out_conflict_101",
+      "category": "conflicting_sources",
+      "question": "How does FY24 CapEx on the call relate to the PP&E depreciation in the 10-K?",
+      "expected_answer": "29.4 vs 38.4",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...:\nThank you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.9
+    },
+    {
+      "id": "held_out_conflict_102",
+      "category": "conflicting_sources",
+      "question": "What was GAAP operating margin versus Non-GAAP Adjusted EBITDA margin for FY24?",
+      "expected_answer": "13.2% vs 24.8%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.58
+    },
+    {
+      "id": "held_out_conflict_103",
+      "category": "conflicting_sources",
+      "question": "What was GAAP net margin versus Free Cash Flow margin for FY24?",
+      "expected_answer": "9.4% vs 16.7%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.19
+    },
+    {
+      "id": "held_out_conflict_104",
+      "category": "conflicting_sources",
+      "question": "Does Draythos expect further restructuring expenses in FY25 according to management remarks?",
+      "expected_answer": "No",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6",
+        "72e5a664-0f51-403c-a352-48a3650d28f0"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.29
+    },
+    {
+      "id": "held_out_conflict_105",
+      "category": "conflicting_sources",
+      "question": "How does FY24 revenue growth compare between North America and consolidated total?",
+      "expected_answer": "17.8% vs 18.4%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...ed revenue for the year ended December 31, 2024 (\"FY24\") was $842.6 million, an increase of 18.4% compared to $711.5 million for the year ended December 31, 2023 (\"FY23\"). North America revenue w",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.43
+    },
+    {
+      "id": "held_out_conflict_106",
+      "category": "conflicting_sources",
+      "question": "What was APAC revenue growth percentage from FY23 to FY24?",
+      "expected_answer": "27.8%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.61
+    },
+    {
+      "id": "held_out_conflict_107",
+      "category": "conflicting_sources",
+      "question": "What was EMEA revenue growth percentage from FY23 to FY24?",
+      "expected_answer": "15.4%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.26
+    },
+    {
+      "id": "held_out_conflict_108",
+      "category": "conflicting_sources",
+      "question": "What interest rate does the credit facility carry versus the blended effective rate?",
+      "expected_answer": "SOFR + 2.75% vs 7.82%",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.64
+    },
+    {
+      "id": "held_out_conflict_109",
+      "category": "conflicting_sources",
+      "question": "Compare Net Debt under the senior facility with Cash and Cash Equivalents.",
+      "expected_answer": "140.8 vs 184.2",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 9.78
+    },
+    {
+      "id": "held_out_conflict_110",
+      "category": "conflicting_sources",
+      "question": "What was the litigation settlement contingency added back to EBITDA in FY24?",
+      "expected_answer": "4,500",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.93
+    },
+    {
+      "id": "held_out_conflict_111",
+      "category": "conflicting_sources",
+      "question": "What was the difference between FY23 GAAP Net Income and FY23 Non-GAAP Adjusted EBITDA?",
+      "expected_answer": "100,680",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 10.37
+    },
+    {
+      "id": "held_out_conflict_112",
+      "category": "conflicting_sources",
+      "question": "What was the total provision for income taxes in FY24 under GAAP?",
+      "expected_answer": "21,600",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.28
+    },
+    {
+      "id": "held_out_conflict_113",
+      "category": "conflicting_sources",
+      "question": "Compare FY24 Cost of Subscription with Cost of Professional Services.",
+      "expected_answer": "139,080 vs 88,320",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...(\"FY24\") was $842.6 million, an increase of 18.4% compared to $711.5 million for the year ended December 31, 2023 (\"FY23\"). North America revenue was $512.4 million in FY24 (representing 60.8% of",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "b11e069a-dc12-4229-9607-39d10ac82624"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.75
+    },
+    {
+      "id": "held_out_conflict_114",
+      "category": "conflicting_sources",
+      "question": "What was the GAAP gross margin for Subscription revenue alone in FY24?",
+      "expected_answer": "80.0%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 8.02
+    },
+    {
+      "id": "held_out_conflict_115",
+      "category": "conflicting_sources",
+      "question": "What was the GAAP gross margin for Professional Services revenue alone in FY24?",
+      "expected_answer": "40.0%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "72e5a664-0f51-403c-a352-48a3650d28f0"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.7
+    },
+    {
+      "id": "held_out_formula_116",
+      "category": "formula_interpretation",
+      "question": "In wb1_merged_headers_pnl.xlsx, what formula calculates Total Revenue in cell B6?",
+      "expected_answer": "=SUM(B4:B5)",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...TED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "72e5a664-0f51-403c-a352-48a3650d28f0"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.72
+    },
+    {
+      "id": "held_out_formula_117",
+      "category": "formula_interpretation",
+      "question": "In wb1_merged_headers_pnl.xlsx, what formula calculates Gross Profit in cell B9?",
+      "expected_answer": "=B6-B8",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...TED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "72e5a664-0f51-403c-a352-48a3650d28f0"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.46
+    },
+    {
+      "id": "held_out_formula_118",
+      "category": "formula_interpretation",
+      "question": "In wb1_merged_headers_pnl.xlsx, what cells does Operating Income (B15) depend on?",
+      "expected_answer": "B9, B14",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...TED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.63
+    },
+    {
+      "id": "held_out_formula_119",
+      "category": "formula_interpretation",
+      "question": "In wb2_hidden_rows_cols.xlsx, what is contained in the hidden Column C?",
+      "expected_answer": "Accumulated Depreciation",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.09
+    },
+    {
+      "id": "held_out_formula_120",
+      "category": "formula_interpretation",
+      "question": "In wb2_hidden_rows_cols.xlsx, what formula calculates Net PP&E in cell D5?",
+      "expected_answer": "=B5-C5",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...TED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.38
+    },
+    {
+      "id": "held_out_formula_121",
+      "category": "formula_interpretation",
+      "question": "In wb3_multisheet_cross_ref.xlsx, how does the Executive_Summary sheet calculate Total Operating Income in cell C12?",
+      "expected_answer": "=Revenue_Detail!E10-Cost_Center!E18",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...TED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.77
+    },
+    {
+      "id": "held_out_formula_122",
+      "category": "formula_interpretation",
+      "question": "In wb3_multisheet_cross_ref.xlsx, what sheet provides the source data for Professional Services cost?",
+      "expected_answer": "Cost_Center",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.87
+    },
+    {
+      "id": "held_out_formula_123",
+      "category": "formula_interpretation",
+      "question": "In wb3_multisheet_cross_ref.xlsx, what formula aggregates Q1 through Q4 revenue on the Revenue_Detail sheet?",
+      "expected_answer": "=SUM(B5:E5)",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "c475326f-7fb6-4c67-a301-c1333f82a243",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.63
+    },
+    {
+      "id": "held_out_formula_124",
+      "category": "formula_interpretation",
+      "question": "In wb4_styled_financial_ratios.xlsx, what formula evaluates the Current Ratio in cell B8?",
+      "expected_answer": "=B4/B5",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.81
+    },
+    {
+      "id": "held_out_formula_125",
+      "category": "formula_interpretation",
+      "question": "In wb4_styled_financial_ratios.xlsx, what formula calculates the Debt to Equity ratio in cell B12?",
+      "expected_answer": "=B6/B7",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 18.46
+    },
+    {
+      "id": "held_out_formula_126",
+      "category": "formula_interpretation",
+      "question": "In wb4_styled_financial_ratios.xlsx, what number format is applied to Gross Margin in cell B15?",
+      "expected_answer": "0.0%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "72e5a664-0f51-403c-a352-48a3650d28f0"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.59
+    },
+    {
+      "id": "held_out_formula_127",
+      "category": "formula_interpretation",
+      "question": "In wb4_styled_financial_ratios.xlsx, what number format is applied to Total Revenue in cell B4?",
+      "expected_answer": "$#,##0",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.9
+    },
+    {
+      "id": "held_out_formula_128",
+      "category": "formula_interpretation",
+      "question": "In wb5_nontrivial_summary_kpis.xlsx, what formula computes the blended customer churn rate in cell C14?",
+      "expected_answer": "=AVERAGE(C6:C12)",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.42
+    },
+    {
+      "id": "held_out_formula_129",
+      "category": "formula_interpretation",
+      "question": "In wb5_nontrivial_summary_kpis.xlsx, what information is provided in the footnote at row 20?",
+      "expected_answer": "Excludes discontinued operations",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 9.21
+    },
+    {
+      "id": "held_out_formula_130",
+      "category": "formula_interpretation",
+      "question": "In wb5_nontrivial_summary_kpis.xlsx, how are the two tables separated on the worksheet?",
+      "expected_answer": "Empty spacer rows",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...TED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.22
+    },
+    {
+      "id": "held_out_formula_131",
+      "category": "formula_interpretation",
+      "question": "If cell D5 has formula =SUM(D2:D4) and D2 is 61000, D3 is 18000, D4 is 9200, what is the evaluated value?",
+      "expected_answer": "88,200",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.41
+    },
+    {
+      "id": "held_out_formula_132",
+      "category": "formula_interpretation",
+      "question": "If cell E2 has formula =SUM(B2:D2) and B2 is 55000, C2 is 52000, D2 is 61000, what is the evaluated value?",
+      "expected_answer": "168,000",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...4 million restructuring charge in Q4, can you clarify if any further facility consolidation charges will carry into FY25?\nElena Rostova - CFO:\nSarah, the $8.4 million recognized in Q4 completes o",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 10.03
+    },
+    {
+      "id": "held_out_formula_133",
+      "category": "formula_interpretation",
+      "question": "If cell E3 has formula =SUM(B3:D3) and B3 is 12000, C3 is 15000, D3 is 18000, what is the evaluated value?",
+      "expected_answer": "45,000",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 7.04
+    },
+    {
+      "id": "held_out_formula_134",
+      "category": "formula_interpretation",
+      "question": "If cell E4 has formula =SUM(B4:D4) and B4 is 8000, C4 is 8500, D4 is 9200, what is the evaluated value?",
+      "expected_answer": "25,700",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 14.27
+    },
+    {
+      "id": "held_out_formula_135",
+      "category": "formula_interpretation",
+      "question": "If cell E5 has formula =SUM(E2:E4) with values 168000, 45000, 25700, what is the evaluated value?",
+      "expected_answer": "238,700",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.68
+    },
+    {
+      "id": "held_out_abstain_136",
+      "category": "missing_evidence_abstention",
+      "question": "What was Draythos's total marketing spend in Japan in FY24?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.28
+    },
+    {
+      "id": "held_out_abstain_137",
+      "category": "missing_evidence_abstention",
+      "question": "What is the name of Draythos's primary bank account manager at Silicon Valley Bank?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.04
+    },
+    {
+      "id": "held_out_abstain_138",
+      "category": "missing_evidence_abstention",
+      "question": "How many patents were granted to Draythos by the European Patent Office in 2024?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial Officer\nDavid Cho - VP of Investor Relations\nSarah Jenkins - Goldman Sachs (Analyst)\nMichael Thorne - Morgan Stanley (Anal",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "c475326f-7fb6-4c67-a301-c1333f82a243"
+      ],
+      "citations_count": 4,
+      "latency_ms": 9.79
+    },
+    {
+      "id": "held_out_abstain_139",
+      "category": "missing_evidence_abstention",
+      "question": "What was the exact price per square foot paid for the consolidated facility in Q4?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "72e5a664-0f51-403c-a352-48a3650d28f0"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.46
+    },
+    {
+      "id": "held_out_abstain_140",
+      "category": "missing_evidence_abstention",
+      "question": "What is the target acquisition price for Project Vulcan mentioned in internal memos?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.59
+    },
+    {
+      "id": "held_out_abstain_141",
+      "category": "missing_evidence_abstention",
+      "question": "What was the average tenure of Draythos software engineers in 2024?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 18.69
+    },
+    {
+      "id": "held_out_abstain_142",
+      "category": "missing_evidence_abstention",
+      "question": "What was Draythos's electricity consumption in kilowatt hours for data centers in 2024?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 9.92
+    },
+    {
+      "id": "held_out_abstain_143",
+      "category": "missing_evidence_abstention",
+      "question": "What discount rate was applied to customer multi-year contracts in Latin America?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...pand our EMEA data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding t",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.9
+    },
+    {
+      "id": "held_out_abstain_144",
+      "category": "missing_evidence_abstention",
+      "question": "What was the CEO Marcus Vance's personal bonus payout for FY24?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.93
+    },
+    {
+      "id": "held_out_abstain_145",
+      "category": "missing_evidence_abstention",
+      "question": "How many customer support tickets were resolved in EMEA during Q3 FY24?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n... (Morgan Stanley):\nMarcus, could you elaborate on customer net retention rates?\nMarcus Vance - CEO:\nOur dollar-based net expansion rate across enterprise customers ended the year at 122%, compare",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 5,
+      "latency_ms": 2.74
+    },
+    {
+      "id": "held_out_abstain_146",
+      "category": "missing_evidence_abstention",
+      "question": "What is the projected revenue guidance for fiscal year 2028?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.92
+    },
+    {
+      "id": "held_out_abstain_147",
+      "category": "missing_evidence_abstention",
+      "question": "What were the total legal expenses paid to external counsel Wachtell Lipton in 2024?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...er FY24 revenue alone was $231.4 million, beating the top end of our guidance range by $4.2 million.\nQ4 GAAP operating income came in at $34.2 million, and Non-GAAP Adjusted EBITDA for Q4 reached",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.56
+    },
+    {
+      "id": "held_out_abstain_148",
+      "category": "missing_evidence_abstention",
+      "question": "What is the average CPU utilization percentage of Draythos's cloud clusters?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.97
+    },
+    {
+      "id": "held_out_abstain_149",
+      "category": "missing_evidence_abstention",
+      "question": "What was the advertising cost on LinkedIn vs Google Search in FY24?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 16.21
+    },
+    {
+      "id": "held_out_abstain_150",
+      "category": "missing_evidence_abstention",
+      "question": "How many shares of common stock did Elena Rostova sell in August 2024?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...0-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDIN",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 277.36
+    },
+    {
+      "id": "held_out_abstain_151",
+      "category": "missing_evidence_abstention",
+      "question": "What was the scrap salvage value of decommissioned servers in Q2 2024?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 39.65
+    },
+    {
+      "id": "held_out_abstain_152",
+      "category": "missing_evidence_abstention",
+      "question": "What was the employee headcount in the Sydney office as of December 31, 2024?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.56
+    },
+    {
+      "id": "held_out_abstain_153",
+      "category": "missing_evidence_abstention",
+      "question": "What is Draythos's corporate jet lease expense for FY24?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 18.16
+    },
+    {
+      "id": "held_out_abstain_154",
+      "category": "missing_evidence_abstention",
+      "question": "What was the revenue generated specifically from federal government defense contracts in FY24?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.58
+    },
+    {
+      "id": "held_out_abstain_155",
+      "category": "missing_evidence_abstention",
+      "question": "What is the forecasted foreign exchange rate between EUR and USD assumed in FY25 guidance?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.82
+    },
+    {
+      "id": "held_out_abstain_156",
+      "category": "missing_evidence_abstention",
+      "question": "What was the inventory shrinkage rate for physical hardware devices in 2024?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.39
+    },
+    {
+      "id": "held_out_abstain_157",
+      "category": "missing_evidence_abstention",
+      "question": "What was the total dollar refund issued to customers under SLA breaches in Q1 FY24?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.64
+    },
+    {
+      "id": "held_out_abstain_158",
+      "category": "missing_evidence_abstention",
+      "question": "What was the cost of catering for the annual shareholder meeting in 2024?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "353a2a4b-cb65-48fa-b713-c177eb865ba6"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.95
+    },
+    {
+      "id": "held_out_abstain_159",
+      "category": "missing_evidence_abstention",
+      "question": "What is the interest coverage ratio covenant threshold under the 2026 revolving credit facility?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.22
+    },
+    {
+      "id": "held_out_abstain_160",
+      "category": "missing_evidence_abstention",
+      "question": "What was the total volume of water recycled at corporate headquarters in FY24?",
+      "expected_answer": "ABSTAIN",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\nUNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": true,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": true,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.89
+    },
+    {
+      "id": "held_out_statutory_161",
+      "category": "statutory_hard_negatives",
+      "question": "Under Note 7, does the Senior Credit Facility floating interest rate use LIBOR or SOFR?",
+      "expected_answer": "SOFR",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 8.06
+    },
+    {
+      "id": "held_out_statutory_162",
+      "category": "statutory_hard_negatives",
+      "question": "Under Note 12, what is the contractual commitment for cloud hosting in the year 2027?",
+      "expected_answer": "55.0",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...data sovereign nodes.\nEffective tax rate for FY25 is projected at 22.0%.\n\nANALYST QUESTION & ANSWER:\nSarah Jenkins (Goldman Sachs):\nThanks for taking my question. Elena, regarding the $8.4 millio",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 7.41
+    },
+    {
+      "id": "held_out_statutory_163",
+      "category": "statutory_hard_negatives",
+      "question": "Under Note 12, what are total cloud commitments due thereafter following 2027?",
+      "expected_answer": "20.0",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 10.79
+    },
+    {
+      "id": "held_out_statutory_164",
+      "category": "statutory_hard_negatives",
+      "question": "Under Note 7, what would cause an event of default regarding net leverage?",
+      "expected_answer": "Exceeding 3.25x",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.67
+    },
+    {
+      "id": "held_out_statutory_165",
+      "category": "statutory_hard_negatives",
+      "question": "Under Item 1A, what are the primary cloud infrastructure providers listed as an operational risk?",
+      "expected_answer": "AWS, Google Cloud",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n8,400 - Litigation settlement contingency 4,500 - Non-GAAP Adjusted EBITDA $ 208,800 $ 148,820 Adjusted EBITDA Margin 24.8% 20.9% NOTE 7. LONG-TERM DEBT AND LIQUIDITY As of December 31, 2024, our to",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.81
+    },
+    {
+      "id": "held_out_statutory_166",
+      "category": "statutory_hard_negatives",
+      "question": "In the GAAP P&L, is interest expense categorized under Operating Expenses or Other Expense?",
+      "expected_answer": "Other Expense",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n...TED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549 FORM 10-K ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEM",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82"
+      ],
+      "citations_count": 4,
+      "latency_ms": 7.18
+    },
+    {
+      "id": "held_out_statutory_167",
+      "category": "statutory_hard_negatives",
+      "question": "In the Non-GAAP reconciliation, is litigation settlement contingency added back or deducted?",
+      "expected_answer": "Added back",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.95
+    },
+    {
+      "id": "held_out_statutory_168",
+      "category": "statutory_hard_negatives",
+      "question": "In the Non-GAAP reconciliation, is interest expense added back or deducted from Net Income?",
+      "expected_answer": "Added back",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.93
+    },
+    {
+      "id": "held_out_statutory_169",
+      "category": "statutory_hard_negatives",
+      "question": "In the Non-GAAP reconciliation, is the provision for income taxes added back or deducted from Net Income?",
+      "expected_answer": "Added back",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed",
+        "5968555b-0509-489b-87d8-279e803030fb"
+      ],
+      "citations_count": 4,
+      "latency_ms": 13.34
+    },
+    {
+      "id": "held_out_statutory_170",
+      "category": "statutory_hard_negatives",
+      "question": "What was the non-operating other income recognized in FY24?",
+      "expected_answer": "3,100",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 7.5
+    },
+    {
+      "id": "held_out_statutory_171",
+      "category": "statutory_hard_negatives",
+      "question": "What was the non-operating other income recognized in FY23?",
+      "expected_answer": "1,500",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 4.73
+    },
+    {
+      "id": "held_out_statutory_172",
+      "category": "statutory_hard_negatives",
+      "question": "What was the effective tax rate in FY23 under GAAP?",
+      "expected_answer": "21.5%",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": false,
+      "citation_entailment": false,
+      "answer_correct": false,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "5968555b-0509-489b-87d8-279e803030fb",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 3.9
+    },
+    {
+      "id": "held_out_statutory_173",
+      "category": "statutory_hard_negatives",
+      "question": "What was the Net Debt in FY24?",
+      "expected_answer": "140.8",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\n...nk you, David, and good afternoon, everyone.\nFY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.\nFourth quarter FY24 revenue alone was $231.4",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89",
+        "4b636479-cd5a-4bd8-ab6f-b2e6790eebed"
+      ],
+      "citations_count": 4,
+      "latency_ms": 6.59
+    },
+    {
+      "id": "held_out_statutory_174",
+      "category": "statutory_hard_negatives",
+      "question": "Does Draythos report any discontinued operations in the FY24 Statement of Operations?",
+      "expected_answer": "No",
+      "model_answer": "[Source 1: q4_earnings_call_transcript.txt, page 1]\nDRAYTHOS TECHNOLOGIES HOLDINGS INC.\nFOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL\nJANUARY 28, 2025\n\nPARTICIPANTS:\nMarcus Vance - Chief Executive Officer\nElena Rostova - Chief Financial ",
+      "evidence_complete": false,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "ffc46b6a-2f3f-4d1f-94ef-fd70b0127e18"
+      ],
+      "citations_count": 4,
+      "latency_ms": 5.63
+    },
+    {
+      "id": "held_out_statutory_175",
+      "category": "statutory_hard_negatives",
+      "question": "What accounting framework governs the primary financial statements in Item 8?",
+      "expected_answer": "US GAAP",
+      "model_answer": "[Source 1: form_10k_annual_filing_fy24.txt, page 1]\n... ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024 COMMISSION FILE NUMBER: 001-39482 DRAYTHOS TECHNOLOGIES HOLDINGS ",
+      "evidence_complete": true,
+      "citation_entailment": true,
+      "answer_correct": true,
+      "unsupported_claim": false,
+      "retrieved_chunk_ids": [
+        "441d82f2-fc6a-42db-a2c8-6821d6b1a10f",
+        "b11e069a-dc12-4229-9607-39d10ac82624",
+        "72e5a664-0f51-403c-a352-48a3650d28f0",
+        "0f7954e9-5851-4f72-95ae-caef58faaf82",
+        "b592e025-4c50-41f0-934a-8cf87fde4d89"
+      ],
+      "citations_count": 4,
+      "latency_ms": 2.82
+    }
+  ]
+}

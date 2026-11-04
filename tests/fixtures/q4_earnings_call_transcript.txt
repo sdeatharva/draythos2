@@ -1,0 +1,35 @@
+DRAYTHOS TECHNOLOGIES HOLDINGS INC.
+FOURTH QUARTER AND FULL YEAR 2024 EARNINGS CONFERENCE CALL
+JANUARY 28, 2025
+
+PARTICIPANTS:
+Marcus Vance - Chief Executive Officer
+Elena Rostova - Chief Financial Officer
+David Cho - VP of Investor Relations
+Sarah Jenkins - Goldman Sachs (Analyst)
+Michael Thorne - Morgan Stanley (Analyst)
+
+Elena Rostova - CFO:
+Thank you, David, and good afternoon, everyone.
+FY24 was an exceptional year for Draythos. Full-year revenue grew 18.4% year-over-year to $842.6 million.
+Fourth quarter FY24 revenue alone was $231.4 million, beating the top end of our guidance range by $4.2 million.
+Q4 GAAP operating income came in at $34.2 million, and Non-GAAP Adjusted EBITDA for Q4 reached $61.5 million.
+Turning to capital expenditures, full-year FY24 CapEx was $29.4 million, primarily directed toward GPU cluster expansion and private cluster hosting pods.
+Free cash flow for the full year FY24 was $141.0 million, representing a 16.7% free cash flow margin.
+
+Now turning to FY25 Guidance:
+For full year 2025, we expect consolidated revenue to be in the range of $985.0 million to $1,005.0 million, representing year-over-year growth of 17% to 19%.
+We expect FY25 Non-GAAP Adjusted EBITDA between $255.0 million and $265.0 million.
+We anticipate FY25 Capital Expenditures of approximately $38.0 million to $42.0 million as we expand our EMEA data sovereign nodes.
+Effective tax rate for FY25 is projected at 22.0%.
+
+ANALYST QUESTION & ANSWER:
+Sarah Jenkins (Goldman Sachs):
+Thanks for taking my question. Elena, regarding the $8.4 million restructuring charge in Q4, can you clarify if any further facility consolidation charges will carry into FY25?
+Elena Rostova - CFO:
+Sarah, the $8.4 million recognized in Q4 completes our North American real estate optimization. We do not anticipate any further facility impairment or restructuring charges in FY25.
+
+Michael Thorne (Morgan Stanley):
+Marcus, could you elaborate on customer net retention rates?
+Marcus Vance - CEO:
+Our dollar-based net expansion rate across enterprise customers ended the year at 122%, compared to 118% in FY23, driven by rapid multi-product adoption.

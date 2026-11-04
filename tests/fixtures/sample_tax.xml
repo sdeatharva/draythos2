@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TaxReturn year="2026">
+  <FilingEntity>
+    <Name>Draythos Financial Technologies</Name>
+    <Category>Technology Infrastructure</Category>
+  </FilingEntity>
+  <Assessments>
+    <Assessment type="VAT">
+      <GrossAmount currency="USD">250000</GrossAmount>
+      <Rate>0.20</Rate>
+      <NetAmount currency="USD">50000</NetAmount>
+    </Assessment>
+    <Assessment type="GST">
+      <GrossAmount currency="USD">180000</GrossAmount>
+      <Rate>0.18</Rate>
+      <NetAmount currency="USD">32400</NetAmount>
+    </Assessment>
+  </Assessments>
+</TaxReturn>
+

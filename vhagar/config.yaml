@@ -1,0 +1,70 @@
+# ─────────────────────────────────────────────────────────────────
+# Vhagar Configuration
+# ─────────────────────────────────────────────────────────────────
+# All settings can also be set via environment variables prefixed
+# with VHAGAR_ (e.g. VHAGAR_AUTH_SECRET, VHAGAR_UI_PORT).
+# Environment variables take precedence over this file.
+# ─────────────────────────────────────────────────────────────────
+
+# ── Security ──────────────────────────────────────────────────────
+# Secret used for signing JWT tokens.  CHANGE THIS IN PRODUCTION.
+# auth_secret: "change-me-in-production"
+
+# API key required by MCP clients.  CHANGE THIS IN PRODUCTION.
+# mcp_api_key: "change-me-in-production"
+
+# ── Storage ───────────────────────────────────────────────────────
+# Root data directory (documents, index, working copies live inside)
+# data_dir: "data"
+
+# Directory for log files
+# logs_dir: "logs"
+
+# ── Search Tuning ─────────────────────────────────────────────────
+# Minimum fuzzy-match score (0.0–1.0) for concept mapping
+# fuzzy_threshold: 0.7
+
+# Minimum confidence score (0.0–1.0) for search results
+# confidence_threshold: 0.5
+
+# Maximum characters returned per snippet
+# max_snippet_length: 500
+
+# Seconds before a search query times out
+# query_timeout_seconds: 30
+
+# ── Server ────────────────────────────────────────────────────────
+# Port for the main UI / API server
+# ui_port: 8000
+
+# Port for the MCP tool server
+# mcp_port: 8001
+
+# Bind address
+# host: "0.0.0.0"
+
+# Allowed CORS origins (comma-separated in env var)
+# cors_origins:
+#   - "http://localhost:3000"
+
+# ── Upload Limits ─────────────────────────────────────────────────
+# Maximum upload size in megabytes
+# max_upload_size_mb: 50
+
+# Maximum pages to OCR per document
+# ocr_max_pages: 100
+
+# Seconds before OCR processing times out
+# ocr_timeout_seconds: 120
+
+# ── Supported Formats ─────────────────────────────────────────────
+# File extensions that Vhagar can ingest
+# supported_formats:
+#   - pdf
+#   - xlsx
+#   - xls
+#   - csv
+#   - docx
+#   - txt
+#   - json
+#   - xml

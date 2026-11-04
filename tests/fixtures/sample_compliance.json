@@ -1,0 +1,18 @@
+{
+  "entity": "Draythos Global Corp",
+  "jurisdiction": "US-DE",
+  "tax_identifiers": {
+    "ein": "12-3456789",
+    "vat_id": "EU987654321"
+  },
+  "compliance_status": {
+    "sox_404": "Verified",
+    "gdpr_audit": "Passed",
+    "quarterly_reconciliation": "Completed"
+  },
+  "metrics": {
+    "total_revenue_usd": 1450000,
+    "effective_tax_rate": 0.21
+  }
+}
+

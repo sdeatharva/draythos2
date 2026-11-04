@@ -1,0 +1,8 @@
+Quarter,Department,Category,Allocated,Utilized,Variance
+Q1,Engineering,Cloud Infra,50000,48200,1800
+Q1,Product,Design Tools,12000,11500,500
+Q1,Operations,Compliance Audit,25000,25000,0
+Q2,Engineering,Cloud Infra,55000,56200,-1200
+Q2,Product,User Research,15000,13800,1200
+Q2,Operations,Tax Filing,30000,29100,900
+

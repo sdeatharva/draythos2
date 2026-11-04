@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-ink: var(--text-ink);
+  --color-ink-soft: var(--text-ink-soft);
+  --color-text-muted: var(--text-muted);
+  --color-cloud: var(--bg-cloud);
+  --color-cloud-dark: var(--bg-cloud-dark);
+  --color-hairline: var(--border-hairline);
+  --color-oat: var(--bg-oat);
+  --color-manilla: var(--bg-manilla);
+  --color-clay: #D97757;
+  --color-clay-deep: #A6482D;
+
+  --font-display: "Space Grotesk", Arial, sans-serif;
+  --font-reading: "Source Serif 4", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+  --spacing-40: 10rem;
+
+  --radius-control: 0.625rem;
+  --radius-card: 1.25rem;
+
+  --ease-editorial: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* Light Mode (Editorial Warm Cream) */
+:root {
+  --bg-canvas: #F0EEE6;
+  --bg-surface: #FAF9F5;
+  --text-ink: #141413;
+  --text-ink-soft: #3D3D3A;
+  --text-muted: #5E5D59;
+  --bg-cloud: #B0AEA5;
+  --bg-cloud-dark: #87867F;
+  --border-hairline: #D1CFC5;
+  --bg-oat: #E3DACC;
+  --bg-manilla: #F5E3C7;
+
+  --border: 1px solid var(--border-hairline);
+  --content-max: 80rem;
+  --reading-max: 45rem;
+  --focus-ring: 2px solid var(--text-ink);
+  --focus-ring-offset: 3px;
+}
+
+/* Dark Mode (Claude-Style Deep Charcoal / Warm Dark) */
+html.dark, :root.dark {
+  --bg-canvas: #141413;
+  --bg-surface: #1E1E1C;
+  --text-ink: #FAF9F5;
+  --text-ink-soft: #D1CFC5;
+  --text-muted: #9E9D96;
+  --bg-cloud: #3A3A36;
+  --bg-cloud-dark: #5C5B55;
+  --border-hairline: #2E2E2C;
+  --bg-oat: #272725;
+  --bg-manilla: #2F2922;
+
+  --border: 1px solid #2E2E2C;
+  --focus-ring: 2px solid #E08264;
+  --focus-ring-offset: 3px;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-reading);
+}
+
+/* Typography base styles */
+h1, h2, h3, h4, h5, h6, nav, button, label, .label {
+  font-family: var(--font-display);
+}
+
+code, pre, .data, .mono {
+  font-family: var(--font-mono);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Scrollbar styling for warm theme */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--color-canvas); }
+::-webkit-scrollbar-thumb { background: var(--color-hairline); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-cloud-dark); }
+
+html.dark ::-webkit-scrollbar-track { background: var(--bg-canvas); }
+html.dark ::-webkit-scrollbar-thumb { background: var(--border-hairline); }
+html.dark ::-webkit-scrollbar-thumb:hover { background: var(--bg-cloud-dark); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Draythos Translucent Bouncing Dots Animation */
+@keyframes draythos-bounce-xs {
+  0%, 80%, 100% {
+    transform: translateY(0) scale(0.85);
+    opacity: 0.38;
+  }
+  40% {
+    transform: translateY(-3px) scale(1.1);
+    opacity: 0.95;
+  }
+}
+
+@keyframes draythos-bounce-sm {
+  0%, 80%, 100% {
+    transform: translateY(0) scale(0.85);
+    opacity: 0.38;
+  }
+  40% {
+    transform: translateY(-5px) scale(1.12);
+    opacity: 0.95;
+  }
+}
+
+@keyframes draythos-bounce-md {
+  0%, 80%, 100% {
+    transform: translateY(0) scale(0.88);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-8px) scale(1.15);
+    opacity: 0.98;
+  }
+}
+
+@keyframes draythos-bounce-lg {
+  0%, 80%, 100% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-13px) scale(1.18);
+    opacity: 1;
+  }
+}
+
+@keyframes draythos-bounce-xl {
+  0%, 80%, 100% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-18px) scale(1.22);
+    opacity: 1;
+  }
+}
+
+.animate-draythos-bounce-xs {
+  animation: draythos-bounce-xs 1.3s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite both;
+}
+
+.animate-draythos-bounce-sm {
+  animation: draythos-bounce-sm 1.3s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite both;
+}
+
+.animate-draythos-bounce-md {
+  animation: draythos-bounce-md 1.3s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite both;
+}
+
+.animate-draythos-bounce-lg {
+  animation: draythos-bounce-lg 1.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite both;
+}
+
+.animate-draythos-bounce-xl {
+  animation: draythos-bounce-xl 1.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite both;
+}
+

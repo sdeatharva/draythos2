@@ -1,0 +1,85 @@
+UNITED STATES SECURITIES AND EXCHANGE COMMISSION
+WASHINGTON, D.C. 20549
+FORM 10-K
+ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934
+FOR THE FISCAL YEAR ENDED DECEMBER 31, 2024
+COMMISSION FILE NUMBER: 001-39482
+DRAYTHOS TECHNOLOGIES HOLDINGS INC.
+
+PART I. ITEM 1. BUSINESS
+Draythos Technologies Holdings Inc. ("Draythos", the "Company", "we", "us", or "our") is a leading provider of intelligent document engineering and cognitive financial systems. 
+
+ITEM 1A. RISK FACTORS
+- High dependence on cloud infrastructure providers (AWS, Google Cloud) creates operational risk.
+- Foreign exchange currency volatility in EMEA and APAC could adversely impact consolidated net revenue.
+- Our senior secured credit facility imposes a maximum net leverage ratio covenant of 3.25x trailing twelve-month Adjusted EBITDA.
+
+PART II. ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS
+Fiscal Year 2024 Highlights:
+Total consolidated revenue for the year ended December 31, 2024 ("FY24") was $842.6 million, an increase of 18.4% compared to $711.5 million for the year ended December 31, 2023 ("FY23").
+North America revenue was $512.4 million in FY24 (representing 60.8% of total revenue) compared to $435.0 million in FY23.
+EMEA revenue was $215.2 million in FY24 compared to $186.5 million in FY23.
+APAC revenue was $115.0 million in FY24 compared to $90.0 million in FY23.
+
+ITEM 8. CONSOLIDATED FINANCIAL STATEMENTS
+CONSOLIDATED STATEMENTS OF OPERATIONS
+(In thousands of USD, except per share amounts)
+                                                 Year Ended Dec 31, 2024    Year Ended Dec 31, 2023
+Revenue:
+  Subscription & SaaS revenue                             $ 695,400                  $ 582,300
+  Professional services & deployment                        147,200                    129,200
+Total Revenue                                             $ 842,600                  $ 711,500
+
+Cost of Revenue:
+  Cost of subscription revenue (hosting, compute)           139,080                    122,280
+  Cost of professional services                              88,320                     81,400
+Total Cost of Revenue                                       227,400                    203,680
+
+Gross Profit                                              $ 615,200                  $ 507,820
+Gross Margin Percentage                                       73.0%                      71.4%
+
+Operating Expenses:
+  Research and development (R&D)                            218,500                    185,000
+  Sales and marketing (S&M)                                 202,200                    178,000
+  General and administrative (G&A)                           74,500                     68,200
+  Restructuring & facility consolidation                      8,400                          -
+Total Operating Expenses                                    503,600                    431,200
+
+Operating Income (GAAP)                                   $ 111,600                  $  76,620
+Operating Margin (GAAP)                                       13.2%                      10.8%
+
+Other Income / (Expense):
+  Interest expense, net                                     (14,200)                   (16,800)
+  Other non-operating income                                  3,100                      1,500
+Total Other Expense, net                                    (11,100)                   (15,300)
+
+Income Before Income Taxes                                $ 100,500                  $  61,320
+Provision for income taxes (effective rate 21.5%)            21,600                     13,180
+
+Net Income (GAAP)                                         $  78,900                  $  48,140
+Net Margin (GAAP)                                              9.4%                       6.8%
+
+NON-GAAP RECONCILIATION: ADJUSTED EBITDA
+(In thousands of USD)
+                                                 Year Ended Dec 31, 2024    Year Ended Dec 31, 2023
+GAAP Net Income                                           $  78,900                  $  48,140
+Add back:
+  Provision for income taxes                                 21,600                     13,180
+  Interest expense, net                                      14,200                     16,800
+  Depreciation and amortization                              38,400                     34,200
+EBITDA                                                    $ 153,100                  $ 112,320
+Adjustments:
+  Stock-based compensation expense (SBC)                     42,800                     36,500
+  Restructuring & severance charges                           8,400                          -
+  Litigation settlement contingency                           4,500                          -
+Non-GAAP Adjusted EBITDA                                  $ 208,800                  $ 148,820
+Adjusted EBITDA Margin                                        24.8%                      20.9%
+
+NOTE 7. LONG-TERM DEBT AND LIQUIDITY
+As of December 31, 2024, our total outstanding debt under the Senior Credit Facility was $325.0 million with an effective floating interest rate of SOFR + 2.75% (blended rate 7.82%).
+Cash and cash equivalents totaled $184.2 million as of December 31, 2024, yielding Net Debt of $140.8 million.
+Net Debt to Adjusted EBITDA leverage ratio stood at 0.67x as of December 31, 2024, well below the covenant threshold of 3.25x.
+
+NOTE 12. CONTINGENCIES AND COMMITMENTS
+Future minimum contractual obligations under non-cancelable cloud hosting agreements:
+2025: $45.0 million; 2026: $50.0 million; 2027: $55.0 million; thereafter: $20.0 million.

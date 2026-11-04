@@ -1,0 +1,19 @@
+DRAYTHOS QUARTERLY RECONCILIATION SUMMARY
+Date: November 1, 2026
+
+1. Purpose and Scope
+This document outlines the quarterly multi-format financial reconciliation for all operating divisions.
+Revenue recognition follows ASC 606 standards, ensuring that sales tax, value-added tax (VAT), and goods and services tax (GST)
+are recognized strictly when the performance obligation is completed.
+
+2. Concept Harmonization
+The finance team previously referred to local taxes under separate terminologies:
+- 'GST' in Asia-Pacific subsidiaries
+- 'VAT' in European business units
+- 'Sales Tax' in North American jurisdictions
+All three terms are mapped canonically to the unified Tax Compliance dictionary within the Draythos intelligence workspace.
+
+3. Audit Trail and Evidence
+Supporting evidence includes attached spreadsheets, vendor invoices, and compliance certificates.
+Cross-session isolation ensures that data rooms for distinct legal entities remain completely segregated.
+
