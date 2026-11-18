@@ -1,11 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Dialog } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { AuthUser } from "@/types";
-import { Sliders, User, LogOut, Save, CheckCircle2, Trash2, Plus } from "lucide-react";
+import {
+  Sliders,
+  User,
+  LogOut,
+  Save,
+  CheckCircle2,
+  Trash2,
+  Plus,
+  Key,
+  Eye,
+  EyeOff,
+  ExternalLink,
+} from "lucide-react";
 
 interface AuthSettingsDialogProps {
   open: boolean;
@@ -13,8 +25,12 @@ interface AuthSettingsDialogProps {
   user: AuthUser | null;
   customInstructions?: string;
   memories?: any[];
+  openRouterKey?: string;
+  geminiKey?: string;
   onSavePreferences?: (prefs: {
     customInstructions?: string;
+    openRouterKey?: string;
+    geminiKey?: string;
   }) => void;
   onAddMemory?: (fact: string, category?: string) => void;
   onDeleteMemory?: (id: string) => void;
@@ -27,26 +43,30 @@ export function AuthSettingsDialog({
   user,
   customInstructions = "",
   memories = [],
+  openRouterKey = "",
+  geminiKey = "",
   onSavePreferences,
   onAddMemory,
   onDeleteMemory,
   onLogout,
 }: AuthSettingsDialogProps) {
-  const [tab, setTab] = useState<"workspace" | "account">("workspace");
+  const [tab, setTab] = useState<"workspace" | "keys" | "account">("workspace");
   const [localPrompt, setLocalPrompt] = useState(customInstructions || "");
+  const [localOrKey, setLocalOrKey] = useState(openRouterKey || "");
+  const [localGemKey, setLocalGemKey] = useState(geminiKey || "");
+  const [showOrKey, setShowOrKey] = useState(false);
+  const [showGemKey, setShowGemKey] = useState(false);
   const [newMemoryText, setNewMemoryText] = useState("");
   const [selectedMemoryIds, setSelectedMemoryIds] = useState<Set<string>>(new Set());
   const [savedSuccess, setSavedSuccess] = useState(false);
 
-  useEffect(() => {
-    setLocalPrompt(customInstructions || "");
-  }, [customInstructions]);
-
-  const handleSavePrompt = (e: React.FormEvent) => {
+  const handleSaveWorkspace = (e: React.FormEvent) => {
     e.preventDefault();
     if (onSavePreferences) {
       onSavePreferences({
         customInstructions: localPrompt.trim(),
+        openRouterKey: localOrKey.trim(),
+        geminiKey: localGemKey.trim(),
       });
     }
     setSavedSuccess(true);
@@ -60,43 +80,36 @@ export function AuthSettingsDialog({
     setNewMemoryText("");
   };
 
-  const toggleSelectMemory = (id: string) => {
-    setSelectedMemoryIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  };
-
-  const handleDeleteSelected = () => {
-    if (!onDeleteMemory) return;
-    selectedMemoryIds.forEach((id) => {
-      onDeleteMemory(id);
-    });
-    setSelectedMemoryIds(new Set());
-  };
-
   return (
     <Dialog open={open} onClose={onClose} title="Settings">
-      {/* Two Clean Tabs: Workspace Settings and Account */}
       <div className="flex border-b border-hairline mb-5 -mx-6 px-6">
         <button
           onClick={() => setTab("workspace")}
           className={`pb-2.5 px-3 text-xs font-display font-medium border-b-2 transition-colors flex items-center gap-1.5 ${
             tab === "workspace"
-              ? "border-clay text-ink"
+              ? "border-forest text-ink"
               : "border-transparent text-cloud-dark hover:text-ink"
           }`}
         >
           <Sliders className="h-3.5 w-3.5" />
-          Workspace Settings
+          Workspace
+        </button>
+        <button
+          onClick={() => setTab("keys")}
+          className={`pb-2.5 px-3 text-xs font-display font-medium border-b-2 transition-colors flex items-center gap-1.5 ${
+            tab === "keys"
+              ? "border-forest text-ink"
+              : "border-transparent text-cloud-dark hover:text-ink"
+          }`}
+        >
+          <Key className="h-3.5 w-3.5" />
+          API Keys (BYOK)
         </button>
         <button
           onClick={() => setTab("account")}
           className={`pb-2.5 px-3 text-xs font-display font-medium border-b-2 transition-colors flex items-center gap-1.5 ${
             tab === "account"
-              ? "border-clay text-ink"
+              ? "border-forest text-ink"
               : "border-transparent text-cloud-dark hover:text-ink"
           }`}
         >
@@ -105,146 +118,108 @@ export function AuthSettingsDialog({
         </button>
       </div>
 
-      {/* ── Tab: Workspace Settings ── */}
       {tab === "workspace" && (
         <div className="space-y-6">
-          {/* Section 1: System Prompt */}
-          <form onSubmit={handleSavePrompt} className="space-y-2.5">
+          <form onSubmit={handleSaveWorkspace} className="space-y-2.5">
             <div>
-              <h3 className="text-xs font-display font-semibold text-ink">
-                System Prompt
-              </h3>
-              <p className="text-[11px] font-reading text-cloud-dark mt-0.5 leading-relaxed">
-                Define custom prompt instructions that apply to all chats to guide model behavior for your account.
+              <h3 className="text-xs font-display font-semibold text-ink">System Instructions</h3>
+              <p className="text-[11px] font-reading text-cloud-dark mt-0.5">
+                Custom prompt applied to models for accounting context and reporting requirements.
               </p>
             </div>
-
             <textarea
               value={localPrompt}
               onChange={(e) => setLocalPrompt(e.target.value)}
-              placeholder="e.g. Provide a concise glossary at the end of each response, and highlight key metrics."
+              placeholder="e.g. Highlight discrepancies in footnote references..."
               rows={4}
-              className="w-full text-xs font-reading p-3 rounded-xl border border-hairline bg-surface text-ink focus:outline-none focus:ring-1 focus:ring-clay resize-none placeholder:text-cloud-dark"
+              className="w-full text-xs p-3 rounded-xl border border-hairline bg-surface text-ink focus:outline-none focus:ring-1 focus:ring-forest resize-none"
             />
-
-            <div className="flex items-center justify-between pt-1">
+            <div className="flex justify-between items-center">
               {savedSuccess ? (
-                <span className="flex items-center gap-1.5 text-xs text-clay font-display">
-                  <CheckCircle2 className="h-3.5 w-3.5" /> Saved
+                <span className="flex items-center gap-1 text-xs text-forest">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Saved
                 </span>
               ) : <div />}
               <Button variant="primary" size="sm" type="submit" iconLeft={<Save className="h-3.5 w-3.5" />}>
-                Save System Prompt
+                Save Instructions
               </Button>
             </div>
           </form>
-
-          {/* Section 2: Workspace Memory */}
-          <div className="pt-4 border-t border-hairline space-y-3">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-xs font-display font-semibold text-ink">
-                  Workspace Memory
-                </h3>
-                <p className="text-[11px] font-reading text-cloud-dark mt-0.5">
-                  Key details and preferences remembered by the workspace.
-                </p>
-              </div>
-
-              {selectedMemoryIds.size > 0 && onDeleteMemory && (
-                <button
-                  type="button"
-                  onClick={handleDeleteSelected}
-                  className="text-xs font-display text-clay-deep hover:underline flex items-center gap-1"
-                >
-                  <Trash2 className="h-3 w-3" />
-                  Delete Selected ({selectedMemoryIds.size})
-                </button>
-              )}
-            </div>
-
-            {/* Add Fact Form */}
-            <form onSubmit={handleAddFact} className="flex gap-2">
-              <Input
-                type="text"
-                placeholder="Add a fact (e.g. Preferred reporting currency is USD)..."
-                value={newMemoryText}
-                onChange={(e) => setNewMemoryText(e.target.value)}
-                className="text-xs"
-              />
-              <Button variant="secondary" size="sm" type="submit" iconLeft={<Plus className="h-3.5 w-3.5" />}>
-                Add Fact
-              </Button>
-            </form>
-
-            {/* List of facts */}
-            <div className="max-h-52 overflow-y-auto space-y-1.5 pr-1">
-              {memories.length === 0 ? (
-                <p className="text-xs text-cloud-dark font-reading py-2 text-center">
-                  No remembered facts yet.
-                </p>
-              ) : (
-                memories.map((m) => (
-                  <div
-                    key={m.id}
-                    className="flex items-center justify-between p-2 rounded-lg border border-hairline bg-surface text-xs font-reading"
-                  >
-                    <label className="flex items-center gap-2.5 min-w-0 cursor-pointer flex-1">
-                      <input
-                        type="checkbox"
-                        checked={selectedMemoryIds.has(m.id)}
-                        onChange={() => toggleSelectMemory(m.id)}
-                        className="rounded border-hairline text-clay focus:ring-0"
-                      />
-                      <span className="text-ink truncate">{m.fact}</span>
-                    </label>
-
-                    {onDeleteMemory && (
-                      <button
-                        type="button"
-                        onClick={() => onDeleteMemory(m.id)}
-                        className="p-1 text-cloud-dark hover:text-clay-deep transition-colors ml-2 shrink-0"
-                        title="Delete fact"
-                      >
-                        <Trash2 className="h-3.5 w-3.5" />
-                      </button>
-                    )}
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
         </div>
       )}
 
-      {/* ── Tab: Account ── */}
-      {tab === "account" && (
-        <div className="space-y-4">
-          <div className="p-4 bg-oat/50 rounded-xl border border-hairline space-y-2">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-clay text-canvas flex items-center justify-center font-display font-semibold text-sm shadow-xs">
-                {user?.name?.[0]?.toUpperCase() || "U"}
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="font-display font-medium text-sm text-ink truncate">
-                  {user?.name || "User"}
-                </p>
-                <p className="text-xs text-cloud-dark truncate">{user?.email || "user@example.com"}</p>
-              </div>
-            </div>
+      {tab === "keys" && (
+        <form onSubmit={handleSaveWorkspace} className="space-y-5">
+          <div className="rounded-xl p-3 bg-neutral-50 border border-hairline text-xs text-neutral-600">
+            <strong>Client-Side Isolation:</strong> API keys are saved locally in encrypted storage and never transmitted to multi-tenant servers.
+          </div>
 
-            <div className="pt-2 border-t border-hairline/60 grid grid-cols-2 gap-2 text-xs">
-              <div>
-                <span className="text-cloud-dark block text-[10px] uppercase font-display">Role</span>
-                <span className="text-ink font-medium">{user?.role || "Member"}</span>
-              </div>
-              <div>
-                <span className="text-cloud-dark block text-[10px] uppercase font-display">Status</span>
-                <span className="text-emerald-600 font-medium">Verified</span>
-              </div>
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-ink block">Google Gemini API Key</label>
+            <div className="relative">
+              <Input
+                type={showGemKey ? "text" : "password"}
+                placeholder="AIzaSy..."
+                value={localGemKey}
+                onChange={(e) => setLocalGemKey(e.target.value)}
+                className="pr-10 text-xs"
+              />
+              <button
+                type="button"
+                onClick={() => setShowGemKey(!showGemKey)}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-ink"
+              >
+                {showGemKey ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+              </button>
             </div>
           </div>
 
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-ink block">OpenRouter API Key</label>
+            <div className="relative">
+              <Input
+                type={showOrKey ? "text" : "password"}
+                placeholder="sk-or-v1-..."
+                value={localOrKey}
+                onChange={(e) => setLocalOrKey(e.target.value)}
+                className="pr-10 text-xs"
+              />
+              <button
+                type="button"
+                onClick={() => setShowOrKey(!showOrKey)}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-ink"
+              >
+                {showOrKey ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-between items-center pt-2">
+            {savedSuccess ? (
+              <span className="flex items-center gap-1 text-xs text-forest">
+                <CheckCircle2 className="w-3.5 h-3.5" /> Keys Saved
+              </span>
+            ) : <div />}
+            <Button variant="primary" size="sm" type="submit" iconLeft={<Save className="h-3.5 w-3.5" />}>
+              Save Keys
+            </Button>
+          </div>
+        </form>
+      )}
+
+      {tab === "account" && (
+        <div className="space-y-4">
+          <div className="p-4 bg-neutral-50 rounded-xl border border-hairline space-y-2">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-forest text-paper flex items-center justify-center font-display font-semibold text-sm">
+                {user?.name?.[0]?.toUpperCase() || "D"}
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="font-display font-medium text-sm text-ink truncate">{user?.name || "Demo Analyst"}</p>
+                <p className="text-xs text-cloud-dark truncate">{user?.email || "demo@draythos.app"}</p>
+              </div>
+            </div>
+          </div>
           <div className="flex justify-between items-center pt-2 border-t border-hairline">
             <Button variant="destructive" size="sm" onClick={onLogout} iconLeft={<LogOut className="h-3.5 w-3.5" />}>
               Sign Out

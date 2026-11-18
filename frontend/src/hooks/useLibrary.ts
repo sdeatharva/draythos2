@@ -88,6 +88,18 @@ export function useLibrary(userId: string = "usr_default") {
       setIsUploading(true);
       setUploadProgress({ current: 0, total: files.length });
 
+      // Resolve effective user ID from auth state or storage
+      let effectiveUserId = userId;
+      if (typeof window !== "undefined") {
+        const stored = localStorage.getItem("draythos_auth_user");
+        if (stored) {
+          try {
+            const parsed = JSON.parse(stored);
+            if (parsed.id) effectiveUserId = parsed.id;
+          } catch {}
+        }
+      }
+
       const uploadedRefs: DocumentReference[] = [];
 
       for (let i = 0; i < files.length; i++) {
@@ -96,6 +108,10 @@ export function useLibrary(userId: string = "usr_default") {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("sessionId", "workspace_library");
+        formData.append("userId", effectiveUserId);
+        if (folderId) {
+          formData.append("folder_id", folderId);
+        }
 
         try {
           const res = await fetch("/api/upload", {
@@ -123,7 +139,7 @@ export function useLibrary(userId: string = "usr_default") {
       await fetchLibrary();
       return uploadedRefs;
     },
-    [fetchLibrary]
+    [userId, fetchLibrary]
   );
 
   const attachToSession = useCallback(
@@ -159,4 +175,3 @@ export function useLibrary(userId: string = "usr_default") {
     refreshLibrary: fetchLibrary,
   };
 }
-

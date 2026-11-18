@@ -11,7 +11,8 @@ export async function POST(req: NextRequest) {
     const formData = await req.formData();
     const file = formData.get("file") as File | null;
     const sessionId = (formData.get("sessionId") as string) || "default";
-    const userId = (formData.get("userId") as string) || "usr_default";
+    const userId = (formData.get("userId") as string) || (formData.get("user_id") as string) || "usr_default";
+    const folderId = (formData.get("folder_id") as string) || (formData.get("folderId") as string) || "";
 
     if (!file || typeof file === "string" || !file.name) {
       return NextResponse.json(
@@ -51,6 +52,9 @@ export async function POST(req: NextRequest) {
     backendFormData.append("file", file, file.name);
     backendFormData.append("session_id", sessionId);
     backendFormData.append("user_id", userId);
+    if (folderId) {
+      backendFormData.append("folder_id", folderId);
+    }
 
     const backendRes = await fetch(`${VHAGAR_API_URL}/upload`, {
       method: "POST",
@@ -81,4 +85,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-

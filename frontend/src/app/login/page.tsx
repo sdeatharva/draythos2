@@ -49,7 +49,7 @@ export default function LoginPage() {
   // If already authenticated across tabs or sessions, redirect directly to /chat
   useEffect(() => {
     if (isAuthenticated) {
-      router.replace("/chat");
+      router.replace("/app/dashboard");
     }
   }, [isAuthenticated, router]);
 
@@ -88,7 +88,7 @@ export default function LoginPage() {
           return;
         }
       }
-      window.location.href = "/chat";
+      window.location.href = "/app/dashboard";
     } catch (err: any) {
       setError(err.message || "Authentication failed. Please check your credentials.");
     } finally {
@@ -107,7 +107,7 @@ export default function LoginPage() {
 
     try {
       await verifyEmailCode(email.trim(), verificationCode.trim());
-      window.location.href = "/chat";
+      window.location.href = "/app/dashboard";
     } catch (err: any) {
       setError(err.message || "Invalid verification code. Please check and retry.");
     } finally {

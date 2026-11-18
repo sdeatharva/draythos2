@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
   if (authCookie?.value && authCookie.value !== "undefined" && authCookie.value !== "null") {
     try {
       const parsed = JSON.parse(decodeURIComponent(authCookie.value));
-      if (parsed && typeof parsed === "object" && parsed.id && (parsed.email || parsed.name)) {
+      if (parsed && typeof parsed === "object" && parsed.id) {
         isAuthenticated = true;
       }
     } catch {
@@ -18,19 +18,17 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // 1. If user is already authenticated and visits /login or /register, redirect directly to /chat
+  // 1. If user is authenticated and visits /login or /register, redirect to /app/dashboard
   if (isAuthenticated && (pathname === "/login" || pathname === "/register")) {
-    return NextResponse.redirect(new URL("/chat", request.url));
+    return NextResponse.redirect(new URL("/app/dashboard", request.url));
   }
 
-  // 2. If user is NOT authenticated and attempts to enter /chat or /app/dashboard, redirect to /login
-  if (!isAuthenticated && (pathname.startsWith("/chat") || pathname.startsWith("/app/dashboard"))) {
-    return NextResponse.redirect(new URL("/login", request.url));
-  }
+  // 2. Demo mode enabled: Allow full access to all /app/* routes and /chat without a login wall!
+  // No forced redirection to /login, allowing demo dataroom exploration.
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/login", "/register", "/chat/:path*", "/app/dashboard/:path*"],
+  matcher: ["/login", "/register"],
 };

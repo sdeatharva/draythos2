@@ -974,7 +974,8 @@
       "results",
       "testing",
       "latent",
-      "existing"
+      "existing",
+      "banti"
     ],
     "category": "Direct Tax",
     "description": "US corporate alternative minimum tax targeting large corporations with gross receipts > $500M and a base erosion percentage >= 3%, imposing a 10% tax on modified taxable income adding back deductible foreign related-party payments.",
@@ -1005,7 +1006,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-13T09:08:49.881693Z"
+    "updated_at": "2026-11-18T17:29:10.529877Z"
   },
   "section 179 immediate expensing": {
     "canonical": "Section 179 Immediate Expensing",
@@ -1117,7 +1118,8 @@
       "factors",
       "treaty",
       "geeta",
-      "researchers"
+      "researchers",
+      "grand"
     ],
     "category": "Direct Tax",
     "description": "Direct tax levied on the taxable total profits of UK-resident companies and UK permanent establishments of foreign entities, filed annually via form CT600 at the main 25% or small profits 19% rate.",
@@ -1150,7 +1152,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-13T09:08:13.420566Z"
+    "updated_at": "2026-11-18T17:29:10.555058Z"
   },
   "capital allowances": {
     "canonical": "Capital Allowances",
@@ -1337,7 +1339,9 @@
       "learn",
       "valuable",
       "contributions",
-      "director"
+      "director",
+      "ankit",
+      "mansi"
     ],
     "category": "Direct Tax",
     "description": "UK statutory tax relief permitting businesses to write off the capital cost of qualifying plant and machinery against taxable profits in lieu of accounting depreciation.",
@@ -1369,7 +1373,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-18T15:47:26.726845Z"
+    "updated_at": "2026-11-18T17:29:10.360138Z"
   },
   "diverted profits tax": {
     "canonical": "Diverted Profits Tax",
@@ -1466,7 +1470,10 @@
       "path",
       "part",
       "arti",
-      "bharti"
+      "bharti",
+      "bhateri",
+      "hari",
+      "harish"
     ],
     "category": "Indirect Tax",
     "description": "Credit of GST paid on inputs, capital goods, and input services used in the course or furtherance of business, available to set off against output tax liabilities under Section 16 CGST Act.",
@@ -1500,7 +1507,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-13T08:49:39.811236Z"
+    "updated_at": "2026-11-18T17:29:09.842157Z"
   },
   "reverse charge mechanism under gst": {
     "canonical": "Reverse Charge Mechanism under GST",
@@ -1641,7 +1648,8 @@
       "EWB",
       "IRP Portal",
       "Signed QR Code Invoice",
-      "kiran"
+      "kiran",
+      "kiranpal"
     ],
     "category": "Compliance & Reporting",
     "description": "Mandatory real-time validation of B2B invoices via the Invoice Registration Portal (IRP) generating a unique 64-character IRN and QR code, coupled with electronic waybills (E-Way Bills) for consignment transport exceeding \u20b950,000.",
@@ -1673,7 +1681,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-13T08:49:40.027214Z"
+    "updated_at": "2026-11-18T17:29:09.874652Z"
   },
   "blocked input tax credit section 17(5)": {
     "canonical": "Blocked Input Tax Credit Section 17(5)",

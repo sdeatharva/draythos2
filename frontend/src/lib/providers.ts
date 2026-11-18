@@ -1,62 +1,67 @@
-import type { StreamEvent } from "@/types";
+import {
+  GEMINI_MODELS,
+  OPENROUTER_MODELS,
+  DEFAULT_GEMINI_MODEL,
+  DEFAULT_OPENROUTER_MODEL,
+  FALLBACK_GEMINI_MODEL,
+  resolveProviderModel,
+} from "./model-config";
 
-interface ProviderConfig {
-  name: string;
+export interface ProviderConfig {
+  name: "openrouter" | "gemini";
   model: string;
   baseUrl: string;
-  supportsImages: boolean;
-  supportsPdf: boolean;
 }
 
-export function getProviderConfig(
-  name: "openrouter" | "gemini"
+export function getProvider(
+  name: "openrouter" | "gemini",
+  requestedModel?: string
 ): ProviderConfig {
   if (name === "openrouter") {
     return {
       name: "openrouter",
-      model: process.env.OPENROUTER_MODEL ?? "openai/gpt-5.4",
+      model: resolveProviderModel("openrouter", requestedModel),
       baseUrl: "https://openrouter.ai/api/v1",
-      supportsImages: true,
-      supportsPdf: true,
     };
   }
+
   return {
     name: "gemini",
-    model: process.env.GEMINI_MODEL ?? "gemini-3-pro-preview",
+    model: resolveProviderModel("gemini", requestedModel),
     baseUrl: "https://generativelanguage.googleapis.com/v1beta",
-    supportsImages: true,
-    supportsPdf: true,
   };
 }
 
 export function buildOpenRouterRequest(
-  messages: { role: string; content: string }[],
+  messages: Array<{ role: string; content: string }>,
   model: string,
-  stream: boolean
-): { url: string; options: RequestInit } {
+  stream = true
+) {
+  const resolved = resolveProviderModel("openrouter", model);
   return {
     url: "https://openrouter.ai/api/v1/chat/completions",
-    options: {
+    init: {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.OPENROUTER_API_KEY ?? ""}`,
-        "HTTP-Referer": "https://draythos.app",
-        "X-Title": "Draythos",
       },
-      body: JSON.stringify({ model, messages, stream }),
+      body: JSON.stringify({ model: resolved, messages, stream }),
     },
   };
 }
 
 export function buildGeminiRequest(
-  messages: { role: string; content: string }[],
+  messages: Array<{ role: string; content: string }>,
   model: string,
-  stream: boolean
-): { url: string; options: RequestInit } {
+  stream = true
+) {
+  const resolved = resolveProviderModel("gemini", model);
   const apiKey = process.env.GEMINI_API_KEY ?? "";
   const endpoint = stream ? "streamGenerateContent" : "generateContent";
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:${endpoint}?key=${apiKey}${stream ? "&alt=sse" : ""}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${resolved}:${endpoint}?key=${apiKey}${
+    stream ? "&alt=sse" : ""
+  }`;
 
   const contents = messages.map((m) => ({
     role: m.role === "assistant" ? "model" : "user",
@@ -65,7 +70,7 @@ export function buildGeminiRequest(
 
   return {
     url,
-    options: {
+    init: {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contents }),
@@ -74,8 +79,11 @@ export function buildGeminiRequest(
 }
 
 export async function* parseOpenRouterStream(
-  reader: ReadableStreamDefaultReader<Uint8Array>
-): AsyncGenerator<StreamEvent> {
+  response: Response
+): AsyncGenerator<string, void, unknown> {
+  const reader = response.body?.getReader();
+  if (!reader) return;
+
   const decoder = new TextDecoder();
   let buffer = "";
 
@@ -88,32 +96,28 @@ export async function* parseOpenRouterStream(
     buffer = lines.pop() ?? "";
 
     for (const line of lines) {
-      if (!line.startsWith("data: ")) continue;
-      const data = line.slice(6).trim();
-      if (data === "[DONE]") {
-        yield { type: "complete", data: "", finish_reason: "stop" };
-        return;
-      }
+      const trimmed = line.trim();
+      if (!trimmed.startsWith("data: ")) continue;
+      const data = trimmed.slice(6);
+      if (data === "[DONE]") return;
+
       try {
         const parsed = JSON.parse(data);
-        const delta = parsed.choices?.[0]?.delta?.content ?? "";
-        const finish = parsed.choices?.[0]?.finish_reason;
-        if (delta) {
-          yield { type: "delta", data: delta };
-        }
-        if (finish) {
-          yield { type: "complete", data: "", finish_reason: finish };
-        }
+        const text = parsed.choices?.[0]?.delta?.content;
+        if (text) yield text;
       } catch {
-        // Skip malformed lines
+        // Skip invalid JSON lines
       }
     }
   }
 }
 
 export async function* parseGeminiStream(
-  reader: ReadableStreamDefaultReader<Uint8Array>
-): AsyncGenerator<StreamEvent> {
+  response: Response
+): AsyncGenerator<string, void, unknown> {
+  const reader = response.body?.getReader();
+  if (!reader) return;
+
   const decoder = new TextDecoder();
   let buffer = "";
 
@@ -126,43 +130,17 @@ export async function* parseGeminiStream(
     buffer = lines.pop() ?? "";
 
     for (const line of lines) {
-      if (!line.startsWith("data: ")) continue;
-      const data = line.slice(6).trim();
-      if (!data) continue;
+      const trimmed = line.trim();
+      if (!trimmed.startsWith("data: ")) continue;
+      const data = trimmed.slice(6);
+
       try {
         const parsed = JSON.parse(data);
-        const text =
-          parsed.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
-        if (text) {
-          yield { type: "delta", data: text };
-        }
-        if (parsed.candidates?.[0]?.finishReason) {
-          yield {
-            type: "complete",
-            data: "",
-            finish_reason: parsed.candidates[0].finishReason,
-          };
-        }
+        const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (text) yield text;
       } catch {
-        // Skip malformed
+        // Skip invalid JSON lines
       }
     }
   }
 }
-
-export function isRecoverableError(status: number, error: string): boolean {
-  // Recoverable: server errors, rate limits, timeouts
-  if (status >= 500 || status === 429 || status === 408) return true;
-  // Not recoverable: auth, safety, bad request
-  if (status === 401 || status === 403 || status === 400) return false;
-  // Check error content
-  const lower = error.toLowerCase();
-  if (
-    lower.includes("safety") ||
-    lower.includes("blocked") ||
-    lower.includes("invalid")
-  )
-    return false;
-  return true;
-}
-
