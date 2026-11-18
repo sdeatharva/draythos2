@@ -403,11 +403,21 @@ export function ChatWorkspace({ initialSessionId }: ChatWorkspaceProps) {
   );
 
   const handleDownload = useCallback(
-    async (documentId: string, filename: string) => {
-      await downloadDocument(documentId, filename);
+    async (documentId: string, filename: string, source: "original" | "working" = "working") => {
+      await downloadDocument(documentId, filename, source);
     },
     [downloadDocument]
   );
+
+  const handleRevertChanges = useCallback(async (documentId: string) => {
+    const response = await fetch(`/api/documents/${encodeURIComponent(documentId)}/revert`, {
+      method: "POST",
+    });
+    if (!response.ok) throw new Error("Could not revert the working copy");
+    window.dispatchEvent(new CustomEvent("draythos:document-updated", {
+      detail: { documentId, version: "original" },
+    }));
+  }, []);
 
   const handleSelectDocument = useCallback(
     (doc: DocumentReference) => {
@@ -645,6 +655,7 @@ export function ChatWorkspace({ initialSessionId }: ChatWorkspaceProps) {
                 selectedModel={selectedModel}
                 preferredProvider={preferredProvider}
                 onModelChange={(modelId) => updatePreferences({ selectedModel: modelId })}
+                onRevertChanges={handleRevertChanges}
               />
             )}
           </section>

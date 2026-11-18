@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 export type Theme = "light" | "dark";
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>("dark"); // Default to dark like Claude screenshot
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
     try {
@@ -18,12 +18,12 @@ export function useTheme() {
           document.documentElement.classList.remove("dark");
         }
       } else {
-        // Default to dark mode matching Claude reference
-        setTheme("dark");
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("draythos_theme", "dark");
+        // Default to light theme matching the warm paper palette
+        setTheme("light");
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("draythos_theme", "light");
       }
-    } catch {}
+    } catch { }
   }, []);
 
   const toggleTheme = useCallback(() => {
@@ -36,7 +36,7 @@ export function useTheme() {
         } else {
           document.documentElement.classList.remove("dark");
         }
-      } catch {}
+      } catch { }
       return next;
     });
   }, []);
@@ -50,7 +50,7 @@ export function useTheme() {
       } else {
         document.documentElement.classList.remove("dark");
       }
-    } catch {}
+    } catch { }
   }, []);
 
   return {

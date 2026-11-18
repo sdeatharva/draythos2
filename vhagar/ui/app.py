@@ -14,6 +14,14 @@ import structlog
 from vhagar.config import get_config
 from vhagar.bootstrap import bootstrap, get_registry
 from vhagar.startup_validation import run_all_checks
+from vhagar.api import (
+    facts_router,
+    concepts_router,
+    mappings_router,
+    normalize_router,
+    export_router,
+    qa_router,
+)
 
 logger = structlog.get_logger(__name__)
 
@@ -42,6 +50,12 @@ def create_app() -> FastAPI:
         description="Document intelligence backend – UI and review surface",
         lifespan=lifespan,
     )
+
+    app.include_router(facts_router)
+    app.include_router(concepts_router)
+    app.include_router(normalize_router)
+    app.include_router(export_router)
+    app.include_router(qa_router)
 
     app.add_middleware(
         CORSMiddleware,

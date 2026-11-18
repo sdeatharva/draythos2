@@ -2,18 +2,20 @@
 
 import { cn } from "@/lib/utils";
 
-type BadgeVariant = "default" | "status" | "format";
+export type BadgeVariant = "default" | "forest" | "lavender" | "status" | "format";
 
-interface BadgeProps {
+export interface BadgeProps {
   variant?: BadgeVariant;
   children: React.ReactNode;
   className?: string;
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  default: "bg-oat text-ink-soft",
-  status: "bg-clay/15 text-clay-deep",
-  format: "bg-surface text-text-muted border border-hairline",
+  default: "bg-oat text-ink-soft border border-hairline",
+  forest: "bg-forest text-paper",
+  lavender: "bg-lavender text-ink font-medium border border-lavender/60",
+  status: "bg-success-soft text-success border border-success/20",
+  format: "bg-surface text-ink-soft border border-hairline font-mono",
 };
 
 export function Badge({
@@ -24,7 +26,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-display font-medium",
+        "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-ui font-medium",
         variantClasses[variant],
         className
       )}
@@ -33,4 +35,3 @@ export function Badge({
     </span>
   );
 }
-

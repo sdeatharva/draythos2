@@ -121,6 +121,9 @@ export function validateChatRequest(body: any): ChatRequest {
     ? body.selected_model.trim()
     : undefined;
   const preferred_provider = typeof body.preferred_provider === "string" ? body.preferred_provider.trim() : undefined;
+  const context_scope = ["chat", "folder", "organization"].includes(body.context_scope)
+    ? body.context_scope
+    : "chat";
 
   return {
     message,
@@ -128,7 +131,11 @@ export function validateChatRequest(body: any): ChatRequest {
     attachments,
     activeDocumentId,
     history,
-    include_global: Boolean(body.include_global),
+    // Organization scope is the only scope allowed to expand beyond the
+    // current chat's attachments. Folder scope remains attachment-scoped
+    // until the folder membership contract is supplied by the backend.
+    include_global: context_scope === "organization" && Boolean(body.include_global),
+    context_scope,
     user_id,
     openRouterKey,
     geminiKey,
@@ -321,6 +328,35 @@ Do NOT return document citations. Answer the question directly and factually.`;
     }
   } catch (err) {
     console.warn(`[${correlationId}] Vhagar search & concept intelligence failed:`, err);
+  }
+
+  // Structured-First Facts Query (Section 4.1 & 5: Facts answer the question, numbers have exact sources)
+  try {
+    const factsUrl = `${VHAGAR_API_URL}/api/facts?search=${encodeURIComponent(req.message.slice(0, 40))}&limit=6`;
+    const factsRes = await fetch(factsUrl, {
+      headers: { "X-Correlation-ID": correlationId },
+    });
+    if (factsRes.ok) {
+      const factsData = await factsRes.json();
+      if (Array.isArray(factsData.facts) && factsData.facts.length > 0) {
+        const factLines = factsData.facts.map((f: any) => {
+          const locStr =
+            f.locator?.type === "xlsx"
+              ? `${f.locator.sheet || "Sheet"}!${f.locator.cell || "Cell"}`
+              : f.locator?.type === "pdf"
+              ? `Page ${f.locator.page || 1}`
+              : f.locator?.type === "csv"
+              ? `Row ${f.locator.row}, Col ${f.locator.col}`
+              : f.locator?.quote || "Source";
+          return `- ${f.concept_label || f.raw_label} ('${f.raw_label}'): ${f.value_raw} ${f.unit || ""} [Period: ${f.period?.label || "Current"}] (Source: ${locStr}, Fact ID: ${f.fact_id})`;
+        });
+        attachedTextParts.unshift(
+          `[VERIFIED CANONICAL FACTS FROM DATA ROOM]:\n${factLines.join("\n")}`
+        );
+      }
+    }
+  } catch (factErr) {
+    // Non-fatal
   }
 
   // 2. Fetch active or attached document content (including structured workbook sheets)

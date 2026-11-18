@@ -11,7 +11,11 @@
       "Top-Line",
       "Billings",
       "willing",
-      "millions"
+      "millions",
+      "building",
+      "bridging",
+      "uncover",
+      "willingness"
     ],
     "category": "Financial Accounting",
     "description": "Income arising in the course of an entity's ordinary activities, recognized when performance obligations are satisfied by transferring promised goods or services to customers.",
@@ -44,7 +48,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-04T06:54:13.023939Z"
+    "updated_at": "2026-11-18T15:47:25.165758Z"
   },
   "right-of-use asset": {
     "canonical": "Right-of-Use Asset",
@@ -85,7 +89,9 @@
       "moves",
       "remains",
       "remain",
-      "resolve"
+      "resolve",
+      "detail",
+      "areas"
     ],
     "category": "Financial Accounting",
     "description": "An asset that represents a lessee's right to use an underlying leased property or equipment over the lease term, capitalized at commencement date with corresponding lease liability.",
@@ -118,7 +124,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-03T22:28:49.995851Z"
+    "updated_at": "2026-11-13T09:08:13.064331Z"
   },
   "cash flows from operating activities": {
     "canonical": "Cash Flows from Operating Activities",
@@ -195,7 +201,10 @@
       "statement",
       "prepared",
       "stage",
-      "estimate"
+      "estimate",
+      "rte",
+      "father",
+      "sitar"
     ],
     "category": "Direct Tax",
     "description": "The amounts of income taxes recoverable in future periods in respect of deductible temporary differences, carryforward of unused tax losses, and carryforward of unused tax credits.",
@@ -227,7 +236,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-04T06:54:13.408504Z"
+    "updated_at": "2026-11-13T08:49:39.936202Z"
   },
   "impairment of assets": {
     "canonical": "Impairment of Assets",
@@ -361,7 +370,8 @@
       "Valuation Allowance Contra Asset",
       "via",
       "viva",
-      "vigna"
+      "vigna",
+      "vijay"
     ],
     "category": "Direct Tax",
     "description": "A contra-asset allowance under ASC 740 reducing deferred tax assets if, based on the weight of available evidence, it is more likely than not (>50%) that some or all DTAs will not be realized.",
@@ -392,7 +402,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-04T06:54:12.179037Z"
+    "updated_at": "2026-11-13T08:49:41.407048Z"
   },
   "current expected credit losses (cecl)": {
     "canonical": "Current Expected Credit Losses (CECL)",
@@ -462,7 +472,9 @@
       "along",
       "phone",
       "entry",
-      "piero"
+      "piero",
+      "allowing",
+      "allow"
     ],
     "category": "International Tax",
     "description": "A fixed place of business through which the business of an enterprise is wholly or partly carried on, conferring primary taxing rights over business profits to the source country.",
@@ -494,7 +506,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-04T06:54:12.197504Z"
+    "updated_at": "2026-11-13T09:08:15.992475Z"
   },
   "arm's length principle": {
     "canonical": "Arm's Length Principle",
@@ -504,7 +516,8 @@
       "OECD Article 9 Standard",
       "Intercompany Market Pricing",
       "Comparable Uncontrolled Price (CUP)",
-      "alpha"
+      "alpha",
+      "dalip"
     ],
     "category": "Transfer Pricing",
     "description": "The international standard agreed by OECD member countries that commercial or financial conditions in transactions between associated enterprises must mirror conditions between independent enterprises in comparable uncontrolled transactions.",
@@ -536,7 +549,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-03T07:06:08.228325Z"
+    "updated_at": "2026-11-13T08:49:40.391108Z"
   },
   "pillar two globe minimum tax": {
     "canonical": "Pillar Two GloBE Minimum Tax",
@@ -733,7 +746,16 @@
       "contained",
       "costs",
       "contain",
-      "continue"
+      "continue",
+      "amount",
+      "accounts",
+      "combine",
+      "finance",
+      "cost",
+      "across",
+      "amounts",
+      "financial",
+      "commitment"
     ],
     "category": "Indirect Tax",
     "description": "The supply of goods dispatched or transported from one EU Member State to another EU Member State to a taxable person, exempt from VAT with the right to deduct input tax (zero-rated).",
@@ -764,7 +786,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-04T06:54:13.447856Z"
+    "updated_at": "2026-11-18T15:47:25.312145Z"
   },
   "input vat deduction": {
     "canonical": "Input VAT Deduction",
@@ -845,7 +867,9 @@
       "users",
       "used",
       "assumed",
-      "cases"
+      "cases",
+      "class",
+      "umed"
     ],
     "category": "Compliance & Reporting",
     "description": "Electronic portal allowing e-commerce businesses making cross-border B2C sales of goods and services within the EU to declare and pay the VAT due in all destination Member States via a single quarterly return.",
@@ -877,7 +901,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-04T06:54:13.364471Z"
+    "updated_at": "2026-11-13T08:49:40.187298Z"
   },
   "global intangible low-taxed income": {
     "canonical": "Global Intangible Low-Taxed Income",
@@ -947,7 +971,10 @@
       "team",
       "rules",
       "latest",
-      "results"
+      "results",
+      "testing",
+      "latent",
+      "existing"
     ],
     "category": "Direct Tax",
     "description": "US corporate alternative minimum tax targeting large corporations with gross receipts > $500M and a base erosion percentage >= 3%, imposing a 10% tax on modified taxable income adding back deductible foreign related-party payments.",
@@ -978,7 +1005,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-04T06:54:11.787069Z"
+    "updated_at": "2026-11-13T09:08:49.881693Z"
   },
   "section 179 immediate expensing": {
     "canonical": "Section 179 Immediate Expensing",
@@ -1088,7 +1115,9 @@
       "research",
       "search",
       "factors",
-      "treaty"
+      "treaty",
+      "geeta",
+      "researchers"
     ],
     "category": "Direct Tax",
     "description": "Direct tax levied on the taxable total profits of UK-resident companies and UK permanent establishments of foreign entities, filed annually via form CT600 at the main 25% or small profits 19% rate.",
@@ -1121,7 +1150,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-04T06:54:12.916694Z"
+    "updated_at": "2026-11-13T09:08:13.420566Z"
   },
   "capital allowances": {
     "canonical": "Capital Allowances",
@@ -1281,7 +1310,34 @@
       "regarding",
       "projections",
       "intend",
-      "prospects"
+      "prospects",
+      "anita",
+      "mansingh",
+      "umrao",
+      "mining",
+      "extraction",
+      "extract",
+      "combining",
+      "transformative",
+      "actionable",
+      "innovation",
+      "increasingly",
+      "combination",
+      "extracting",
+      "construction",
+      "complexity",
+      "records",
+      "recognition",
+      "detection",
+      "recognizing",
+      "singh",
+      "completed",
+      "internship",
+      "dedication",
+      "learn",
+      "valuable",
+      "contributions",
+      "director"
     ],
     "category": "Direct Tax",
     "description": "UK statutory tax relief permitting businesses to write off the capital cost of qualifying plant and machinery against taxable profits in lieu of accounting depreciation.",
@@ -1313,7 +1369,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-04T06:54:13.551028Z"
+    "updated_at": "2026-11-18T15:47:26.726845Z"
   },
   "diverted profits tax": {
     "canonical": "Diverted Profits Tax",
@@ -1408,7 +1464,9 @@
       "pitch",
       "patch",
       "path",
-      "part"
+      "part",
+      "arti",
+      "bharti"
     ],
     "category": "Indirect Tax",
     "description": "Credit of GST paid on inputs, capital goods, and input services used in the course or furtherance of business, available to set off against output tax liabilities under Section 16 CGST Act.",
@@ -1442,7 +1500,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-03T22:28:08.992450Z"
+    "updated_at": "2026-11-13T08:49:39.811236Z"
   },
   "reverse charge mechanism under gst": {
     "canonical": "Reverse Charge Mechanism under GST",
@@ -1582,7 +1640,8 @@
       "E-Way Bill",
       "EWB",
       "IRP Portal",
-      "Signed QR Code Invoice"
+      "Signed QR Code Invoice",
+      "kiran"
     ],
     "category": "Compliance & Reporting",
     "description": "Mandatory real-time validation of B2B invoices via the Invoice Registration Portal (IRP) generating a unique 64-character IRN and QR code, coupled with electronic waybills (E-Way Bills) for consignment transport exceeding \u20b950,000.",
@@ -1614,7 +1673,7 @@
     ],
     "tier": 1,
     "created_at": "2026-11-02T23:37:46.132953Z",
-    "updated_at": "2026-11-02T23:37:46.132953Z"
+    "updated_at": "2026-11-13T08:49:40.027214Z"
   },
   "blocked input tax credit section 17(5)": {
     "canonical": "Blocked Input Tax Credit Section 17(5)",

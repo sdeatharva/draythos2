@@ -179,33 +179,35 @@ export function LiquidDock({
           </div>
         ) : (
           filteredSessions.map((session) => (
-            <div key={session.id} className="relative group">
+            <div
+              key={session.id}
+              className={cn(
+                "relative group flex items-center justify-between gap-1 w-full rounded-lg px-2.5 py-1.5 transition-colors text-xs font-reading",
+                session.id === activeSessionId
+                  ? "bg-oat text-ink font-medium"
+                  : "text-ink-soft hover:bg-oat/50 hover:text-ink"
+              )}
+            >
               <button
+                type="button"
                 onClick={() => onSelectSession(session.id)}
-                className={cn(
-                  "w-full text-left px-2.5 py-1.5 rounded-lg transition-colors flex items-center justify-between gap-2 text-xs font-reading",
-                  session.id === activeSessionId
-                    ? "bg-oat text-ink font-medium"
-                    : "text-ink-soft hover:bg-oat/50 hover:text-ink"
-                )}
+                className="min-w-0 flex-1 flex items-center gap-2 text-left focus:outline-none"
               >
-                <div className="min-w-0 flex-1 flex items-center gap-2">
-                  <span className="text-cloud-dark text-[10px] shrink-0">•</span>
-                  <span className="truncate">{session.title}</span>
-                </div>
+                <span className="text-cloud-dark text-[10px] shrink-0">•</span>
+                <span className="truncate">{session.title}</span>
+              </button>
 
-                {/* Session Actions Menu Trigger */}
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setMenuOpen(menuOpen === session.id ? null : session.id);
-                  }}
-                  className="opacity-0 group-hover:opacity-100 p-1 rounded hover:bg-hairline/60 transition-opacity shrink-0"
-                  aria-label="Session options"
-                >
-                  <MoreHorizontal className="h-3 w-3 text-cloud-dark" />
-                </button>
+              {/* Session Actions Menu Trigger */}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setMenuOpen(menuOpen === session.id ? null : session.id);
+                }}
+                className="opacity-0 group-hover:opacity-100 p-1 rounded hover:bg-hairline/60 transition-opacity shrink-0 focus:opacity-100"
+                aria-label="Session options"
+              >
+                <MoreHorizontal className="h-3 w-3 text-cloud-dark" />
               </button>
 
               {/* Context Menu */}

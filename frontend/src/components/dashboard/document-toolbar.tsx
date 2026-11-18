@@ -75,6 +75,10 @@ export function DocumentToolbar({
   const docId = (doc as any)?.document_id || (doc as any)?.id || "";
   const effectiveFormat = format || (doc as any)?.format || "";
   const isPdf = effectiveFormat.toLowerCase() === "pdf";
+  // DOCX remains read-only until the round-trip preservation matrix is proven.
+  const supportsNativeSave = ["xlsx", "xls", "csv", "txt", "json", "xml"].includes(
+    effectiveFormat.toLowerCase()
+  );
   const zoomPercent = Math.round(zoom * 100);
 
   const handlePageSubmit = (e: React.FormEvent) => {
@@ -115,7 +119,9 @@ export function DocumentToolbar({
   if (!doc) return null;
 
   /* ── save status text ── */
-  const saveStatusText = isSaving
+  const saveStatusText = !supportsNativeSave
+    ? "Preview only"
+    : isSaving
     ? "Saving…"
     : hasUnsavedChanges
       ? "Unsaved changes"
@@ -248,7 +254,7 @@ export function DocumentToolbar({
       </span>
 
       {/* ── Save button ── */}
-      <button
+      {supportsNativeSave && <button
         onClick={onSave}
         disabled={!hasUnsavedChanges || isSaving}
         className={`
@@ -268,7 +274,7 @@ export function DocumentToolbar({
           <Save className="h-3.5 w-3.5" />
         )}
         <span className="hidden sm:inline">Save</span>
-      </button>
+      </button>}
 
       {/* ── Download dropdown ── */}
       <div className="relative" ref={downloadRef}>

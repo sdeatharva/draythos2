@@ -1,0 +1,18 @@
+{
+  "model_version": "enc-1.0.0",
+  "taxonomy_version": "tax-1.0.0",
+  "base_model": "all-MiniLM-L6-v2",
+  "checkpoint_source": "all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "pooling": "mean_normalized",
+  "concept_index_sha256": "2728da2978919ea85a0c2232c610063adb8c36d521024e243df778556a766a8a",
+  "concepts_sha256": "80786b2c61cdf139665d24fdfa9547070e991c0be40ea542480161a2de0e9063",
+  "seed": 42,
+  "hyperparameters": {
+    "stage1_loss": "MultipleNegativesRankingLoss",
+    "stage1_scale": 20.0,
+    "stage2_loss": "TripletLoss",
+    "stage2_margin": 0.2,
+    "calibrator": "LogisticRegression(C=1.0)"
+  }
+}

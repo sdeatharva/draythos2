@@ -1,0 +1,13 @@
+{
+  "features": [
+    "s1",
+    "s1_minus_s2"
+  ],
+  "coefficients": [
+    4.958270523278963,
+    2.176129659792666
+  ],
+  "intercept": -2.617530390385705,
+  "calibration_samples": 153,
+  "target_precision": 0.95
+}

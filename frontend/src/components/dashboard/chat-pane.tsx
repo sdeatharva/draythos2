@@ -18,6 +18,7 @@ import {
   ArrowUp,
   Check,
   Folder,
+  Undo2,
   CheckSquare,
   Edit3,
   Loader2,
@@ -41,6 +42,7 @@ interface ChatPaneProps {
   selectedModel?: string;
   preferredProvider?: string;
   onModelChange?: (modelId: string) => void;
+  onRevertChanges?: (documentId: string) => Promise<void>;
 }
 
 export function ChatPane({
@@ -59,6 +61,7 @@ export function ChatPane({
   selectedModel: propSelectedModel,
   preferredProvider: propPreferredProvider,
   onModelChange,
+  onRevertChanges,
 }: ChatPaneProps) {
   const [inputValue, setInputValue] = useState("");
   const [showUploadZone, setShowUploadZone] = useState(false);
@@ -68,31 +71,12 @@ export function ChatPane({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const attachMenuRef = useRef<HTMLDivElement>(null);
 
-  // Selected files for context referencing (checkboxes)
+  const [contextScope, setContextScope] = useState<"chat" | "folder" | "organization">("chat");
+  const [showRevertConfirm, setShowRevertConfirm] = useState(false);
+  // Kept only for migration compatibility. The artifact tab is the edit target.
   const [selectedForContext, setSelectedForContext] = useState<Set<string>>(new Set());
-  // Designated target file for document modifications / prompt editing
-  const [targetEditDocId, setTargetEditDocId] = useState<string | null>(activeDocumentId || null);
-
-  // Keep selectedForContext and targetEditDocId in sync as attachments change
-  useEffect(() => {
-    setSelectedForContext((prev) => {
-      const next = new Set(prev);
-      attachments.forEach((a) => {
-        if (!next.has(a.document_id)) next.add(a.document_id);
-      });
-      return next;
-    });
-
-    if (!targetEditDocId && attachments.length > 0) {
-      setTargetEditDocId(activeDocumentId || attachments[0].document_id);
-    }
-  }, [attachments, activeDocumentId, targetEditDocId]);
-
-  useEffect(() => {
-    if (activeDocumentId) {
-      setTargetEditDocId(activeDocumentId);
-    }
-  }, [activeDocumentId]);
+  const [targetEditDocId, setTargetEditDocId] = useState<string | null>(null);
+  const showLegacyDocumentControls = false;
 
   // Enriched Active Selection Context Protocol
   const [selectionContext, setSelectionContext] = useState<SelectionContext | null>(null);
@@ -110,8 +94,7 @@ export function ChatPane({
   const toggleContextRef = (docId: string) => {
     setSelectedForContext((prev) => {
       const next = new Set(prev);
-      if (next.has(docId)) next.delete(docId);
-      else next.add(docId);
+      next.has(docId) ? next.delete(docId) : next.add(docId);
       return next;
     });
   };
@@ -219,23 +202,21 @@ export function ChatPane({
       createdId = await onSendMessage(text);
     }
 
-    const contextAttachments = attachments.filter((a) => selectedForContext.has(a.document_id));
-    const effectiveTargetDocId =
-      targetEditDocId || activeDocumentId || (attachments.length > 0 ? attachments[0].document_id : undefined);
+    const contextAttachments = attachments;
+    const effectiveTargetDocId = activeDocumentId || attachments[0]?.document_id;
 
     const activeSel = selectionContext;
     setSelectionContext(null);
-    sendMessage(text, contextAttachments, effectiveTargetDocId, createdId || undefined, activeSel || undefined);
+    sendMessage(text, contextAttachments, effectiveTargetDocId, createdId || undefined, activeSel || undefined, contextScope);
   }, [
     inputValue,
     isStreaming,
     onSendMessage,
     sendMessage,
     attachments,
-    selectedForContext,
-    targetEditDocId,
     activeDocumentId,
     selectionContext,
+    contextScope,
   ]);
 
   const handleKeyDown = useCallback(
@@ -425,7 +406,7 @@ export function ChatPane({
               )}
             >
             {/* Active Document Uploads & Indexing Progress / Explicit Failure */}
-            {uploadProgress && uploadProgress.length > 0 && (
+            {showLegacyDocumentControls && uploadProgress && uploadProgress.length > 0 && (
               <div className="mb-2.5 flex flex-col gap-1.5 pb-2 border-b border-hairline/60">
                 <div className="flex items-center justify-between text-[11px] font-mono text-cloud-dark px-1">
                   <span className="flex items-center gap-1.5 font-medium">
@@ -516,7 +497,7 @@ export function ChatPane({
             )}
 
             {/* Interactive Document Selection: Context Reference & Edit Target */}
-            {attachments.length > 0 && (
+            {showLegacyDocumentControls && attachments.length > 0 && (
               <div className="mb-2.5 flex flex-col gap-1.5 pb-2 border-b border-hairline/60">
                 <div className="flex items-center justify-between text-[11px] font-mono text-cloud-dark px-1">
                   <span className="flex items-center gap-1.5 font-medium">
@@ -638,6 +619,26 @@ export function ChatPane({
               </div>
             )}
 
+            {showRevertConfirm && activeDocumentId && (
+              <div className="absolute bottom-full left-0 right-0 z-40 mb-2 rounded-2xl border border-hairline bg-surface p-4 shadow-lg">
+                <p className="font-display text-sm font-medium text-ink">Revert saved changes?</p>
+                <p className="mt-1 font-reading text-xs text-ink-soft">This restores the open file to its original uploaded version and removes all of its saved working copies.</p>
+                <div className="mt-3 flex justify-end gap-2">
+                  <button type="button" onClick={() => setShowRevertConfirm(false)} className="rounded-lg px-3 py-1.5 text-xs text-ink-soft hover:bg-oat">Cancel</button>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      await onRevertChanges?.(activeDocumentId);
+                      setShowRevertConfirm(false);
+                    }}
+                    className="rounded-lg bg-clay px-3 py-1.5 text-xs font-medium text-canvas hover:bg-clay-deep"
+                  >
+                    Revert changes
+                  </button>
+                </div>
+              </div>
+            )}
+
             {/* Input Textarea */}
             <textarea
               ref={textareaRef}
@@ -652,6 +653,7 @@ export function ChatPane({
 
             {/* Bottom Row Controls */}
             <div className="flex items-center justify-between pt-2 mt-1 border-t border-hairline/40">
+              <div className="flex items-center gap-2 min-w-0">
               {/* Left: Attachment Menu (+ Popover) */}
               <div className="relative" ref={attachMenuRef}>
                 <button
@@ -691,6 +693,42 @@ export function ChatPane({
                     )}
                   </div>
                 )}
+              </div>
+
+              <div className="flex items-center rounded-lg border border-hairline/70 bg-oat/35 p-0.5" role="group" aria-label="Chat context">
+                {([
+                  ["chat", "Chat"],
+                  ["folder", "Folder"],
+                  ["organization", "Organization"],
+                ] as const).map(([scope, label]) => (
+                  <button
+                    key={scope}
+                    type="button"
+                    onClick={() => setContextScope(scope)}
+                    className={cn(
+                      "rounded-md px-2 py-1 text-[11px] font-display transition-colors",
+                      contextScope === scope
+                        ? "bg-surface text-ink shadow-2xs font-medium"
+                        : "text-cloud-dark hover:text-ink"
+                    )}
+                    title={scope === "chat" ? "Use files uploaded to this chat" : scope === "folder" ? "Use the current folder's available files" : "Use documents available across the organization"}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+
+              {onRevertChanges && activeDocumentId && (
+                <button
+                  type="button"
+                  onClick={() => setShowRevertConfirm(true)}
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-lg text-cloud-dark transition-colors hover:bg-oat hover:text-ink"
+                  title="Revert all saved changes to the open file"
+                  aria-label="Revert all saved changes to the open file"
+                >
+                  <Undo2 className="h-3.5 w-3.5" />
+                </button>
+              )}
               </div>
 
               {/* Right: Model Selection Dropdown + Send/Stop Button */}

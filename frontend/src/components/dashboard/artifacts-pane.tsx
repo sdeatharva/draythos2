@@ -26,7 +26,7 @@ interface ArtifactsPaneProps {
   onTabSelect: (id: string) => void;
   onTabClose: (id: string) => void;
   onSave: (documentId: string, edits: any, format: string) => Promise<any>;
-  onDownload: (documentId: string, filename: string) => Promise<void>;
+  onDownload: (documentId: string, filename: string, source?: "original" | "working") => Promise<void>;
   getContent: (documentId: string) => Promise<any>;
   availableDocuments?: DocumentReference[];
   onOpenDocument?: (doc: DocumentReference) => void;
@@ -134,7 +134,7 @@ export function ArtifactsPane({
   const handleDownload = useCallback(
     async (type: "original" | "working" = "working") => {
       if (!activeTab) return;
-      await onDownload(activeTab.id, activeTab.documentRef.source_filename);
+      await onDownload(activeTab.id, activeTab.documentRef.source_filename, type);
     },
     [activeTab, onDownload]
   );

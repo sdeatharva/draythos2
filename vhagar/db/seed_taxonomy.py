@@ -1,0 +1,370 @@
+"""Canonical Taxonomy and Seed Data for Draythos.
+
+Milestone O1: 150 Financial, Tax, and Compliance concepts across:
+- tax.* (VAT/GST, Sales Tax, Withholding, Corporate Tax, Customs, etc.)
+- fs.* (Revenue, COGS, EBIT, EBITDA, PAT, EPS, Assets, Liabilities, Cash Flows)
+- cmp.* (Invoices, Filings, Audit, KYC, Disclosures, Penalties)
+
+Functional equivalence rules:
+- VAT (UK/EU) and GST (IN/AU) map to 'tax.value_added' (multi-stage consumption tax with input credit)
+- US Sales Tax maps to 'tax.sales_tax' (single-stage consumption tax without input credit)
+- Both sit under parent 'tax.consumption'
+- Every variant has relation 'equivalent', 'related', or 'different'.
+
+Legal caveat: "Terminology normalization, not a legal determination."
+"""
+
+from __future__ import annotations
+import unicodedata
+from typing import Any
+
+CAVEAT = "Terminology normalization, not a legal determination."
+
+
+def normalize_key(text: str) -> str:
+    """Standard normalized lookup key: lowercase + Unicode NFKC + collapsed whitespace."""
+    if not text:
+        return ""
+    norm = unicodedata.normalize("NFKC", text.lower())
+    return " ".join(norm.split())
+
+
+# 150 Concepts definition
+CONCEPTS_DATA: list[dict[str, Any]] = [
+    # -------------------------------------------------------------
+    # 1. TAXATION FAMILY: tax.* (Parent: tax.root)
+    # -------------------------------------------------------------
+    {"concept_id": "tax.root", "label": "Taxation", "definition": "Levies and taxes imposed by government authorities", "parent_id": None, "kind": "tax", "jurisdiction": "GLOBAL"},
+    
+    # Consumption Taxes
+    {"concept_id": "tax.consumption", "label": "Consumption Taxes", "definition": "Taxes on the purchase and consumption of goods and services", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.value_added", "label": "Value Added / Goods & Services Tax", "definition": "Multi-stage consumption tax with input tax credit mechanism across supply chain", "parent_id": "tax.consumption", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.sales_tax", "label": "Retail Sales Tax", "definition": "Single-stage retail consumption tax collected at final point of sale without input credits", "parent_id": "tax.consumption", "kind": "tax", "jurisdiction": "US"},
+    {"concept_id": "tax.cgst", "label": "Central Goods and Services Tax", "definition": "Intra-state GST component levied by the Central Government of India", "parent_id": "tax.value_added", "kind": "tax", "jurisdiction": "IN"},
+    {"concept_id": "tax.sgst", "label": "State Goods and Services Tax", "definition": "Intra-state GST component levied by State Governments in India", "parent_id": "tax.value_added", "kind": "tax", "jurisdiction": "IN"},
+    {"concept_id": "tax.igst", "label": "Integrated Goods and Services Tax", "definition": "Inter-state GST levied on supply of goods/services and imports into India", "parent_id": "tax.value_added", "kind": "tax", "jurisdiction": "IN"},
+    {"concept_id": "tax.utgst", "label": "Union Territory Goods and Services Tax", "definition": "GST levied in Union Territories of India without state legislature", "parent_id": "tax.value_added", "kind": "tax", "jurisdiction": "IN"},
+    {"concept_id": "tax.gst_cess", "label": "GST Compensation Cess", "definition": "Cess levied on specified luxury and demerit goods under GST", "parent_id": "tax.value_added", "kind": "tax", "jurisdiction": "IN"},
+    {"concept_id": "tax.input_credit", "label": "Input Tax Credit (ITC)", "definition": "Credit allowed for tax paid on inputs against tax payable on output supplies", "parent_id": "tax.value_added", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.reverse_charge", "label": "Reverse Charge Mechanism (RCM)", "definition": "Liability to pay tax shifts from supplier to recipient of goods/services", "parent_id": "tax.value_added", "kind": "tax", "jurisdiction": "GLOBAL"},
+    
+    # Direct / Income Taxes
+    {"concept_id": "tax.income", "label": "Income Taxes", "definition": "Direct taxes levied on financial income or profits of entities and individuals", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.corporate_tax", "label": "Corporate Income Tax", "definition": "Direct tax on profits earned by companies and corporate bodies", "parent_id": "tax.income", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.minimum_alternate_tax", "label": "Minimum Alternate Tax (MAT / AMT)", "definition": "Minimum corporate tax threshold calculated on book profits", "parent_id": "tax.corporate_tax", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.withholding", "label": "Withholding Tax / Tax Deducted at Source (TDS)", "definition": "Tax withheld by payer at the source of payment and remitted directly to the government", "parent_id": "tax.income", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.tcs", "label": "Tax Collected at Source (TCS)", "definition": "Tax collected by seller from buyer at the time of sale of specified goods", "parent_id": "tax.income", "kind": "tax", "jurisdiction": "IN"},
+    {"concept_id": "tax.capital_gains", "label": "Capital Gains Tax", "definition": "Tax on profit realized on the sale of a non-inventory asset / investment", "parent_id": "tax.income", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.dividend_tax", "label": "Dividend Distribution / Withholding Tax", "definition": "Tax levied on dividend payments made to shareholders", "parent_id": "tax.income", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.personal_income_tax", "label": "Personal Income Tax", "definition": "Tax levied on personal earnings and wages of individuals", "parent_id": "tax.income", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.payroll_tax", "label": "Payroll & Social Security Tax", "definition": "Taxes paid by employers and employees calculated on wages or salaries", "parent_id": "tax.income", "kind": "tax", "jurisdiction": "GLOBAL"},
+    
+    # Trade & Property Taxes
+    {"concept_id": "tax.customs_duty", "label": "Customs & Import Duties", "definition": "Taxes and tariffs levied on goods entering or leaving national borders", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.excise_duty", "label": "Excise Duty", "definition": "Inland tax on sale or production for sale of specific goods (e.g. petroleum, tobacco)", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.stamp_duty", "label": "Stamp Duty", "definition": "Tax on legal documents usually involving the transfer of real estate or financial assets", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.property_tax", "label": "Property & Real Estate Tax", "definition": "Ad valorem tax levied on the assessed value of real property", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.transfer_pricing", "label": "Transfer Pricing Adjustment", "definition": "Tax adjustments regarding arm's-length pricing of cross-border intercompany transactions", "parent_id": "tax.corporate_tax", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.deferred_tax_asset", "label": "Deferred Tax Asset", "definition": "Asset on balance sheet reflecting tax overpayments or carryforward benefits", "parent_id": "tax.corporate_tax", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.deferred_tax_liability", "label": "Deferred Tax Liability", "definition": "Liability reflecting income taxes payable in future periods for taxable temporary differences", "parent_id": "tax.corporate_tax", "kind": "tax", "jurisdiction": "GLOBAL"},
+
+    # -------------------------------------------------------------
+    # 2. FINANCIAL STATEMENTS FAMILY: fs.* (Parent: fs.root)
+    # -------------------------------------------------------------
+    {"concept_id": "fs.root", "label": "Financial Statements", "definition": "Canonical line items from financial statements under IFRS, US GAAP, and Ind AS", "parent_id": None, "kind": "fs", "jurisdiction": "GLOBAL"},
+    
+    # Income Statement
+    {"concept_id": "fs.income_statement", "label": "Income Statement / Statement of Profit and Loss", "definition": "Financial statement reporting revenues, expenses, and net profit over a period", "parent_id": "fs.root", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.revenue", "label": "Revenue / Turnover", "definition": "Total amount of income generated by sales of goods or services from core operations", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.other_income", "label": "Other Operating & Non-Operating Income", "definition": "Income derived from activities not related to core business operations", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.total_revenue", "label": "Total Revenue / Income", "definition": "Sum of core operational revenue and other income", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.cogs", "label": "Cost of Goods Sold (COGS)", "definition": "Direct costs attributable to production of goods sold or services provided", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.gross_profit", "label": "Gross Profit", "definition": "Revenue minus cost of goods sold before deducting operating overhead", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.operating_expenses", "label": "Operating Expenses (OPEX)", "definition": "Expenditures incurred in day-to-day operations outside of cost of goods sold", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.sga_expenses", "label": "Selling, General, and Administrative (SG&A)", "definition": "Direct and indirect selling expenses and general administration costs", "parent_id": "fs.operating_expenses", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.employee_benefit_expenses", "label": "Employee Benefit Expenses / Staff Costs", "definition": "Salaries, wages, bonuses, pensions, and stock-based compensation", "parent_id": "fs.operating_expenses", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.rnd_expenses", "label": "Research and Development (R&D) Expense", "definition": "Costs directed toward developing new products, processes, or IP", "parent_id": "fs.operating_expenses", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.ebitda", "label": "EBITDA", "definition": "Earnings before interest, taxes, depreciation, and amortization", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.depreciation", "label": "Depreciation Expense", "definition": "Gradual reduction in recorded value of tangible fixed assets", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.amortization", "label": "Amortization Expense", "definition": "Gradual reduction in recorded value of intangible assets over useful life", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.ebit", "label": "EBIT / Operating Profit", "definition": "Earnings before interest and taxes; operating profit from business activities", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.finance_costs", "label": "Finance Costs / Interest Expense", "definition": "Costs incurred in borrowing funds, including loan interest and debt servicing", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.pbt", "label": "Profit Before Tax (PBT)", "definition": "Net profit earned prior to deduction of corporate income tax expense", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.tax_expense", "label": "Tax Expense / Provision for Tax", "definition": "Current and deferred income tax expense charged against profit", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.pat", "label": "Profit After Tax (PAT) / Net Income", "definition": "Total net earnings or profit remaining after all expenses, interest, and taxes", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.eps_basic", "label": "Basic Earnings Per Share (EPS)", "definition": "Net income divided by weighted average number of common shares outstanding", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.eps_diluted", "label": "Diluted Earnings Per Share (EPS)", "definition": "Net income per share adjusted for all convertible securities and options", "parent_id": "fs.income_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+
+    # Balance Sheet - Assets
+    {"concept_id": "fs.balance_sheet", "label": "Balance Sheet / Statement of Financial Position", "definition": "Snapshot of company assets, liabilities, and equity at a specific point in time", "parent_id": "fs.root", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.total_assets", "label": "Total Assets", "definition": "Total economic resources owned and controlled by the company", "parent_id": "fs.balance_sheet", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.current_assets", "label": "Total Current Assets", "definition": "Assets expected to be converted to cash, sold, or consumed within one year", "parent_id": "fs.total_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.cash_and_equivalents", "label": "Cash and Cash Equivalents", "definition": "Currency, bank deposits, and highly liquid short-term investments", "parent_id": "fs.current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.accounts_receivable", "label": "Trade Receivables / Accounts Receivable", "definition": "Amounts owed to the business by customers for goods/services delivered on credit", "parent_id": "fs.current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.inventories", "label": "Inventories / Stock-in-Trade", "definition": "Raw materials, work-in-progress, and finished goods held for sale", "parent_id": "fs.current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.prepaid_expenses", "label": "Prepaid Expenses & Other Current Assets", "definition": "Payments made in advance for goods or services to be received in the future", "parent_id": "fs.current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.non_current_assets", "label": "Total Non-Current / Fixed Assets", "definition": "Long-term assets with economic life greater than one year", "parent_id": "fs.total_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.ppe", "label": "Property, Plant, and Equipment (PP&E)", "definition": "Tangible long-lived assets utilized in operations (buildings, machinery, land)", "parent_id": "fs.non_current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.intangible_assets", "label": "Intangible Assets & Goodwill", "definition": "Non-physical assets including patents, trademarks, software, and acquired goodwill", "parent_id": "fs.non_current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.non_current_investments", "label": "Non-Current Investments", "definition": "Long-term securities, bonds, equity investments held in subsidiaries or associates", "parent_id": "fs.non_current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+
+    # Balance Sheet - Liabilities & Equity
+    {"concept_id": "fs.total_liabilities", "label": "Total Liabilities", "definition": "Total financial debts, obligations, and claims against assets by non-owners", "parent_id": "fs.balance_sheet", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.current_liabilities", "label": "Total Current Liabilities", "definition": "Debts and obligations due to be settled within one year", "parent_id": "fs.total_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.accounts_payable", "label": "Trade Payables / Accounts Payable", "definition": "Short-term debt obligations to suppliers and vendors for goods received on credit", "parent_id": "fs.current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.short_term_borrowings", "label": "Short-Term Borrowings / Debt", "definition": "Bank overdrafts, commercial paper, and short-term debt due within one year", "parent_id": "fs.current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.provisions_current", "label": "Current Provisions", "definition": "Liabilities of uncertain timing or amount expected to be settled within one year", "parent_id": "fs.current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.non_current_liabilities", "label": "Total Non-Current / Long-Term Liabilities", "definition": "Obligations and debts payable beyond one year", "parent_id": "fs.total_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.long_term_borrowings", "label": "Long-Term Borrowings / Debt", "definition": "Bonds, debentures, term loans payable beyond one year", "parent_id": "fs.non_current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.lease_liabilities", "label": "Lease Liabilities", "definition": "Present value of future operating and financial lease obligations under IFRS 16 / ASC 842", "parent_id": "fs.non_current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.total_debt", "label": "Total Debt", "definition": "Sum of short-term and long-term interest-bearing borrowings", "parent_id": "fs.total_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.equity", "label": "Total Shareholder's Equity", "definition": "Residual interest in the assets of the entity after deducting all liabilities", "parent_id": "fs.balance_sheet", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.share_capital", "label": "Share Capital / Common Stock", "definition": "Par value of shares issued to and held by shareholders", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.retained_earnings", "label": "Retained Earnings / Reserves & Surplus", "definition": "Cumulative net profits retained in the business rather than distributed as dividends", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+
+    # Cash Flows
+    {"concept_id": "fs.cash_flow_statement", "label": "Statement of Cash Flows", "definition": "Financial statement summarizing the amount of cash and cash equivalents entering and leaving", "parent_id": "fs.root", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.cfo", "label": "Cash Flow from Operating Activities (CFO)", "definition": "Cash generated or consumed by regular operational activities and working capital", "parent_id": "fs.cash_flow_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.cfi", "label": "Cash Flow from Investing Activities (CFI)", "definition": "Cash spent on or generated from investments in PP&E, M&A, and financial assets", "parent_id": "fs.cash_flow_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.capex", "label": "Capital Expenditures (CapEx)", "definition": "Funds used by a company to acquire, upgrade, and maintain physical assets", "parent_id": "fs.cfi", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.cff", "label": "Cash Flow from Financing Activities (CFF)", "definition": "Net flows of cash used to fund the company, including equity, debt, and dividends", "parent_id": "fs.cash_flow_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.free_cash_flow", "label": "Free Cash Flow (FCF)", "definition": "Operating cash flow minus capital expenditures", "parent_id": "fs.cash_flow_statement", "kind": "fs", "jurisdiction": "GLOBAL"},
+
+    # -------------------------------------------------------------
+    # 3. COMPLIANCE & GOVERNANCE FAMILY: cmp.* (Parent: cmp.root)
+    # -------------------------------------------------------------
+    {"concept_id": "cmp.root", "label": "Compliance and Governance", "definition": "Regulatory, statutory filings, audit and identity documents", "parent_id": None, "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.invoice", "label": "Commercial Invoice", "definition": "Commercial document issued by seller to buyer indicating products, quantities, and prices", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.tax_invoice", "label": "Tax Invoice", "definition": "Invoice containing prescribed tax details (e.g. GSTIN, VAT reg, HSN code, tax rate breakdown)", "parent_id": "cmp.invoice", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.einvoice", "label": "Electronic Invoice (e-Invoice / IRN)", "definition": "Standardized electronic invoice authenticated on government portal with QR/IRN", "parent_id": "cmp.tax_invoice", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.credit_note", "label": "Credit Note", "definition": "Document issued by seller to buyer crediting invoice amounts for returns or discounts", "parent_id": "cmp.invoice", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.debit_note", "label": "Debit Note", "definition": "Document notifying buyer of a debit made to their account or requesting credit note", "parent_id": "cmp.invoice", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.filing", "label": "Statutory Filing / Return", "definition": "Formal submission of regulatory or financial documents to government authority", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.gst_return", "label": "GST Return (GSTR-1, GSTR-3B, GSTR-9)", "definition": "Periodic filing disclosing sales, purchases, and tax collected/paid under GST", "parent_id": "cmp.filing", "kind": "cmp", "jurisdiction": "IN"},
+    {"concept_id": "cmp.vat_return", "label": "VAT Return", "definition": "Periodic statement submitted by VAT-registered business to tax administration", "parent_id": "cmp.filing", "kind": "cmp", "jurisdiction": "UK"},
+    {"concept_id": "cmp.sec_10k", "label": "SEC Form 10-K", "definition": "Comprehensive annual report of financial performance required by the US SEC", "parent_id": "cmp.filing", "kind": "cmp", "jurisdiction": "US"},
+    {"concept_id": "cmp.sec_10q", "label": "SEC Form 10-Q", "definition": "Quarterly financial report required by the US SEC", "parent_id": "cmp.filing", "kind": "cmp", "jurisdiction": "US"},
+    {"concept_id": "cmp.audit_report", "label": "Auditor's Report", "definition": "Formal written opinion issued by an independent auditor regarding financial statements", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.directors_report", "label": "Directors' Report / MD&A", "definition": "Statutory report produced by board of directors discussing operations and performance", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.kyc", "label": "Know Your Customer (KYC)", "definition": "Mandatory process of identifying and verifying the identity of clients/vendors", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.tax_id", "label": "Tax Identification Number (TIN / PAN / GSTIN / EIN)", "definition": "Unique identifier issued by government authority for taxation and tracking purposes", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.penalty", "label": "Regulatory Penalty & Late Fee", "definition": "Financial penalty imposed for statutory non-compliance, late filing, or shortfall", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.related_party", "label": "Related Party Disclosures", "definition": "Statutory disclosure of transactions between reporting entity and affiliated parties", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.contingent_liability", "label": "Contingent Liabilities", "definition": "Potential future liability that may occur depending on outcome of an uncertain event", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+
+    # Additional Taxation Concepts
+    {"concept_id": "tax.dividend_tax", "label": "Dividend Distribution Tax (DDT)", "definition": "Tax levied on dividends declared, distributed or paid by corporations", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.digital_services", "label": "Digital Services Tax / Equalisation Levy", "definition": "Tax levied on digital advertising and e-commerce services from non-resident entities", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.wealth_tax", "label": "Wealth & Net Worth Tax", "definition": "Direct tax levied on aggregate personal or corporate net wealth", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.carbon_tax", "label": "Carbon Emission Tax & CBAM", "definition": "Environmental levy on greenhouse gas emissions and carbon-intensive imports", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "EU"},
+    {"concept_id": "tax.property_tax", "label": "Real Estate & Municipal Property Tax", "definition": "Annual municipal tax levied on immovable property and land ownership", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.fuel_duty", "label": "Mineral Oil & Fuel Excise Duty", "definition": "Specific excise duty levied on hydrocarbon fuels and energy products", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.customs_valuation", "label": "Customs Tariff Valuation", "definition": "Ad valorem and specific customs duty assessment on imported merchandise", "parent_id": "tax.customs", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.anti_dumping", "label": "Anti-Dumping & Countervailing Duty", "definition": "Protective tariff imposed on foreign imports priced below fair market value", "parent_id": "tax.customs", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.safe_harbour", "label": "Safe Harbour Tax Provisions", "definition": "Statutory transfer pricing terms accepted by tax authorities without audit", "parent_id": "tax.transfer_pricing", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.beps_pillar2", "label": "Global Minimum Tax (Pillar Two GloBE)", "definition": "15 percent global minimum corporate tax under OECD BEPS framework", "parent_id": "tax.corporate_tax", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.advance_pricing", "label": "Advance Pricing Agreement (APA)", "definition": "Formal agreement between taxpayer and tax authority determining transfer pricing methodology", "parent_id": "tax.transfer_pricing", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.statutory_audit", "label": "Statutory Tax Audit (Section 44AB)", "definition": "Mandatory audit of accounts required by tax statutes when turnover exceeds threshold", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "IN"},
+    {"concept_id": "tax.appellate_tribunal", "label": "Tax Appellate Tribunal (ITAT / CESTAT)", "definition": "Quasi-judicial appellate body adjudicating statutory tax disputes", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.advance_ruling", "label": "Authority for Advance Rulings (AAR)", "definition": "Binding determination on prospective tax liabilities of non-residents and cross-border transactions", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.underreporting_penalty", "label": "Penalty for Underreporting of Income", "definition": "Statutory fine levied for misreporting, concealment or aggressive tax avoidance", "parent_id": "tax.root", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.foreign_remittance_tax", "label": "Tax on Foreign Remittances (TCS / Form 15CA)", "definition": "Statutory tax collection at source on outbound foreign currency remittances", "parent_id": "tax.withholding", "kind": "tax", "jurisdiction": "GLOBAL"},
+    {"concept_id": "tax.import_vat_rcm", "label": "Import VAT Reverse Charge Mechanism", "definition": "Postponed accounting for VAT on cross-border services and goods", "parent_id": "tax.value_added", "kind": "tax", "jurisdiction": "EU"},
+    {"concept_id": "tax.statutory_cess", "label": "Education & Health Cess / Surcharge", "definition": "Earmarked surcharge added to basic corporate and individual income tax liabilities", "parent_id": "tax.corporate_tax", "kind": "tax", "jurisdiction": "IN"},
+
+    # Additional Financial Statements Concepts
+    {"concept_id": "fs.comprehensive_income", "label": "Statement of Comprehensive Income", "definition": "Financial statement summarizing net profit alongside other comprehensive income items", "parent_id": "fs.root", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.oci", "label": "Other Comprehensive Income (OCI)", "definition": "Revenues, expenses, gains, and losses excluded from net income under US GAAP / IFRS", "parent_id": "fs.comprehensive_income", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.revaluation_reserve", "label": "Revaluation Surplus Reserve", "definition": "Equity reserve reflecting upward valuation adjustments of property, plant, and equipment", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.fctr", "label": "Foreign Currency Translation Reserve", "definition": "Cumulative exchange differences arising on translation of foreign operations into presentation currency", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.hedging_reserve", "label": "Cash Flow Hedge Reserve", "definition": "Component of equity reflecting effective portion of gain or loss on hedging instruments", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.defined_benefit_reserve", "label": "Defined Benefit Pension Plan Actuarial Reserve", "definition": "Remeasurements of net defined benefit liabilities recognized directly in equity", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.minority_interest", "label": "Non-Controlling / Minority Interest", "definition": "Portion of equity in a subsidiary not attributable directly or indirectly to the parent", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.share_premium", "label": "Share Premium / Additional Paid-in Capital", "definition": "Amount received by a corporation in excess of the par value of its shares", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.treasury_shares", "label": "Treasury Stock / Shares", "definition": "Company's own repurchased shares held in treasury, recorded as equity deduction", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.esop_reserve", "label": "Share-Based Payment / ESOP Reserve", "definition": "Equity reserve reflecting fair value of employee stock options and share grants recognized over vesting", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.general_reserve", "label": "General / Statutory Reserve", "definition": "Accumulated portion of earnings retained under statute for future contingencies", "parent_id": "fs.equity", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.cwip", "label": "Capital Work-in-Progress (CWIP)", "definition": "Expenditure incurred on assets under construction and plant erection before commissioning", "parent_id": "fs.non_current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.investment_property", "label": "Investment Property", "definition": "Real estate property held to earn rentals or for capital appreciation rather than operations", "parent_id": "fs.non_current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.biological_assets", "label": "Biological Assets", "definition": "Living animals or plants managed under agricultural activity (IAS 41)", "parent_id": "fs.non_current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.rou_assets", "label": "Right-of-Use (ROU) Assets", "definition": "Lessee asset representing right to use an underlying asset over lease term (IFRS 16)", "parent_id": "fs.non_current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.lease_liabilities_current", "label": "Lease Liabilities - Current Portion", "definition": "Obligation to make lease payments due within 12 months (IFRS 16)", "parent_id": "fs.current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.lease_liabilities_noncurrent", "label": "Lease Liabilities - Non-Current Portion", "definition": "Obligation to make lease payments falling due after 12 months", "parent_id": "fs.non_current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.unearned_revenue_current", "label": "Deferred Revenue / Current Contract Liabilities", "definition": "Cash received for goods or services to be delivered within 12 months (ASC 606)", "parent_id": "fs.current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.unearned_revenue_noncurrent", "label": "Non-Current Contract Liabilities", "definition": "Advance consideration received for deliverables extending beyond one fiscal year", "parent_id": "fs.non_current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.employee_benefit_provisions", "label": "Provisions for Employee Benefits", "definition": "Accrued statutory liabilities for employee gratuity, leave encashment, and severance", "parent_id": "fs.non_current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.warranty_provisions", "label": "Warranty & Claims Provisions", "definition": "Estimated obligation to repair or replace sold products under statutory or contractual warranties", "parent_id": "fs.current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.restructuring_provision", "label": "Restructuring Provisions", "definition": "Constructive liability arising from formal plan to terminate or reorganize lines of business", "parent_id": "fs.non_current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.asset_retirement_obligation", "label": "Asset Retirement & Decommissioning Obligation", "definition": "Legal obligation associated with the retirement and site restoration of tangible long-lived assets", "parent_id": "fs.non_current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.commercial_paper", "label": "Commercial Paper Outstanding", "definition": "Unsecured short-term promissory debt instrument issued by corporations to finance working capital", "parent_id": "fs.current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.subordinated_debt", "label": "Subordinated & Mezzanine Debt", "definition": "Unsecured loans ranking below senior creditors with respect to claims on assets or earnings", "parent_id": "fs.non_current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.preference_shares", "label": "Redeemable Preference Shares", "definition": "Class of share capital carrying preferential rights to dividends and capital return over equity", "parent_id": "fs.non_current_liabilities", "kind": "fs", "jurisdiction": "GLOBAL"},
+    {"concept_id": "fs.ecl_allowance", "label": "Expected Credit Loss (ECL) Allowance", "definition": "Contra-asset allowance measuring forward-looking default probabilities on trade receivables", "parent_id": "fs.current_assets", "kind": "fs", "jurisdiction": "GLOBAL"},
+
+    # Additional Compliance & Governance Concepts
+    {"concept_id": "cmp.xbrl_instance", "label": "iXBRL / XBRL Instance Filing", "definition": "Machine-readable financial disclosure tagged under statutory XBRL taxonomies", "parent_id": "cmp.filing", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.board_resolution", "label": "Certified Board Resolution", "definition": "Official formal document recording actions and decisions authorized by corporate board", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.mou", "label": "Memorandum of Understanding (MOU)", "definition": "Bilateral or multilateral agreement expressing convergence of will between commercial parties", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.nda", "label": "Non-Disclosure Agreement (NDA)", "definition": "Legally binding confidentiality contract protecting proprietary financial data", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.poa", "label": "Power of Attorney (POA)", "definition": "Statutory authorization empowering an agent to act on behalf of the corporation in tax filings", "parent_id": "cmp.root", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.gstin_cert", "label": "GSTIN / VAT Registration Certificate", "definition": "Statutory certificate issued by tax department evidencing consumption tax registration", "parent_id": "cmp.tax_id", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.lut", "label": "Letter of Undertaking (LUT)", "definition": "Declaration filed by exporter committing to export goods without paying integrated consumption tax", "parent_id": "cmp.filing", "kind": "cmp", "jurisdiction": "IN"},
+    {"concept_id": "cmp.eway_bill", "label": "Electronic Way Bill (e-Way Bill)", "definition": "Digital consignment note mandated for physical movement of goods above statutory invoice value", "parent_id": "cmp.invoice", "kind": "cmp", "jurisdiction": "IN"},
+    {"concept_id": "cmp.shipping_bill", "label": "Customs Shipping Bill of Export", "definition": "Statutory customs declaration filed by exporter describing outbound cargo and foreign port", "parent_id": "cmp.filing", "kind": "cmp", "jurisdiction": "GLOBAL"},
+    {"concept_id": "cmp.bill_of_entry", "label": "Customs Bill of Entry", "definition": "Statutory customs declaration submitted by importer for assessment and clearance of goods", "parent_id": "cmp.filing", "kind": "cmp", "jurisdiction": "GLOBAL"},
+]
+
+# Surface form Aliases with relation tags
+# relation: 'equivalent' | 'related' | 'different'
+# priority: default 100
+ALIASES_DATA: list[dict[str, Any]] = [
+    # --- Revenue / Turnover ---
+    {"alias": "Revenue", "concept_id": "fs.revenue", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Turnover", "concept_id": "fs.revenue", "relation": "equivalent", "jurisdiction": "IN", "priority": 110},
+    {"alias": "Revenue from Operations", "concept_id": "fs.revenue", "relation": "equivalent", "jurisdiction": "IN", "priority": 110},
+    {"alias": "Gross Sales", "concept_id": "fs.revenue", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Net Sales", "concept_id": "fs.revenue", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Operating Revenue", "concept_id": "fs.revenue", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Topline", "concept_id": "fs.revenue", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 90},
+    {"alias": "Total Income", "concept_id": "fs.total_revenue", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Other Income", "concept_id": "fs.other_income", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+
+    # --- Cost of Goods Sold & Margins ---
+    {"alias": "Cost of Goods Sold", "concept_id": "fs.cogs", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "COGS", "concept_id": "fs.cogs", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Cost of Sales", "concept_id": "fs.cogs", "relation": "equivalent", "jurisdiction": "UK", "priority": 100},
+    {"alias": "Cost of Materials Consumed", "concept_id": "fs.cogs", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Gross Profit", "concept_id": "fs.gross_profit", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Gross Margin", "concept_id": "fs.gross_profit", "relation": "related", "jurisdiction": "GLOBAL", "priority": 90},
+
+    # --- Profitability & Operating Income ---
+    {"alias": "Operating Profit", "concept_id": "fs.ebit", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "EBIT", "concept_id": "fs.ebit", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Operating Income", "concept_id": "fs.ebit", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "EBITDA", "concept_id": "fs.ebitda", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Operating Profit before Depreciation and Tax", "concept_id": "fs.ebitda", "relation": "equivalent", "jurisdiction": "IN", "priority": 90},
+    {"alias": "Profit Before Tax", "concept_id": "fs.pbt", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "PBT", "concept_id": "fs.pbt", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Earnings Before Taxes", "concept_id": "fs.pbt", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Profit After Tax", "concept_id": "fs.pat", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "PAT", "concept_id": "fs.pat", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Net Income", "concept_id": "fs.pat", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Net Profit", "concept_id": "fs.pat", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Bottom Line", "concept_id": "fs.pat", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 90},
+    {"alias": "Basic EPS", "concept_id": "fs.eps_basic", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Diluted EPS", "concept_id": "fs.eps_diluted", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+
+    # --- VAT & GST Functional Equivalence ---
+    {"alias": "GST", "concept_id": "tax.value_added", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Goods and Services Tax", "concept_id": "tax.value_added", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "VAT", "concept_id": "tax.value_added", "relation": "equivalent", "jurisdiction": "UK", "priority": 100},
+    {"alias": "Value Added Tax", "concept_id": "tax.value_added", "relation": "equivalent", "jurisdiction": "EU", "priority": 100},
+    {"alias": "TVA", "concept_id": "tax.value_added", "relation": "equivalent", "jurisdiction": "EU", "priority": 95},
+    {"alias": "MwSt", "concept_id": "tax.value_added", "relation": "equivalent", "jurisdiction": "EU", "priority": 95},
+    {"alias": "Sales Tax", "concept_id": "tax.sales_tax", "relation": "different", "jurisdiction": "US", "priority": 100},
+    {"alias": "Retail Sales Tax", "concept_id": "tax.sales_tax", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Use Tax", "concept_id": "tax.sales_tax", "relation": "related", "jurisdiction": "US", "priority": 95},
+
+    # --- GST Sub-components (India) ---
+    {"alias": "CGST", "concept_id": "tax.cgst", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Central GST", "concept_id": "tax.cgst", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "SGST", "concept_id": "tax.sgst", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "State GST", "concept_id": "tax.sgst", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "IGST", "concept_id": "tax.igst", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Integrated GST", "concept_id": "tax.igst", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "UTGST", "concept_id": "tax.utgst", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "GST Cess", "concept_id": "tax.gst_cess", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Input Tax Credit", "concept_id": "tax.input_credit", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "ITC", "concept_id": "tax.input_credit", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Input VAT", "concept_id": "tax.input_credit", "relation": "equivalent", "jurisdiction": "UK", "priority": 100},
+    {"alias": "RCM", "concept_id": "tax.reverse_charge", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Reverse Charge", "concept_id": "tax.reverse_charge", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+
+    # --- Withholding & Income Taxes ---
+    {"alias": "TDS", "concept_id": "tax.withholding", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Tax Deducted at Source", "concept_id": "tax.withholding", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Withholding Tax", "concept_id": "tax.withholding", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "WHT", "concept_id": "tax.withholding", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 95},
+    {"alias": "TCS", "concept_id": "tax.tcs", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Tax Collected at Source", "concept_id": "tax.tcs", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Corporate Tax", "concept_id": "tax.corporate_tax", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Corporation Tax", "concept_id": "tax.corporate_tax", "relation": "equivalent", "jurisdiction": "UK", "priority": 100},
+    {"alias": "Corporate Income Tax", "concept_id": "tax.corporate_tax", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "MAT", "concept_id": "tax.minimum_alternate_tax", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Minimum Alternate Tax", "concept_id": "tax.minimum_alternate_tax", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Capital Gains Tax", "concept_id": "tax.capital_gains", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Customs Duty", "concept_id": "tax.customs_duty", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Tariff", "concept_id": "tax.customs_duty", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 90},
+    {"alias": "Excise Duty", "concept_id": "tax.excise_duty", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Stamp Duty", "concept_id": "tax.stamp_duty", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Deferred Tax Asset", "concept_id": "tax.deferred_tax_asset", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Deferred Tax Liability", "concept_id": "tax.deferred_tax_liability", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+
+    # --- Balance Sheet Assets & Liabilities ---
+    {"alias": "Total Assets", "concept_id": "fs.total_assets", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Current Assets", "concept_id": "fs.current_assets", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Cash and Cash Equivalents", "concept_id": "fs.cash_and_equivalents", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Bank Balances", "concept_id": "fs.cash_and_equivalents", "relation": "equivalent", "jurisdiction": "IN", "priority": 95},
+    {"alias": "Trade Receivables", "concept_id": "fs.accounts_receivable", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Accounts Receivable", "concept_id": "fs.accounts_receivable", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Debtors", "concept_id": "fs.accounts_receivable", "relation": "equivalent", "jurisdiction": "UK", "priority": 95},
+    {"alias": "Sundry Debtors", "concept_id": "fs.accounts_receivable", "relation": "equivalent", "jurisdiction": "IN", "priority": 95},
+    {"alias": "Inventories", "concept_id": "fs.inventories", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Stock-in-trade", "concept_id": "fs.inventories", "relation": "equivalent", "jurisdiction": "IN", "priority": 95},
+    {"alias": "Non-Current Assets", "concept_id": "fs.non_current_assets", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Fixed Assets", "concept_id": "fs.non_current_assets", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 95},
+    {"alias": "Property, Plant and Equipment", "concept_id": "fs.ppe", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "PP&E", "concept_id": "fs.ppe", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Total Liabilities", "concept_id": "fs.total_liabilities", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Current Liabilities", "concept_id": "fs.current_liabilities", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Trade Payables", "concept_id": "fs.accounts_payable", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Accounts Payable", "concept_id": "fs.accounts_payable", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Creditors", "concept_id": "fs.accounts_payable", "relation": "equivalent", "jurisdiction": "UK", "priority": 95},
+    {"alias": "Sundry Creditors", "concept_id": "fs.accounts_payable", "relation": "equivalent", "jurisdiction": "IN", "priority": 95},
+    {"alias": "Short Term Borrowings", "concept_id": "fs.short_term_borrowings", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Long Term Borrowings", "concept_id": "fs.long_term_borrowings", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Total Debt", "concept_id": "fs.total_debt", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Total Equity", "concept_id": "fs.equity", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Shareholders' Funds", "concept_id": "fs.equity", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Net Worth", "concept_id": "fs.equity", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 95},
+    {"alias": "Retained Earnings", "concept_id": "fs.retained_earnings", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Reserves and Surplus", "concept_id": "fs.retained_earnings", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+
+    # --- Cash Flows ---
+    {"alias": "Operating Cash Flow", "concept_id": "fs.cfo", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Cash from Operations", "concept_id": "fs.cfo", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Investing Cash Flow", "concept_id": "fs.cfi", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Financing Cash Flow", "concept_id": "fs.cff", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "CapEx", "concept_id": "fs.capex", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Capital Expenditure", "concept_id": "fs.capex", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Purchase of Property, Plant and Equipment", "concept_id": "fs.capex", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 95},
+    {"alias": "Free Cash Flow", "concept_id": "fs.free_cash_flow", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+
+    # --- Compliance, Invoices, Identification ---
+    {"alias": "Invoice", "concept_id": "cmp.invoice", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Tax Invoice", "concept_id": "cmp.tax_invoice", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "e-Invoice", "concept_id": "cmp.einvoice", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "IRN", "concept_id": "cmp.einvoice", "relation": "equivalent", "jurisdiction": "IN", "priority": 95},
+    {"alias": "Invoice Reference Number", "concept_id": "cmp.einvoice", "relation": "equivalent", "jurisdiction": "IN", "priority": 95},
+    {"alias": "Credit Note", "concept_id": "cmp.credit_note", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Debit Note", "concept_id": "cmp.debit_note", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "GSTIN", "concept_id": "cmp.tax_id", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "PAN", "concept_id": "cmp.tax_id", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Permanent Account Number", "concept_id": "cmp.tax_id", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "EIN", "concept_id": "cmp.tax_id", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Employer Identification Number", "concept_id": "cmp.tax_id", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "VAT Registration Number", "concept_id": "cmp.tax_id", "relation": "equivalent", "jurisdiction": "UK", "priority": 100},
+    {"alias": "Form 10-K", "concept_id": "cmp.sec_10k", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Form 10-Q", "concept_id": "cmp.sec_10q", "relation": "equivalent", "jurisdiction": "US", "priority": 100},
+    {"alias": "Annual Return", "concept_id": "cmp.filing", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "GSTR-1", "concept_id": "cmp.gst_return", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "GSTR-3B", "concept_id": "cmp.gst_return", "relation": "equivalent", "jurisdiction": "IN", "priority": 100},
+    {"alias": "Auditor's Report", "concept_id": "cmp.audit_report", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Independent Auditor's Report", "concept_id": "cmp.audit_report", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Directors' Report", "concept_id": "cmp.directors_report", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "MD&A", "concept_id": "cmp.directors_report", "relation": "equivalent", "jurisdiction": "US", "priority": 95},
+    {"alias": "Management Discussion and Analysis", "concept_id": "cmp.directors_report", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Penalty", "concept_id": "cmp.penalty", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+    {"alias": "Late Fee", "concept_id": "cmp.penalty", "relation": "equivalent", "jurisdiction": "GLOBAL", "priority": 100},
+]
+

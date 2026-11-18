@@ -129,11 +129,45 @@ class VhagarConfig(BaseModel):
         description="Whether Prometheus metrics collection is enabled.",
     )
 
-    # --- concept persistence ---
+    # --- concept persistence & translation spine ---
     concept_mappings_path: Optional[Path] = Field(default=None)
     concept_memory_path: Optional[Path] = Field(default=None)
     documents_dir: Optional[Path] = Field(default=None)
     working_copies_dir: Optional[Path] = Field(default=None)
+    export_dir: Path = Field(
+        default_factory=lambda: Path(os.getenv("VHAGAR_EXPORT_DIR", "data/exports")),
+        description="Directory for consolidated canonical export workbooks.",
+    )
+    db_path: Path = Field(
+        default_factory=lambda: Path(os.getenv("VHAGAR_DB_PATH", "data/draythos.db")),
+        description="Path to primary SQLite database.",
+    )
+
+    # --- feature flags & translation engine (Sections 3, 5, 6) ---
+    ocr_backend: str = Field(
+        default_factory=lambda: os.getenv("VHAGAR_OCR_BACKEND", "rapidocr"),
+        description="OCR backend: 'rapidocr' or 'tesseract'.",
+    )
+    normalizer_mode: str = Field(
+        default_factory=lambda: os.getenv("VHAGAR_NORMALIZER_MODE", "dictionary"),
+        description="Normalizer mode: 'dictionary' | 'base' | 'finetuned'.",
+    )
+    extraction_llm: str = Field(
+        default_factory=lambda: os.getenv("VHAGAR_EXTRACTION_LLM", "off"),
+        description="Extraction LLM fallback: 'on' | 'off'.",
+    )
+    index_backend: str = Field(
+        default_factory=lambda: os.getenv("VHAGAR_INDEX_BACKEND", "native"),
+        description="Index backend: 'native' | 'pathway'.",
+    )
+    taxonomy_version: str = Field(
+        default_factory=lambda: os.getenv("VHAGAR_TAXONOMY_VERSION", "tax-1.0.0"),
+        description="Active canonical taxonomy version tag.",
+    )
+    model_version: str = Field(
+        default_factory=lambda: os.getenv("VHAGAR_MODEL_VERSION", "enc-1.0.0"),
+        description="Active concept encoder model version tag.",
+    )
 
     def model_post_init(self, __context: object) -> None:
         """Derive default persistence paths after init."""
@@ -150,6 +184,7 @@ class VhagarConfig(BaseModel):
         self.data_dir.mkdir(parents=True, exist_ok=True)
         self.working_copy_dir.mkdir(parents=True, exist_ok=True)
         self.documents_dir.mkdir(parents=True, exist_ok=True)
+        self.export_dir.mkdir(parents=True, exist_ok=True)
         (self.data_dir / "documents").mkdir(parents=True, exist_ok=True)
 
 

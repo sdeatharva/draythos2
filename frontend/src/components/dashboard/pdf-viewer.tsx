@@ -28,6 +28,7 @@ export interface PdfViewerProps {
   isOcrInProgress?: boolean;
   extractedText?: string;
   pagesData?: { page_number: number; text: string; confidence?: number; ocr_applied?: boolean }[];
+  /** Retained for compatibility; PDF editing is intentionally unsupported. */
   onSaveEdits?: (content: string) => void;
 }
 
@@ -145,23 +146,15 @@ export function PdfViewer({
   const activePageText = pagesData?.find((p) => p.page_number === currentPage)?.text || extractedText || "";
 
   useEffect(() => {
-    if (extractedText || activePageText) {
-      setEditableText(extractedText || activePageText);
-    }
+    if (extractedText || activePageText) setEditableText(extractedText || activePageText);
   }, [extractedText, activePageText]);
 
   const handleSaveWorkingCopy = async () => {
+    // The server rejects this route for PDFs. This legacy handler is kept only
+    // for an in-memory state transition while older embeds are migrated.
     if (!onSaveEdits) return;
     setIsSavingLocal(true);
-    try {
-      await onSaveEdits(editableText);
-      setSaveSuccessMessage("Working copy compiled & saved via ReportLab!");
-      setTimeout(() => setSaveSuccessMessage(null), 3500);
-    } catch {
-      // Handled upstream
-    } finally {
-      setIsSavingLocal(false);
-    }
+    try { await onSaveEdits(editableText); } finally { setIsSavingLocal(false); }
   };
 
   const searchQuery = externalSearchQuery ?? internalQuery;
@@ -437,15 +430,6 @@ export function PdfViewer({
             >
               <FileText className="h-3.5 w-3.5" />
               Text / OCR
-            </button>
-            <button
-              onClick={() => setViewMode("edit")}
-              className={`flex items-center gap-1 px-2 py-1 rounded transition-colors ${
-                viewMode === "edit" ? "bg-surface shadow-xs text-clay font-medium" : "text-text-muted hover:text-ink"
-              }`}
-            >
-              <Edit3 className="h-3.5 w-3.5" />
-              Edit Working Copy
             </button>
           </div>
 

@@ -28,6 +28,9 @@ class ComponentRegistry:
     query_engine: Optional["QueryEngine"] = None
     observability: Optional["ObservabilityManager"] = None
     security: Optional["SecurityManager"] = None
+    repo: Optional[Any] = None
+    facts_service: Optional[Any] = None
+    normalization_router: Optional[Any] = None
     _initialized: bool = field(default=False, repr=False)
 
 
@@ -115,6 +118,20 @@ async def bootstrap(config: VhagarConfig | None = None) -> ComponentRegistry:
             logger.warning("query_engine_skipped", reason="missing dependencies")
     except Exception as exc:
         logger.error("component_init_failed", component="query_engine", error=str(exc))
+
+    try:
+        from vhagar.db.repo import get_repo
+        from vhagar.db.import_legacy import import_legacy_files
+        from vhagar.components.normalization.router import NormalizationRouter
+        from vhagar.components.facts.service import FactsService
+
+        registry.repo = get_repo(cfg.db_path)
+        import_legacy_files(cfg.data_dir)
+        registry.normalization_router = NormalizationRouter(mode=cfg.normalizer_mode, repo=registry.repo)
+        registry.facts_service = FactsService(repo=registry.repo, router=registry.normalization_router)
+        logger.info("component_initialized", component="facts_service_and_sqlite")
+    except Exception as exc:
+        logger.error("component_init_failed", component="facts_service_and_sqlite", error=str(exc))
 
     registry._initialized = True
     _registry = registry

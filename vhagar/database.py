@@ -197,6 +197,25 @@ class DatabaseManager:
             if "preferred_provider" not in user_cols:
                 conn.execute("ALTER TABLE users ADD COLUMN preferred_provider TEXT DEFAULT 'gemini';")
 
+            # Harmonize documents table schema between DraythosRepository and DatabaseManager
+            doc_cols = [c[1] for c in conn.execute("PRAGMA table_info(documents);").fetchall()]
+            if "id" not in doc_cols and "doc_id" in doc_cols:
+                conn.execute("ALTER TABLE documents ADD COLUMN id TEXT;")
+                conn.execute("UPDATE documents SET id = doc_id WHERE id IS NULL;")
+            if "doc_id" not in doc_cols and "id" in doc_cols:
+                conn.execute("ALTER TABLE documents ADD COLUMN doc_id TEXT;")
+                conn.execute("UPDATE documents SET doc_id = id WHERE doc_id IS NULL;")
+            if "created_at" not in doc_cols:
+                conn.execute("ALTER TABLE documents ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;")
+                if "uploaded_at" in doc_cols:
+                    conn.execute("UPDATE documents SET created_at = uploaded_at WHERE created_at IS NULL;")
+            if "uploaded_at" not in doc_cols:
+                conn.execute("ALTER TABLE documents ADD COLUMN uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;")
+                if "created_at" in doc_cols:
+                    conn.execute("UPDATE documents SET uploaded_at = created_at WHERE uploaded_at IS NULL;")
+            if "size" not in doc_cols:
+                conn.execute("ALTER TABLE documents ADD COLUMN size INTEGER DEFAULT 0;")
+
             # Reset any stale / pre-filled test keys
             conn.execute("DELETE FROM user_keys;")
 
@@ -561,17 +580,17 @@ class DatabaseManager:
 
             # Documents
             cur = conn.execute(
-                "SELECT * FROM documents WHERE session_id = ? ORDER BY created_at ASC",
+                "SELECT * FROM documents WHERE session_id = ? ORDER BY COALESCE(created_at, uploaded_at) ASC",
                 (session_id,),
             )
             s["attachments"] = [
                 {
-                    "document_id": d["id"],
+                    "document_id": d["id"] if "id" in d.keys() and d["id"] else d["doc_id"],
                     "session_id": d["session_id"],
                     "source_filename": d["filename"],
                     "filename": d["filename"],
                     "format": d["format"],
-                    "size": d["size"],
+                    "size": d["size"] if "size" in d.keys() and d["size"] is not None else 0,
                     "processing_status": d["status"],
                 }
                 for d in cur.fetchall()
@@ -582,8 +601,8 @@ class DatabaseManager:
     def get_session_document_ids(self, session_id: str) -> list[str]:
         """Fetch all document IDs registered to a specific chat session."""
         with self._get_connection() as conn:
-            cur = conn.execute("SELECT id FROM documents WHERE session_id = ?", (session_id,))
-            return [row["id"] for row in cur.fetchall()]
+            cur = conn.execute("SELECT COALESCE(id, doc_id) as doc_ident FROM documents WHERE session_id = ?", (session_id,))
+            return [row["doc_ident"] for row in cur.fetchall()]
 
     def get_user_document_ids(self, user_id: str) -> list[str]:
         """Fetch all document IDs belonging to a user across sessions and library."""
@@ -591,7 +610,7 @@ class DatabaseManager:
             cur = conn.execute(
                 """
                 SELECT DISTINCT document_id FROM (
-                    SELECT id as document_id FROM documents WHERE user_id = ?
+                    SELECT COALESCE(id, doc_id) as document_id FROM documents WHERE user_id = ?
                     UNION
                     SELECT document_id FROM library_documents WHERE user_id = ?
                 )
@@ -663,10 +682,10 @@ class DatabaseManager:
             conn.execute(
                 """
                 INSERT OR REPLACE INTO documents 
-                (id, session_id, user_id, filename, file_path, format, size, status, created_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, 'completed', ?)
+                (id, doc_id, session_id, user_id, filename, file_path, format, size, status, created_at, uploaded_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'completed', ?, ?)
                 """,
-                (doc_id, session_id, actual_uid, filename, file_path, format_type, size, now),
+                (doc_id, doc_id, session_id, actual_uid, filename, file_path, format_type, size, now, now),
             )
             # Automatically index in user's persistent workspace library if not present
             cur = conn.execute("SELECT id FROM library_documents WHERE document_id = ?", (doc_id,))
@@ -774,7 +793,7 @@ class DatabaseManager:
             conn.execute("DELETE FROM chunks_fts WHERE chunk_id IN (SELECT chunk_id FROM document_chunks WHERE document_id = ?)", (doc_id,))
             conn.execute("DELETE FROM document_chunks WHERE document_id = ?", (doc_id,))
             conn.execute("DELETE FROM ingestion_jobs WHERE document_id = ?", (doc_id,))
-            conn.execute("DELETE FROM documents WHERE id = ?", (doc_id,))
+            conn.execute("DELETE FROM documents WHERE id = ? OR doc_id = ?", (doc_id, doc_id))
 
     def move_library_document(self, library_doc_id: str, new_folder_id: Optional[str]):
         """Move a library document into a folder or back to root (None)."""
@@ -791,8 +810,8 @@ class DatabaseManager:
         with self._get_connection() as conn:
             for doc_id in document_ids:
                 cur = conn.execute(
-                    "SELECT * FROM documents WHERE id = ? LIMIT 1",
-                    (doc_id,),
+                    "SELECT * FROM documents WHERE id = ? OR doc_id = ? LIMIT 1",
+                    (doc_id, doc_id),
                 )
                 row = cur.fetchone()
                 if row:
@@ -800,10 +819,10 @@ class DatabaseManager:
                     conn.execute(
                         """
                         INSERT OR IGNORE INTO documents 
-                        (id, session_id, user_id, filename, file_path, format, size, status, created_at)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, 'completed', ?)
+                        (id, doc_id, session_id, user_id, filename, file_path, format, size, status, created_at, uploaded_at)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'completed', ?, ?)
                         """,
-                        (f"{doc_id}_{session_id}", session_id, row["user_id"], row["filename"], row["file_path"], row["format"], row["size"], now),
+                        (f"{doc_id}_{session_id}", f"{doc_id}_{session_id}", session_id, row["user_id"], row["filename"], row["file_path"], row["format"], row["size"] if "size" in row.keys() else 0, now, now),
                     )
                     attached.append({
                         "document_id": doc_id,

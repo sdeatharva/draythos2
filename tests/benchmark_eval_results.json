@@ -10,10 +10,10 @@
     "ambiguity_detection_rate": "100.0%",
     "correct_abstention_rate": "100.0%",
     "unsupported_answer_rate": "0.0%",
-    "retrieval_latency_p50_ms": "0.58 ms",
-    "retrieval_latency_p95_ms": "0.77 ms",
-    "estimated_e2e_latency_p50_ms": "6319.27 ms",
-    "estimated_e2e_latency_p95_ms": "6999.08 ms"
+    "retrieval_latency_p50_ms": "3.66 ms",
+    "retrieval_latency_p95_ms": "8.71 ms",
+    "estimated_e2e_latency_p50_ms": "6330.82 ms",
+    "estimated_e2e_latency_p95_ms": "7006.77 ms"
   },
   "breakdown_by_category": {
     "exact_cell_formula_lookup": {
@@ -48,10 +48,10 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "965641c0-6823-4d2e-b899-df67a477af39",
-        "e2eb9308-9885-4eeb-a452-e59fad357588",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
+        "ff75f5f0-d16c-4a44-878f-d1ec38f7efb1",
         "chunk_10k_mda"
       ],
       "recall_hit": true,
@@ -59,8 +59,8 @@
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.7,
-      "estimated_e2e_latency_ms": 6576.89
+      "retrieval_latency_ms": 27.89,
+      "estimated_e2e_latency_ms": 6598.62
     },
     {
       "id": "FIN-EVAL-002",
@@ -72,19 +72,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.67,
-      "estimated_e2e_latency_ms": 6576.78
+      "retrieval_latency_ms": 6.91,
+      "estimated_e2e_latency_ms": 6595.73
     },
     {
       "id": "FIN-EVAL-003",
@@ -95,19 +95,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_rev_formulas",
         "chunk_10k_rd_leases",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.6,
-      "estimated_e2e_latency_ms": 6576.74
+      "retrieval_latency_ms": 4.33,
+      "estimated_e2e_latency_ms": 6612.38
     },
     {
       "id": "FIN-EVAL-004",
@@ -119,10 +119,10 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "965641c0-6823-4d2e-b899-df67a477af39",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_mda"
       ],
       "recall_hit": true,
@@ -130,8 +130,8 @@
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.58,
-      "estimated_e2e_latency_ms": 6576.74
+      "retrieval_latency_ms": 20.6,
+      "estimated_e2e_latency_ms": 6588.4
     },
     {
       "id": "FIN-EVAL-005",
@@ -142,19 +142,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_rev_formulas",
         "chunk_10k_rd_leases",
-        "965641c0-6823-4d2e-b899-df67a477af39"
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.54,
-      "estimated_e2e_latency_ms": 6576.66
+      "retrieval_latency_ms": 3.64,
+      "estimated_e2e_latency_ms": 6589.17
     },
     {
       "id": "FIN-EVAL-006",
@@ -165,19 +165,19 @@
         "chunk_rev_table"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39"
       ],
       "recall_hit": false,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.58,
-      "estimated_e2e_latency_ms": 6576.7
+      "retrieval_latency_ms": 3.51,
+      "estimated_e2e_latency_ms": 6588.92
     },
     {
       "id": "FIN-EVAL-007",
@@ -189,19 +189,19 @@
         "chunk_10k_mda"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.62,
-      "estimated_e2e_latency_ms": 6576.82
+      "retrieval_latency_ms": 3.88,
+      "estimated_e2e_latency_ms": 6594.46
     },
     {
       "id": "FIN-EVAL-008",
@@ -212,19 +212,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.56,
-      "estimated_e2e_latency_ms": 6576.72
+      "retrieval_latency_ms": 10.18,
+      "estimated_e2e_latency_ms": 6590.29
     },
     {
       "id": "FIN-EVAL-009",
@@ -235,19 +235,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.55,
-      "estimated_e2e_latency_ms": 6576.67
+      "retrieval_latency_ms": 3.82,
+      "estimated_e2e_latency_ms": 6589.86
     },
     {
       "id": "FIN-EVAL-010",
@@ -259,19 +259,19 @@
         "chunk_rev_table"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8",
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39",
         "chunk_opex_table",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+        "c8d9a209-fdca-4d42-872a-cfc011689a23"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.53,
-      "estimated_e2e_latency_ms": 6576.74
+      "retrieval_latency_ms": 3.37,
+      "estimated_e2e_latency_ms": 6590.0
     },
     {
       "id": "FIN-EVAL-011",
@@ -283,19 +283,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.71,
-      "estimated_e2e_latency_ms": 6577.1
+      "retrieval_latency_ms": 3.46,
+      "estimated_e2e_latency_ms": 6587.81
     },
     {
       "id": "FIN-EVAL-012",
@@ -307,19 +307,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "965641c0-6823-4d2e-b899-df67a477af39"
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.77,
-      "estimated_e2e_latency_ms": 6576.86
+      "retrieval_latency_ms": 3.46,
+      "estimated_e2e_latency_ms": 6589.66
     },
     {
       "id": "FIN-EVAL-013",
@@ -330,19 +330,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_rev_formulas",
         "chunk_10k_rd_leases",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.62,
-      "estimated_e2e_latency_ms": 6576.81
+      "retrieval_latency_ms": 3.42,
+      "estimated_e2e_latency_ms": 6588.12
     },
     {
       "id": "FIN-EVAL-014",
@@ -354,19 +354,19 @@
         "chunk_rev_table"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.78,
-      "estimated_e2e_latency_ms": 6577.33
+      "retrieval_latency_ms": 3.64,
+      "estimated_e2e_latency_ms": 6588.79
     },
     {
       "id": "FIN-EVAL-015",
@@ -377,19 +377,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8",
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39",
         "chunk_opex_table",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.77,
-      "estimated_e2e_latency_ms": 6576.74
+      "retrieval_latency_ms": 3.2,
+      "estimated_e2e_latency_ms": 6592.0
     },
     {
       "id": "FIN-EVAL-016",
@@ -401,10 +401,10 @@
         "chunk_10k_mda"
       ],
       "retrieved_chunk_ids": [
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_tax"
       ],
       "recall_hit": true,
@@ -412,8 +412,8 @@
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.63,
-      "estimated_e2e_latency_ms": 5594.0
+      "retrieval_latency_ms": 3.69,
+      "estimated_e2e_latency_ms": 5605.07
     },
     {
       "id": "FIN-EVAL-017",
@@ -425,19 +425,19 @@
         "chunk_10k_mda"
       ],
       "retrieved_chunk_ids": [
-        "965641c0-6823-4d2e-b899-df67a477af39",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_mda",
         "chunk_10k_rd_leases",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.67,
-      "estimated_e2e_latency_ms": 4891.94
+      "retrieval_latency_ms": 3.74,
+      "estimated_e2e_latency_ms": 4903.2
     },
     {
       "id": "FIN-EVAL-018",
@@ -448,10 +448,10 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_10k_rd_leases"
       ],
       "recall_hit": true,
@@ -459,8 +459,8 @@
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.65,
-      "estimated_e2e_latency_ms": 6530.16
+      "retrieval_latency_ms": 4.08,
+      "estimated_e2e_latency_ms": 6541.64
     },
     {
       "id": "FIN-EVAL-019",
@@ -472,10 +472,10 @@
         "chunk_opex_table"
       ],
       "retrieved_chunk_ids": [
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_tax"
       ],
       "recall_hit": false,
@@ -483,8 +483,8 @@
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.73,
-      "estimated_e2e_latency_ms": 5593.93
+      "retrieval_latency_ms": 3.55,
+      "estimated_e2e_latency_ms": 5606.02
     },
     {
       "id": "FIN-EVAL-020",
@@ -495,19 +495,19 @@
         "chunk_10k_mda"
       ],
       "retrieved_chunk_ids": [
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.59,
-      "estimated_e2e_latency_ms": 4891.95
+      "retrieval_latency_ms": 4.23,
+      "estimated_e2e_latency_ms": 4904.23
     },
     {
       "id": "FIN-EVAL-021",
@@ -518,10 +518,10 @@
         "chunk_10k_rd_leases"
       ],
       "retrieved_chunk_ids": [
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "965641c0-6823-4d2e-b899-df67a477af39",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_10k_mda"
       ],
       "recall_hit": true,
@@ -529,8 +529,8 @@
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.54,
-      "estimated_e2e_latency_ms": 4689.28
+      "retrieval_latency_ms": 4.33,
+      "estimated_e2e_latency_ms": 4701.67
     },
     {
       "id": "FIN-EVAL-022",
@@ -541,19 +541,19 @@
         "chunk_10k_rd_leases"
       ],
       "retrieved_chunk_ids": [
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "02084c70-f945-4aef-ad38-1999c76ddab5"
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.58,
-      "estimated_e2e_latency_ms": 4689.12
+      "retrieval_latency_ms": 3.69,
+      "estimated_e2e_latency_ms": 4702.29
     },
     {
       "id": "FIN-EVAL-023",
@@ -564,19 +564,19 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39"
       ],
       "recall_hit": false,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.58,
-      "estimated_e2e_latency_ms": 4049.55
+      "retrieval_latency_ms": 3.67,
+      "estimated_e2e_latency_ms": 4062.74
     },
     {
       "id": "FIN-EVAL-024",
@@ -587,19 +587,19 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "965641c0-6823-4d2e-b899-df67a477af39"
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.66,
-      "estimated_e2e_latency_ms": 5812.34
+      "retrieval_latency_ms": 3.61,
+      "estimated_e2e_latency_ms": 5826.81
     },
     {
       "id": "FIN-EVAL-025",
@@ -610,19 +610,19 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8",
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39",
         "chunk_opex_table",
-        "02084c70-f945-4aef-ad38-1999c76ddab5"
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.57,
-      "estimated_e2e_latency_ms": 6280.33
+      "retrieval_latency_ms": 3.74,
+      "estimated_e2e_latency_ms": 6293.3
     },
     {
       "id": "FIN-EVAL-026",
@@ -633,19 +633,19 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "965641c0-6823-4d2e-b899-df67a477af39"
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.57,
-      "estimated_e2e_latency_ms": 5812.35
+      "retrieval_latency_ms": 6.57,
+      "estimated_e2e_latency_ms": 5822.67
     },
     {
       "id": "FIN-EVAL-027",
@@ -656,10 +656,10 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_10k_rd_leases"
       ],
       "recall_hit": true,
@@ -667,8 +667,8 @@
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.63,
-      "estimated_e2e_latency_ms": 6529.97
+      "retrieval_latency_ms": 6.59,
+      "estimated_e2e_latency_ms": 6540.57
     },
     {
       "id": "FIN-EVAL-028",
@@ -679,19 +679,19 @@
         "chunk_rev_table"
       ],
       "retrieved_chunk_ids": [
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "e2eb9308-9885-4eeb-a452-e59fad357588"
+        "ff75f5f0-d16c-4a44-878f-d1ec38f7efb1"
       ],
       "recall_hit": false,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.45,
-      "estimated_e2e_latency_ms": 5718.55
+      "retrieval_latency_ms": 5.42,
+      "estimated_e2e_latency_ms": 5728.23
     },
     {
       "id": "FIN-EVAL-029",
@@ -703,19 +703,19 @@
         "chunk_10k_mda"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.48,
-      "estimated_e2e_latency_ms": 5921.38
+      "retrieval_latency_ms": 4.67,
+      "estimated_e2e_latency_ms": 5929.45
     },
     {
       "id": "FIN-EVAL-030",
@@ -726,19 +726,19 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.45,
-      "estimated_e2e_latency_ms": 5890.19
+      "retrieval_latency_ms": 3.05,
+      "estimated_e2e_latency_ms": 5901.12
     },
     {
       "id": "FIN-EVAL-031",
@@ -750,19 +750,19 @@
         "chunk_10k_rd_leases"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8",
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39",
         "chunk_opex_table",
-        "e2eb9308-9885-4eeb-a452-e59fad357588"
+        "ff75f5f0-d16c-4a44-878f-d1ec38f7efb1"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.43,
-      "estimated_e2e_latency_ms": 5531.32
+      "retrieval_latency_ms": 2.91,
+      "estimated_e2e_latency_ms": 5542.13
     },
     {
       "id": "FIN-EVAL-032",
@@ -774,19 +774,19 @@
         "chunk_10k_rd_leases"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.48,
-      "estimated_e2e_latency_ms": 6358.21
+      "retrieval_latency_ms": 2.72,
+      "estimated_e2e_latency_ms": 6368.34
     },
     {
       "id": "FIN-EVAL-033",
@@ -798,19 +798,19 @@
         "chunk_10k_mda"
       ],
       "retrieved_chunk_ids": [
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "02084c70-f945-4aef-ad38-1999c76ddab5"
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.45,
-      "estimated_e2e_latency_ms": 4688.95
+      "retrieval_latency_ms": 2.87,
+      "estimated_e2e_latency_ms": 4696.31
     },
     {
       "id": "FIN-EVAL-034",
@@ -822,19 +822,19 @@
         "chunk_rev_formulas"
       ],
       "retrieved_chunk_ids": [
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_10k_rd_leases",
         "chunk_rev_formulas",
-        "965641c0-6823-4d2e-b899-df67a477af39"
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.49,
-      "estimated_e2e_latency_ms": 5437.82
+      "retrieval_latency_ms": 5.69,
+      "estimated_e2e_latency_ms": 5445.13
     },
     {
       "id": "FIN-EVAL-035",
@@ -845,19 +845,19 @@
         "chunk_rev_table"
       ],
       "retrieved_chunk_ids": [
-        "e2eb9308-9885-4eeb-a452-e59fad357588",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "ff75f5f0-d16c-4a44-878f-d1ec38f7efb1",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_table",
         "chunk_rev_formulas",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+        "c8d9a209-fdca-4d42-872a-cfc011689a23"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.53,
-      "estimated_e2e_latency_ms": 5937.14
+      "retrieval_latency_ms": 2.88,
+      "estimated_e2e_latency_ms": 5946.97
     },
     {
       "id": "FIN-EVAL-036",
@@ -868,19 +868,19 @@
         "chunk_rev_table"
       ],
       "retrieved_chunk_ids": [
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_10k_rd_leases",
         "chunk_rev_formulas",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": false,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.54,
-      "estimated_e2e_latency_ms": 6358.22
+      "retrieval_latency_ms": 2.86,
+      "estimated_e2e_latency_ms": 6368.54
     },
     {
       "id": "FIN-EVAL-037",
@@ -892,19 +892,19 @@
         "chunk_10k_mda"
       ],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_10k_tax",
         "chunk_rev_formulas",
-        "e2eb9308-9885-4eeb-a452-e59fad357588"
+        "ff75f5f0-d16c-4a44-878f-d1ec38f7efb1"
       ],
       "recall_hit": false,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.54,
-      "estimated_e2e_latency_ms": 7185.65
+      "retrieval_latency_ms": 3.25,
+      "estimated_e2e_latency_ms": 7194.95
     },
     {
       "id": "FIN-EVAL-038",
@@ -913,19 +913,19 @@
       "eval_type": "abstention_check",
       "gold_chunk_ids": [],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": null,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.61,
-      "estimated_e2e_latency_ms": 5921.67
+      "retrieval_latency_ms": 3.41,
+      "estimated_e2e_latency_ms": 5928.68
     },
     {
       "id": "FIN-EVAL-039",
@@ -934,19 +934,19 @@
       "eval_type": "abstention_check",
       "gold_chunk_ids": [],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+        "c8d9a209-fdca-4d42-872a-cfc011689a23"
       ],
       "recall_hit": null,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.83,
-      "estimated_e2e_latency_ms": 7060.53
+      "retrieval_latency_ms": 5.52,
+      "estimated_e2e_latency_ms": 7067.78
     },
     {
       "id": "FIN-EVAL-040",
@@ -955,10 +955,10 @@
       "eval_type": "abstention_check",
       "gold_chunk_ids": [],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "965641c0-6823-4d2e-b899-df67a477af39",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_mda"
       ],
       "recall_hit": null,
@@ -966,8 +966,8 @@
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.57,
-      "estimated_e2e_latency_ms": 5593.92
+      "retrieval_latency_ms": 2.99,
+      "estimated_e2e_latency_ms": 5605.2
     },
     {
       "id": "FIN-EVAL-041",
@@ -976,19 +976,19 @@
       "eval_type": "abstention_check",
       "gold_chunk_ids": [],
       "retrieved_chunk_ids": [
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "965641c0-6823-4d2e-b899-df67a477af39"
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9"
       ],
       "recall_hit": null,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.53,
-      "estimated_e2e_latency_ms": 5812.26
+      "retrieval_latency_ms": 2.82,
+      "estimated_e2e_latency_ms": 5823.82
     },
     {
       "id": "FIN-EVAL-042",
@@ -997,19 +997,19 @@
       "eval_type": "abstention_check",
       "gold_chunk_ids": [],
       "retrieved_chunk_ids": [
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": null,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.62,
-      "estimated_e2e_latency_ms": 6358.4
+      "retrieval_latency_ms": 3.12,
+      "estimated_e2e_latency_ms": 6368.81
     },
     {
       "id": "FIN-EVAL-043",
@@ -1018,19 +1018,19 @@
       "eval_type": "abstention_check",
       "gold_chunk_ids": [],
       "retrieved_chunk_ids": [
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "02084c70-f945-4aef-ad38-1999c76ddab5"
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693"
       ],
       "recall_hit": null,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.52,
-      "estimated_e2e_latency_ms": 4689.07
+      "retrieval_latency_ms": 3.54,
+      "estimated_e2e_latency_ms": 4701.43
     },
     {
       "id": "FIN-EVAL-044",
@@ -1039,19 +1039,19 @@
       "eval_type": "abstention_check",
       "gold_chunk_ids": [],
       "retrieved_chunk_ids": [
-        "965641c0-6823-4d2e-b899-df67a477af39",
-        "e2eb9308-9885-4eeb-a452-e59fad357588",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
+        "ff75f5f0-d16c-4a44-878f-d1ec38f7efb1",
         "chunk_10k_mda",
         "chunk_rev_table",
-        "02084c70-f945-4aef-ad38-1999c76ddab5"
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693"
       ],
       "recall_hit": null,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.49,
-      "estimated_e2e_latency_ms": 4969.82
+      "retrieval_latency_ms": 3.7,
+      "estimated_e2e_latency_ms": 4983.36
     },
     {
       "id": "FIN-EVAL-045",
@@ -1060,19 +1060,19 @@
       "eval_type": "abstention_check",
       "gold_chunk_ids": [],
       "retrieved_chunk_ids": [
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
         "chunk_10k_rd_leases",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7"
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f"
       ],
       "recall_hit": null,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.53,
-      "estimated_e2e_latency_ms": 6358.27
+      "retrieval_latency_ms": 4.16,
+      "estimated_e2e_latency_ms": 6371.29
     },
     {
       "id": "FIN-EVAL-046",
@@ -1083,19 +1083,19 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+        "c8d9a209-fdca-4d42-872a-cfc011689a23"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.57,
-      "estimated_e2e_latency_ms": 5593.94
+      "retrieval_latency_ms": 4.64,
+      "estimated_e2e_latency_ms": 5606.98
     },
     {
       "id": "FIN-EVAL-047",
@@ -1106,19 +1106,19 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_rev_formulas",
         "chunk_10k_tax",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+        "c8d9a209-fdca-4d42-872a-cfc011689a23"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.6,
-      "estimated_e2e_latency_ms": 7060.32
+      "retrieval_latency_ms": 3.63,
+      "estimated_e2e_latency_ms": 7072.5
     },
     {
       "id": "FIN-EVAL-048",
@@ -1129,19 +1129,19 @@
         "chunk_10k_mda"
       ],
       "retrieved_chunk_ids": [
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b"
+        "c8d9a209-fdca-4d42-872a-cfc011689a23"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.64,
-      "estimated_e2e_latency_ms": 5593.96
+      "retrieval_latency_ms": 3.49,
+      "estimated_e2e_latency_ms": 5605.49
     },
     {
       "id": "FIN-EVAL-049",
@@ -1152,10 +1152,10 @@
         "chunk_10k_mda"
       ],
       "retrieved_chunk_ids": [
-        "965641c0-6823-4d2e-b899-df67a477af39",
+        "23bc8e85-2059-4886-9526-1e5ad4b4dbb9",
         "chunk_10k_mda",
-        "bade42c3-6b6d-494f-8e98-cff048de2a8b",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "c8d9a209-fdca-4d42-872a-cfc011689a23",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_10k_rd_leases"
       ],
       "recall_hit": true,
@@ -1163,8 +1163,8 @@
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.55,
-      "estimated_e2e_latency_ms": 4689.05
+      "retrieval_latency_ms": 3.35,
+      "estimated_e2e_latency_ms": 4701.12
     },
     {
       "id": "FIN-EVAL-050",
@@ -1175,19 +1175,19 @@
         "chunk_10k_tax"
       ],
       "retrieved_chunk_ids": [
-        "6fc0b6a0-cd74-4fde-b860-1f9bdd8e6ba7",
+        "ab389c68-8cdd-4f72-8d98-afc8b154199f",
         "chunk_10k_tax",
-        "02084c70-f945-4aef-ad38-1999c76ddab5",
+        "a3fc9269-5d29-4832-9e4f-be3eb9e8a693",
         "chunk_rev_formulas",
-        "a0eeadb1-4248-4828-a8ab-8afdb12326f8"
+        "5b61d5a3-c2c7-4c94-801d-a3e8d45b8b39"
       ],
       "recall_hit": true,
       "citation_precision": 1.0,
       "citation_recall": 1.0,
       "passed": true,
       "failure_reason": null,
-      "retrieval_latency_ms": 0.53,
-      "estimated_e2e_latency_ms": 6924.22
+      "retrieval_latency_ms": 4.32,
+      "estimated_e2e_latency_ms": 6932.19
     }
   ]
 }

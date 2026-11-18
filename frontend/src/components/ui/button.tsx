@@ -4,10 +4,10 @@ import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "destructive";
-type ButtonSize = "sm" | "md" | "lg";
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "destructive" | "lavender";
+export type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   isLoading?: boolean;
@@ -17,25 +17,29 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-clay text-ink hover:bg-clay/90 active:bg-clay-deep focus-visible:outline-ink",
+    "bg-forest text-paper hover:bg-forest-deep hover:-translate-y-px active:scale-[0.98] shadow-xs focus-visible:outline-forest",
   secondary:
-    "bg-surface text-ink border border-hairline hover:border-ink-soft/30 active:bg-oat focus-visible:outline-ink",
+    "bg-transparent text-forest border border-forest hover:bg-forest/5 hover:-translate-y-px active:scale-[0.98] focus-visible:outline-forest",
+  outline:
+    "bg-transparent text-ink border border-hairline hover:bg-oat active:scale-[0.98] focus-visible:outline-ink",
   ghost:
-    "bg-transparent text-ink hover:bg-oat/50 active:bg-oat focus-visible:outline-ink",
+    "bg-transparent text-ink hover:bg-oat active:scale-[0.98] focus-visible:outline-ink",
+  lavender:
+    "bg-lavender text-ink hover:opacity-90 active:scale-[0.98] shadow-xs focus-visible:outline-ink",
   destructive:
-    "bg-clay-deep text-surface hover:bg-clay-deep/90 active:bg-clay-deep focus-visible:outline-clay-deep",
+    "bg-error text-white hover:bg-error/90 active:scale-[0.98] focus-visible:outline-error",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "h-8 px-3 text-sm gap-1.5 rounded-[var(--radius-control)]",
-  md: "h-11 px-4 text-sm gap-2 rounded-[var(--radius-control)]",
-  lg: "h-12 px-6 text-base gap-2.5 rounded-[var(--radius-control)]",
+  sm: "h-9 px-4 text-xs gap-1.5 rounded-full",
+  md: "h-12 px-6 text-sm gap-2 rounded-full",
+  lg: "h-14 px-8 text-base gap-2.5 rounded-full",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
-      variant = "secondary",
+      variant = "primary",
       size = "md",
       isLoading = false,
       iconLeft,
@@ -52,8 +56,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={disabled || isLoading}
         className={cn(
-          "inline-flex items-center justify-center font-display font-medium transition-colors duration-150",
-          "disabled:opacity-50 disabled:cursor-not-allowed",
+          "inline-flex items-center justify-center font-ui font-medium transition-all duration-180 ease-out cursor-pointer",
+          "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:active:scale-100",
           variantClasses[variant],
           sizeClasses[size],
           className
@@ -72,4 +76,3 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 Button.displayName = "Button";
-

@@ -61,11 +61,11 @@ export function BouncingDots({
 
   const content = (
     <div className={cn("flex flex-col items-center justify-center gap-3 select-none", className)}>
-      {/* 3 Translucent Clay / Reddish Bouncing Dots */}
+      {/* 3 Bouncing Dots in Brand Forest Green */}
       <div className={cn("flex items-center justify-center", cfg.gap)}>
         <span
           className={cn(
-            "rounded-full bg-clay/60 dark:bg-clay/70 backdrop-blur-xs shadow-xs shadow-clay/20",
+            "rounded-full bg-forest/80 dark:bg-forest/90 backdrop-blur-xs shadow-xs",
             cfg.dot,
             cfg.animationClass
           )}
@@ -73,7 +73,7 @@ export function BouncingDots({
         />
         <span
           className={cn(
-            "rounded-full bg-clay/60 dark:bg-clay/70 backdrop-blur-xs shadow-xs shadow-clay/20",
+            "rounded-full bg-forest/80 dark:bg-forest/90 backdrop-blur-xs shadow-xs",
             cfg.dot,
             cfg.animationClass
           )}
@@ -81,7 +81,7 @@ export function BouncingDots({
         />
         <span
           className={cn(
-            "rounded-full bg-clay/60 dark:bg-clay/70 backdrop-blur-xs shadow-xs shadow-clay/20",
+            "rounded-full bg-forest/80 dark:bg-forest/90 backdrop-blur-xs shadow-xs",
             cfg.dot,
             cfg.animationClass
           )}
@@ -93,7 +93,7 @@ export function BouncingDots({
       {label && (
         <span
           className={cn(
-            "font-display text-cloud-dark tracking-tight animate-pulse",
+            "font-ui text-neutral-600 tracking-tight animate-pulse",
             cfg.labelText
           )}
         >

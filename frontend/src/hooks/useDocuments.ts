@@ -9,7 +9,7 @@ interface UseDocumentsReturn {
   removeDocument: (documentId: string) => void;
   dismissUploadProgress: (file: File) => void;
   getContent: (documentId: string) => Promise<any>;
-  downloadDocument: (documentId: string, filename: string) => Promise<void>;
+  downloadDocument: (documentId: string, filename: string, source?: "original" | "working") => Promise<void>;
   saveDocument: (documentId: string, edits: any, format: string) => Promise<any>;
   isUploading: boolean;
   uploadProgress: UploadProgress[];
@@ -149,9 +149,9 @@ export function useDocuments(): UseDocumentsReturn {
   }, []);
 
   const downloadDocument = useCallback(
-    async (documentId: string, filename: string) => {
+    async (documentId: string, filename: string, source: "original" | "working" = "working") => {
       const response = await fetch(
-        `/api/documents/${documentId}/file?download=true`
+        `/api/documents/${documentId}/file?download=true${source === "original" ? "&original=true" : ""}`
       );
       if (!response.ok) throw new Error("Download failed");
       const blob = await response.blob();

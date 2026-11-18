@@ -29,6 +29,12 @@ class ConceptRecord(BaseModel):
     hard_negatives: list[str] = Field(default_factory=list)
     synthetic_variants: list[str] = Field(default_factory=list)
     corpus_negatives: list[str] = Field(default_factory=list)
+    state: str = Field(default="proposed")  # proposed | accepted | rejected | legacy
+    source_location: Optional[dict] = None
+    similarity: float = Field(default=0.0)
+    calibrated_score: float = Field(default=0.0)
+    taxonomy_version: str = Field(default="tax-1.0.0")
+    model_version: str = Field(default="enc-1.0.0")
     first_seen: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     last_seen: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
@@ -163,6 +169,8 @@ class ConceptMemory:
                 data = json.load(f)
             for key, val in data.items():
                 try:
+                    if "state" not in val or not val["state"]:
+                        val["state"] = "legacy"
                     self._concepts[key] = ConceptRecord(**val)
                 except Exception as rec_err:
                     logger.warning("concept_record_parse_skipped", key=key, error=str(rec_err))

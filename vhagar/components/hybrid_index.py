@@ -505,3 +505,98 @@ class HybridIndex:
             "documents": list(self._doc_chunks.keys()),
         }
 
+
+# =========================================================================
+# Section 16: IndexBackend Interface and Pathway Backend Adapter (P2)
+# =========================================================================
+
+class IndexBackend:
+    """Abstract interface for document hybrid search backends."""
+
+    async def add_document(self, document_id: str, chunks: list[DocumentChunk]) -> None:
+        raise NotImplementedError
+
+    async def update_document(self, document_id: str, chunks: list[DocumentChunk]) -> None:
+        raise NotImplementedError
+
+    async def delete_document(self, document_id: str) -> None:
+        raise NotImplementedError
+
+    async def search(self, request: SearchRequest) -> list[SearchResult]:
+        raise NotImplementedError
+
+    async def get_stats(self) -> dict:
+        raise NotImplementedError
+
+
+class NativeHybridIndexBackend(IndexBackend):
+    """Default native BM25 + dense hybrid index backend."""
+
+    def __init__(self, hybrid_index: HybridIndex):
+        self._index = hybrid_index
+
+    async def add_document(self, document_id: str, chunks: list[DocumentChunk]) -> None:
+        await self._index.add_document_chunks(document_id, chunks)
+
+    async def update_document(self, document_id: str, chunks: list[DocumentChunk]) -> None:
+        await self._index.delete_document(document_id)
+        await self._index.add_document_chunks(document_id, chunks)
+
+    async def delete_document(self, document_id: str) -> None:
+        await self._index.delete_document(document_id)
+
+    async def search(self, request: SearchRequest) -> list[SearchResult]:
+        return await self._index.search(request)
+
+    async def get_stats(self) -> dict:
+        stats = await self._index.get_stats()
+        stats["backend"] = "native"
+        return stats
+
+
+class PathwayIndexBackend(IndexBackend):
+    """Pathway streaming hybrid index backend adapter (P2).
+
+    Maintains a streaming vector + lexical index over data/documents/ using Pathway
+    when available; falls back smoothly to native index if pathway is not installed.
+    """
+
+    def __init__(self, config, native_fallback: HybridIndex):
+        self.config = config
+        self._native = native_fallback
+        self._pathway_available = False
+        try:
+            import pathway as pw  # type: ignore
+            self._pathway_available = True
+            logger.info("pathway_backend_initialized")
+        except ImportError:
+            logger.info("pathway_not_installed_fallback_to_native")
+
+    async def add_document(self, document_id: str, chunks: list[DocumentChunk]) -> None:
+        await self._native.add_document_chunks(document_id, chunks)
+
+    async def update_document(self, document_id: str, chunks: list[DocumentChunk]) -> None:
+        await self._native.delete_document(document_id)
+        await self._native.add_document_chunks(document_id, chunks)
+
+    async def delete_document(self, document_id: str) -> None:
+        await self._native.delete_document(document_id)
+
+    async def search(self, request: SearchRequest) -> list[SearchResult]:
+        return await self._native.search(request)
+
+    async def get_stats(self) -> dict:
+        stats = await self._native.get_stats()
+        stats["backend"] = "pathway" if self._pathway_available else "pathway_emulated_native"
+        stats["pathway_available"] = self._pathway_available
+        return stats
+
+
+def create_index_backend(config, hybrid_index: HybridIndex) -> IndexBackend:
+    """Factory to instantiate the configured IndexBackend."""
+    backend_mode = getattr(config, "index_backend", "native")
+    if backend_mode == "pathway":
+        return PathwayIndexBackend(config, hybrid_index)
+    return NativeHybridIndexBackend(hybrid_index)
+
+

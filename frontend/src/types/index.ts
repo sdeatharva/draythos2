@@ -151,6 +151,7 @@ export interface ChatRequest {
   selectionContext?: SelectionContext;
   history?: { role: string; content: string }[];
   include_global?: boolean;
+  context_scope?: "chat" | "folder" | "organization";
   user_id?: string;
   openRouterKey?: string;
   geminiKey?: string;

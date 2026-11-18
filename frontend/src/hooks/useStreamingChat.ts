@@ -20,7 +20,8 @@ interface UseStreamingChatReturn {
     attachments?: DocumentReference[],
     activeDocumentId?: string,
     overrideSessionId?: string,
-    selectionContext?: SelectionContext
+    selectionContext?: SelectionContext,
+    contextScope?: "chat" | "folder" | "organization"
   ) => Promise<void>;
   stopStreaming: () => void;
   retryLast: () => void;
@@ -40,6 +41,7 @@ export function useStreamingChat(sessionId: string): UseStreamingChatReturn {
     attachments?: DocumentReference[];
     activeDocumentId?: string;
     selectionContext?: SelectionContext;
+    contextScope?: "chat" | "folder" | "organization";
   } | null>(null);
 
   // Failsafe: never leave UI stuck in generating state
@@ -55,11 +57,12 @@ export function useStreamingChat(sessionId: string): UseStreamingChatReturn {
       attachments?: DocumentReference[],
       activeDocumentId?: string,
       overrideSessionId?: string,
-      selectionContext?: SelectionContext
+      selectionContext?: SelectionContext,
+      contextScope: "chat" | "folder" | "organization" = "chat"
     ) => {
       const activeSid = overrideSessionId || sessionId;
       // Save for retry
-      lastRequestRef.current = { content, attachments, activeDocumentId, selectionContext };
+      lastRequestRef.current = { content, attachments, activeDocumentId, selectionContext, contextScope };
 
       // Create user message
       const userMsg: ChatMessage = {
@@ -135,6 +138,8 @@ export function useStreamingChat(sessionId: string): UseStreamingChatReturn {
             attachments: attachments ?? [],
             activeDocumentId,
             selectionContext,
+            context_scope: contextScope,
+            include_global: contextScope === "organization",
             history,
             openRouterKey,
             geminiKey,
@@ -158,6 +163,7 @@ export function useStreamingChat(sessionId: string): UseStreamingChatReturn {
         let buffer = "";
         let fullContent = "";
         const allCitations: Citation[] = [];
+        let receivedComplete = false;
 
         let currentEvent = "delta";
 
@@ -218,6 +224,7 @@ export function useStreamingChat(sessionId: string): UseStreamingChatReturn {
                 );
               }
             } else if (eventType === "complete") {
+              receivedComplete = true;
               setStreamingState("completed");
               if (typeof window !== "undefined" && payload && (payload.workingCopyVersion || payload.documentId)) {
                 window.dispatchEvent(
@@ -256,12 +263,18 @@ export function useStreamingChat(sessionId: string): UseStreamingChatReturn {
               throw new Error(
                 typeof payload === "string" ? payload : payload?.message || "Stream error"
               );
+            } else if (eventType === "cancelled") {
+              receivedComplete = true;
+              setStreamingState("cancelled");
+              setMessages((prev) => prev.map((m) =>
+                m.id === assistantId ? { ...m, status: "cancelled" as const } : m
+              ));
             }
           }
         }
 
         // If we get here without a complete event, mark as completed
-        if (streamingState !== "completed") {
+        if (!receivedComplete) {
           setStreamingState("completed");
           setMessages((prev) =>
             prev.map((m) =>
@@ -321,8 +334,8 @@ export function useStreamingChat(sessionId: string): UseStreamingChatReturn {
       }
       return newMsgs;
     });
-    const { content, attachments, activeDocumentId } = lastRequestRef.current;
-    sendMessage(content, attachments, activeDocumentId);
+    const { content, attachments, activeDocumentId, selectionContext, contextScope } = lastRequestRef.current;
+    sendMessage(content, attachments, activeDocumentId, undefined, selectionContext, contextScope);
   }, [sendMessage]);
 
   return {

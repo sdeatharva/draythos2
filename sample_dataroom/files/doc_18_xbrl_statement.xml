@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbrl xmlns:ifrs-full="http://xbrl.ifrs.org/taxonomy/2023">
+  <entity>Acme Global Inc</entity>
+  <period>FY2024</period>
+  <ifrs-full:Revenue unitRef="USD" decimals="-6">1250000000</ifrs-full:Revenue>
+  <ifrs-full:CostOfSales unitRef="USD" decimals="-6">720500000</ifrs-full:CostOfSales>
+  <ifrs-full:GrossProfit unitRef="USD" decimals="-6">529500000</ifrs-full:GrossProfit>
+  <ifrs-full:ProfitLoss unitRef="USD" decimals="-6">142500000</ifrs-full:ProfitLoss>
+</xbrl>

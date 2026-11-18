@@ -56,6 +56,9 @@ class ExtractedContent(BaseModel):
     full_text: str = ""
     metadata: dict[str, Any] = Field(default_factory=dict)
     terms: list[str] = Field(default_factory=list)
+    tables: list[dict[str, Any]] = Field(default_factory=list)
+    headings: list[str] = Field(default_factory=list)
+    coordinates: list[dict[str, Any]] = Field(default_factory=list)
     format: DocumentFormat = DocumentFormat.UNKNOWN
     total_pages: int = 0
     processing_status: ProcessingStatus = ProcessingStatus.COMPLETED
@@ -333,11 +336,13 @@ class DocumentProcessor:
 
         def _do_ocr():
             results: list[PageContent] = []
+            backend = getattr(self.config, "ocr_backend", "rapidocr")
             try:
+                if backend == "tesseract":
+                    raise ImportError("Using tesseract backend as configured")
+
                 from rapidocr_onnxruntime import RapidOCR
-
                 ocr_engine = RapidOCR()
-
                 import pdfplumber
 
                 with pdfplumber.open(str(file_path)) as pdf:
@@ -347,7 +352,6 @@ class DocumentProcessor:
                         page = pdf.pages[page_idx]
                         img = page.to_image(resolution=200)
 
-                        # Save temp image for OCR
                         import tempfile
                         with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
                             img.save(tmp.name)
@@ -367,10 +371,33 @@ class DocumentProcessor:
                             has_text_layer=False,
                             ocr_applied=True,
                         ))
-            except ImportError:
-                logger.warning("rapidocr_not_available")
-            except Exception as exc:
-                logger.error("ocr_error", error=str(exc))
+            except (ImportError, Exception) as exc:
+                # Tesseract fallback adapter (Section 3 ruling)
+                try:
+                    import pytesseract
+                    import fitz  # PyMuPDF
+                    from PIL import Image
+                    import io
+
+                    doc = fitz.open(str(file_path))
+                    for page_idx in pages_needing_ocr:
+                        if page_idx >= len(doc):
+                            continue
+                        page = doc[page_idx]
+                        pix = page.get_pixmap(dpi=150)
+                        img = Image.open(io.BytesIO(pix.tobytes("png")))
+                        ocr_text = pytesseract.image_to_string(img)
+                        results.append(PageContent(
+                            page_number=page_idx + 1,
+                            text=ocr_text,
+                            confidence=0.65 if ocr_text else 0.1,
+                            has_text_layer=False,
+                            ocr_applied=True,
+                        ))
+                    doc.close()
+                    logger.info("tesseract_ocr_fallback_applied", pages=len(results))
+                except Exception as t_err:
+                    logger.warning("ocr_all_backends_failed", error=str(t_err), primary_error=str(exc))
 
             return results
 

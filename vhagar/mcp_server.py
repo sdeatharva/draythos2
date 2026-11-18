@@ -16,6 +16,14 @@ import structlog
 from vhagar.config import get_config
 from vhagar.bootstrap import bootstrap, get_registry
 from vhagar.database import get_db
+from vhagar.api import (
+    facts_router,
+    concepts_router,
+    mappings_router,
+    normalize_router,
+    export_router,
+    qa_router,
+)
 
 logger = structlog.get_logger(__name__)
 
@@ -46,6 +54,14 @@ def create_mcp_app() -> FastAPI:
     config = get_config()
 
     app = FastAPI(title="Draythos Vhagar MCP", version="0.1.0", lifespan=lifespan)
+
+    # Mount translation spine routers (Facts, Concepts, Mappings, Normalize, Export)
+    app.include_router(facts_router)
+    app.include_router(concepts_router)
+    app.include_router(mappings_router)
+    app.include_router(normalize_router)
+    app.include_router(export_router)
+    app.include_router(qa_router)
 
     app.add_middleware(
         CORSMiddleware,
@@ -424,6 +440,19 @@ def create_mcp_app() -> FastAPI:
                 if registry.concept_memory and extracted.terms:
                     summary = extracted.full_text[:500] if extracted.full_text else ""
                     await registry.concept_memory.ingest_from_document(doc_id, extracted.terms, summary)
+
+            # Extract canonical facts with precise source locators (Section 4.1 & 4.2)
+            if registry.facts_service:
+                try:
+                    db.update_ingestion_job(job_id, status="processing", stage="facts")
+                    registry.facts_service.ingest_document_facts(
+                        file_path=dest_path,
+                        doc_id=doc_ref.document_id,
+                        entity=safe_name.rsplit(".", 1)[0],
+                        jurisdiction="GLOBAL",
+                    )
+                except Exception as fact_err:
+                    logger.warning("facts_ingestion_warning", doc_id=doc_id, error=str(fact_err))
 
             if registry.observability:
                 registry.observability.record_upload(doc_ref.format.value, "success", 0.0)
@@ -854,6 +883,14 @@ def create_mcp_app() -> FastAPI:
                 "edits_applied": len(edits_list),
             }
         elif format_type == "pdf":
+            # Extracted text and a rendered preview cannot be safely round-tripped
+            # into the uploaded PDF. Never present a regenerated approximation as
+            # an edit of the original. Annotation support requires a separately
+            # validated overlay format and is deliberately not enabled here.
+            raise HTTPException(
+                status_code=409,
+                detail="PDF files are preview-only. Download the original; native PDF editing and annotations are not available.",
+            )
             wc_dir = config.working_copies_dir / document_id
             wc_dir.mkdir(parents=True, exist_ok=True)
             version_id = str(uuid.uuid4())[:8]
@@ -1002,6 +1039,14 @@ def create_mcp_app() -> FastAPI:
                 "edits_applied": 1,
             }
         elif format_type == "docx":
+            # python-docx cannot demonstrate preservation of every DOCX
+            # structure we accept (comments, tracked changes, and complex
+            # drawing relationships in particular). Do not create a flattened
+            # replacement until the round-trip capability matrix is validated.
+            raise HTTPException(
+                status_code=409,
+                detail="DOCX editing is temporarily unavailable because round-trip preservation has not been validated. Download the original instead.",
+            )
             import docx
 
             wc_dir = config.working_copies_dir / document_id
@@ -1047,6 +1092,34 @@ def create_mcp_app() -> FastAPI:
                 "working_copy_path": str(wc_path),
                 "path": str(wc_path),
             }
+
+    @app.post("/documents/{document_id}/revert")
+    async def revert_document(document_id: str, request: Request):
+        """Discard every validated working copy and restore the immutable source."""
+        doc_dir = config.documents_dir / document_id
+        if not doc_dir.exists():
+            raise HTTPException(404, f"Document {document_id} not found")
+        originals = [p for p in doc_dir.iterdir() if p.is_file()]
+        if not originals:
+            raise HTTPException(404, "No source file found")
+
+        wc_dir = config.working_copies_dir / document_id
+        removed_versions = 0
+        if wc_dir.exists():
+            for candidate in wc_dir.iterdir():
+                if candidate.is_file():
+                    candidate.unlink()
+                    removed_versions += 1
+            # Only remove the document-specific, now-empty directory.
+            wc_dir.rmdir()
+
+        registry = get_registry()
+        original = originals[0]
+        if registry.document_processor and registry.hybrid_index:
+            await _reindex_working_copy(document_id, original, "original", original.suffix.lstrip("."))
+
+        logger.info("working_copies_reverted", document_id=document_id, removed_versions=removed_versions)
+        return {"success": True, "document_id": document_id, "removed_versions": removed_versions, "version": "original"}
 
     @app.get("/documents/{document_id}/download")
     async def download_document(document_id: str):

@@ -1,0 +1,100 @@
+{"unknown_id": "unk_001", "text": "Customer Churn Rate", "split": "val", "domain_note": "Non-financial metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_002", "text": "Net Promoter Score", "split": "val", "domain_note": "Marketing metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_003", "text": "Daily Active Users", "split": "val", "domain_note": "Product metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_004", "text": "Server Rack Depreciation Limit", "split": "val", "domain_note": "Operational infrastructure", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_005", "text": "Employee Satisfaction Index", "split": "val", "domain_note": "HR metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_006", "text": "Carbon Offset Units", "split": "val", "domain_note": "ESG metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_007", "text": "Sprint Velocity", "split": "val", "domain_note": "Agile engineering", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_008", "text": "Click-Through Rate", "split": "val", "domain_note": "Advertising metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_009", "text": "Office Catering Expense Per Head", "split": "val", "domain_note": "Internal admin", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_010", "text": "Customer Acquisition Cost", "split": "val", "domain_note": "Unit economics", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_011", "text": "Lifetime Value", "split": "val", "domain_note": "Unit economics", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_012", "text": "Average Revenue Per User", "split": "val", "domain_note": "SaaS metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_013", "text": "Burn Multiple", "split": "val", "domain_note": "Venture metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_014", "text": "Magic Number", "split": "val", "domain_note": "Sales efficiency", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_015", "text": "Rule of 40", "split": "val", "domain_note": "SaaS composite", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_016", "text": "Pipeline Conversion Rate", "split": "val", "domain_note": "Sales metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_017", "text": "Lead Velocity Rate", "split": "val", "domain_note": "Sales metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_018", "text": "Ticket Resolution Time", "split": "val", "domain_note": "Support metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_019", "text": "Warehouse Utilization Rate", "split": "val", "domain_note": "Supply chain", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_020", "text": "Fleet Fuel Mileage", "split": "val", "domain_note": "Logistics", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_021", "text": "Patent Citation Count", "split": "val", "domain_note": "R&D metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_022", "text": "Bug Bounty Payout", "split": "val", "domain_note": "Security cost", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_023", "text": "Brand Equity Valuation", "split": "val", "domain_note": "Marketing intangible", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_024", "text": "Domain Name Registration Fee", "split": "val", "domain_note": "IT operational", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_025", "text": "Software License Seats", "split": "val", "domain_note": "IT metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_026", "text": "Cloud GPU Cluster Hours", "split": "val", "domain_note": "Compute operational", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_027", "text": "API Request Volume", "split": "val", "domain_note": "Infrastructure metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_028", "text": "Average Order Value", "split": "val", "domain_note": "E-commerce metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_029", "text": "Cart Abandonment Rate", "split": "val", "domain_note": "E-commerce metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_030", "text": "Return on Ad Spend", "split": "val", "domain_note": "Marketing efficiency", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_031", "text": "Social Media Follower Growth", "split": "val", "domain_note": "Social metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_032", "text": "Email Open Rate", "split": "val", "domain_note": "Marketing metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_033", "text": "Onboarding Drop-off Rate", "split": "val", "domain_note": "Product metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_034", "text": "Feature Adoption Rate", "split": "val", "domain_note": "Product metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_035", "text": "Technical Debt Ratio", "split": "val", "domain_note": "Engineering metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_036", "text": "Code Coverage Percentage", "split": "val", "domain_note": "Quality metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_037", "text": "Mean Time to Recovery", "split": "val", "domain_note": "DevOps metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_038", "text": "Service Level Agreement Uptime", "split": "val", "domain_note": "DevOps SLA", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_039", "text": "Data Egress Volume", "split": "val", "domain_note": "Cloud cost", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_040", "text": "Storage IOPS Allocation", "split": "val", "domain_note": "Infrastructure metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_041", "text": "Conference Sponsorship Fee", "split": "val", "domain_note": "Marketing expense", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_042", "text": "Recruiter Placement Bounty", "split": "val", "domain_note": "HR expense", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_043", "text": "Commute Subsidy Allowance", "split": "val", "domain_note": "Employee benefit", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_044", "text": "Parking Pass Reimbursement", "split": "val", "domain_note": "Travel benefit", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_045", "text": "Ergonomic Chair Allowance", "split": "val", "domain_note": "Workplace perk", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_046", "text": "Office Plant Care Subscription", "split": "val", "domain_note": "Facilities expense", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_047", "text": "Espresso Bean Supply Expense", "split": "val", "domain_note": "Facilities expense", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_048", "text": "Company Swag Manufacturing", "split": "val", "domain_note": "Marketing operational", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_049", "text": "Offsite Retreat Flights", "split": "val", "domain_note": "Team travel", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_050", "text": "Hackathon Prize Pool", "split": "val", "domain_note": "Internal competition", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_051", "text": "Website Bounce Rate", "split": "test", "domain_note": "Web analytics", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_052", "text": "Organic Search Impressions", "split": "test", "domain_note": "SEO metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_053", "text": "Cost Per Click", "split": "test", "domain_note": "Ad metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_054", "text": "Customer Health Score", "split": "test", "domain_note": "Success metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_055", "text": "Product Qualified Leads", "split": "test", "domain_note": "Sales metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_056", "text": "Monthly Recurring Churn", "split": "test", "domain_note": "Subscription metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_057", "text": "Gross Revenue Retention", "split": "test", "domain_note": "Subscription metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_058", "text": "Net Revenue Retention", "split": "test", "domain_note": "Subscription metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_059", "text": "Headcount Growth Rate", "split": "test", "domain_note": "HR metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_060", "text": "Offer Acceptance Ratio", "split": "test", "domain_note": "Recruiting metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_061", "text": "Time to Hire", "split": "test", "domain_note": "Recruiting metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_062", "text": "Voluntary Attrition Rate", "split": "test", "domain_note": "HR metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_063", "text": "Diversity Percentage", "split": "test", "domain_note": "ESG metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_064", "text": "Glassdoor Rating", "split": "test", "domain_note": "Employer brand", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_065", "text": "Carbon Footprint Scope 3", "split": "test", "domain_note": "ESG metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_066", "text": "Renewable Energy Megawatt Hours", "split": "test", "domain_note": "Sustainability", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_067", "text": "Water Recycling Ratio", "split": "test", "domain_note": "Sustainability", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_068", "text": "Packaging Recyclability Rate", "split": "test", "domain_note": "Supply chain ESG", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_069", "text": "Supplier Diversity Spend", "split": "test", "domain_note": "Procurement ESG", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_070", "text": "On-time Delivery Rate", "split": "test", "domain_note": "Logistics metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_071", "text": "Inventory Turn Velocity", "split": "test", "domain_note": "Supply chain", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_072", "text": "Days Sales of Inventory", "split": "test", "domain_note": "Supply chain", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_073", "text": "Backorder Rate", "split": "test", "domain_note": "Supply chain", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_074", "text": "Warehouse Pick Rate", "split": "test", "domain_note": "Logistics", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_075", "text": "Scrap Rate in Manufacturing", "split": "test", "domain_note": "Production quality", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_076", "text": "Overall Equipment Effectiveness", "split": "test", "domain_note": "Manufacturing", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_077", "text": "First Contact Resolution", "split": "test", "domain_note": "Customer support", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_078", "text": "Customer Effort Score", "split": "test", "domain_note": "Customer satisfaction", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_079", "text": "App Store Review Score", "split": "test", "domain_note": "Mobile product", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_080", "text": "App Crash Rate per Session", "split": "test", "domain_note": "Mobile telemetry", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_081", "text": "Page Load Latency (p99)", "split": "test", "domain_note": "Web performance", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_082", "text": "Core Web Vitals Score", "split": "test", "domain_note": "SEO quality", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_083", "text": "Bandwidth Consumption (TB)", "split": "test", "domain_note": "Network metric", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_084", "text": "SSL Certificate Renewal Cost", "split": "test", "domain_note": "IT security", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_085", "text": "Penetration Testing Contract", "split": "test", "domain_note": "Security audit", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_086", "text": "Phishing Simulation Failure Rate", "split": "test", "domain_note": "Internal compliance", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_087", "text": "Security Clearance Badge Count", "split": "test", "domain_note": "Facilities", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_088", "text": "Executive Travel Security", "split": "test", "domain_note": "Executive protection", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_089", "text": "Private Jet Charter Mileage", "split": "test", "domain_note": "Executive travel", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_090", "text": "Golf Club Membership Dues", "split": "test", "domain_note": "Executive perks", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_091", "text": "Stipend for Remote Electricity", "split": "test", "domain_note": "Remote work", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_092", "text": "Gym Membership Subsidy", "split": "test", "domain_note": "Wellness benefit", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_093", "text": "Mental Health App Subscription", "split": "test", "domain_note": "Wellness benefit", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_094", "text": "Tuition Reimbursement Claim", "split": "test", "domain_note": "Education benefit", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_095", "text": "Charitable Donation Matching", "split": "test", "domain_note": "CSR spend", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_096", "text": "Corporate Art Collection Insurance", "split": "test", "domain_note": "Asset insurance", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_097", "text": "Patent Defense Warchest", "split": "test", "domain_note": "Legal contingency", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_098", "text": "Trademark Registration in 50 States", "split": "test", "domain_note": "Legal intellectual property", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_099", "text": "Lobbying Disclosure Spend", "split": "test", "domain_note": "Government relations", "label": "out_of_taxonomy", "relation": "different"}
+{"unknown_id": "unk_100", "text": "Crisis PR Retainer", "split": "test", "domain_note": "Public relations", "label": "out_of_taxonomy", "relation": "different"}

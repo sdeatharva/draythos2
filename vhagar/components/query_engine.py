@@ -99,6 +99,40 @@ class QueryEngine:
 
         # Build context and citations
         context = self._build_retrieval_context(all_results)
+
+        # Principle 1: Structured first, text second (Facts answer the question)
+        try:
+            from vhagar.db.repo import get_repo
+            from vhagar.components.extraction.locators import format_locator_display
+
+            repo = get_repo()
+            matched_facts = []
+            for term in [question] + expanded.expanded_terms:
+                alias = repo.get_alias_match(term)
+                if alias:
+                    cid = alias["concept_id"]
+                    f_list, _ = repo.list_facts(concept_id=cid, limit=5)
+                    matched_facts.extend(f_list)
+
+            if matched_facts:
+                seen_fids = set()
+                fact_lines = ["[Verified Canonical Facts from Data Room]:"]
+                for uf in matched_facts:
+                    fid = uf["fact_id"]
+                    if fid not in seen_fids:
+                        seen_fids.add(fid)
+                        loc_str = format_locator_display(uf.get("locator", {}))
+                        p_label = uf.get("period", {}).get("label") or "Current"
+                        unit_str = f" {uf.get('unit')}" if uf.get('unit') else ""
+                        fact_lines.append(
+                            f"- {uf.get('concept_label')} (Original label: '{uf.get('raw_label')}'): {uf.get('value_raw')}{unit_str} "
+                            f"[Period: {p_label}] (Source: {loc_str}, Fact ID: {fid})"
+                        )
+                if len(seen_fids) > 0:
+                    context = "\n".join(fact_lines) + "\n\n" + context
+        except Exception as fact_exc:
+            logger.debug("facts_retrieval_skipped", error=str(fact_exc))
+
         if concept_context:
             context = f"{context}\n\nRelated concepts:\n{concept_context}"
 

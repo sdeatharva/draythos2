@@ -1,0 +1,10 @@
+{
+  "entity": "Bharat Industrial Ltd",
+  "jurisdiction": "IN",
+  "period": "FY2024",
+  "financials": {
+    "turnover": 1234500000,
+    "ebitda": 225000000,
+    "pat": 138000000
+  }
+}

@@ -93,10 +93,7 @@ export function DocumentPreview({
     return (
       <DocxPreview
         content={content}
-        isEditable={true}
-        onSaveEdits={(updated) => {
-          if (onSaveEdits) onSaveEdits(updated);
-        }}
+        isEditable={false}
       />
     );
   }

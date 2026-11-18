@@ -1,0 +1,756 @@
+{
+  "taxonomy_version": "tax-1.0.0",
+  "concept_count": 150,
+  "concepts": [
+    {
+      "index": 0,
+      "concept_id": "tax.root",
+      "label": "Taxation"
+    },
+    {
+      "index": 1,
+      "concept_id": "tax.consumption",
+      "label": "Consumption Taxes"
+    },
+    {
+      "index": 2,
+      "concept_id": "tax.value_added",
+      "label": "Value Added / Goods & Services Tax"
+    },
+    {
+      "index": 3,
+      "concept_id": "tax.sales_tax",
+      "label": "Retail Sales Tax"
+    },
+    {
+      "index": 4,
+      "concept_id": "tax.cgst",
+      "label": "Central Goods and Services Tax"
+    },
+    {
+      "index": 5,
+      "concept_id": "tax.sgst",
+      "label": "State Goods and Services Tax"
+    },
+    {
+      "index": 6,
+      "concept_id": "tax.igst",
+      "label": "Integrated Goods and Services Tax"
+    },
+    {
+      "index": 7,
+      "concept_id": "tax.utgst",
+      "label": "Union Territory Goods and Services Tax"
+    },
+    {
+      "index": 8,
+      "concept_id": "tax.gst_cess",
+      "label": "GST Compensation Cess"
+    },
+    {
+      "index": 9,
+      "concept_id": "tax.input_credit",
+      "label": "Input Tax Credit (ITC)"
+    },
+    {
+      "index": 10,
+      "concept_id": "tax.reverse_charge",
+      "label": "Reverse Charge Mechanism (RCM)"
+    },
+    {
+      "index": 11,
+      "concept_id": "tax.income",
+      "label": "Income Taxes"
+    },
+    {
+      "index": 12,
+      "concept_id": "tax.corporate_tax",
+      "label": "Corporate Income Tax"
+    },
+    {
+      "index": 13,
+      "concept_id": "tax.minimum_alternate_tax",
+      "label": "Minimum Alternate Tax (MAT / AMT)"
+    },
+    {
+      "index": 14,
+      "concept_id": "tax.withholding",
+      "label": "Withholding Tax / Tax Deducted at Source (TDS)"
+    },
+    {
+      "index": 15,
+      "concept_id": "tax.tcs",
+      "label": "Tax Collected at Source (TCS)"
+    },
+    {
+      "index": 16,
+      "concept_id": "tax.capital_gains",
+      "label": "Capital Gains Tax"
+    },
+    {
+      "index": 17,
+      "concept_id": "tax.dividend_tax",
+      "label": "Dividend Distribution / Withholding Tax"
+    },
+    {
+      "index": 18,
+      "concept_id": "tax.personal_income_tax",
+      "label": "Personal Income Tax"
+    },
+    {
+      "index": 19,
+      "concept_id": "tax.payroll_tax",
+      "label": "Payroll & Social Security Tax"
+    },
+    {
+      "index": 20,
+      "concept_id": "tax.customs_duty",
+      "label": "Customs & Import Duties"
+    },
+    {
+      "index": 21,
+      "concept_id": "tax.excise_duty",
+      "label": "Excise Duty"
+    },
+    {
+      "index": 22,
+      "concept_id": "tax.stamp_duty",
+      "label": "Stamp Duty"
+    },
+    {
+      "index": 23,
+      "concept_id": "tax.property_tax",
+      "label": "Property & Real Estate Tax"
+    },
+    {
+      "index": 24,
+      "concept_id": "tax.transfer_pricing",
+      "label": "Transfer Pricing Adjustment"
+    },
+    {
+      "index": 25,
+      "concept_id": "tax.deferred_tax_asset",
+      "label": "Deferred Tax Asset"
+    },
+    {
+      "index": 26,
+      "concept_id": "tax.deferred_tax_liability",
+      "label": "Deferred Tax Liability"
+    },
+    {
+      "index": 27,
+      "concept_id": "fs.root",
+      "label": "Financial Statements"
+    },
+    {
+      "index": 28,
+      "concept_id": "fs.income_statement",
+      "label": "Income Statement / Statement of Profit and Loss"
+    },
+    {
+      "index": 29,
+      "concept_id": "fs.revenue",
+      "label": "Revenue / Turnover"
+    },
+    {
+      "index": 30,
+      "concept_id": "fs.other_income",
+      "label": "Other Operating & Non-Operating Income"
+    },
+    {
+      "index": 31,
+      "concept_id": "fs.total_revenue",
+      "label": "Total Revenue / Income"
+    },
+    {
+      "index": 32,
+      "concept_id": "fs.cogs",
+      "label": "Cost of Goods Sold (COGS)"
+    },
+    {
+      "index": 33,
+      "concept_id": "fs.gross_profit",
+      "label": "Gross Profit"
+    },
+    {
+      "index": 34,
+      "concept_id": "fs.operating_expenses",
+      "label": "Operating Expenses (OPEX)"
+    },
+    {
+      "index": 35,
+      "concept_id": "fs.sga_expenses",
+      "label": "Selling, General, and Administrative (SG&A)"
+    },
+    {
+      "index": 36,
+      "concept_id": "fs.employee_benefit_expenses",
+      "label": "Employee Benefit Expenses / Staff Costs"
+    },
+    {
+      "index": 37,
+      "concept_id": "fs.rnd_expenses",
+      "label": "Research and Development (R&D) Expense"
+    },
+    {
+      "index": 38,
+      "concept_id": "fs.ebitda",
+      "label": "EBITDA"
+    },
+    {
+      "index": 39,
+      "concept_id": "fs.depreciation",
+      "label": "Depreciation Expense"
+    },
+    {
+      "index": 40,
+      "concept_id": "fs.amortization",
+      "label": "Amortization Expense"
+    },
+    {
+      "index": 41,
+      "concept_id": "fs.ebit",
+      "label": "EBIT / Operating Profit"
+    },
+    {
+      "index": 42,
+      "concept_id": "fs.finance_costs",
+      "label": "Finance Costs / Interest Expense"
+    },
+    {
+      "index": 43,
+      "concept_id": "fs.pbt",
+      "label": "Profit Before Tax (PBT)"
+    },
+    {
+      "index": 44,
+      "concept_id": "fs.tax_expense",
+      "label": "Tax Expense / Provision for Tax"
+    },
+    {
+      "index": 45,
+      "concept_id": "fs.pat",
+      "label": "Profit After Tax (PAT) / Net Income"
+    },
+    {
+      "index": 46,
+      "concept_id": "fs.eps_basic",
+      "label": "Basic Earnings Per Share (EPS)"
+    },
+    {
+      "index": 47,
+      "concept_id": "fs.eps_diluted",
+      "label": "Diluted Earnings Per Share (EPS)"
+    },
+    {
+      "index": 48,
+      "concept_id": "fs.balance_sheet",
+      "label": "Balance Sheet / Statement of Financial Position"
+    },
+    {
+      "index": 49,
+      "concept_id": "fs.total_assets",
+      "label": "Total Assets"
+    },
+    {
+      "index": 50,
+      "concept_id": "fs.current_assets",
+      "label": "Total Current Assets"
+    },
+    {
+      "index": 51,
+      "concept_id": "fs.cash_and_equivalents",
+      "label": "Cash and Cash Equivalents"
+    },
+    {
+      "index": 52,
+      "concept_id": "fs.accounts_receivable",
+      "label": "Trade Receivables / Accounts Receivable"
+    },
+    {
+      "index": 53,
+      "concept_id": "fs.inventories",
+      "label": "Inventories / Stock-in-Trade"
+    },
+    {
+      "index": 54,
+      "concept_id": "fs.prepaid_expenses",
+      "label": "Prepaid Expenses & Other Current Assets"
+    },
+    {
+      "index": 55,
+      "concept_id": "fs.non_current_assets",
+      "label": "Total Non-Current / Fixed Assets"
+    },
+    {
+      "index": 56,
+      "concept_id": "fs.ppe",
+      "label": "Property, Plant, and Equipment (PP&E)"
+    },
+    {
+      "index": 57,
+      "concept_id": "fs.intangible_assets",
+      "label": "Intangible Assets & Goodwill"
+    },
+    {
+      "index": 58,
+      "concept_id": "fs.non_current_investments",
+      "label": "Non-Current Investments"
+    },
+    {
+      "index": 59,
+      "concept_id": "fs.total_liabilities",
+      "label": "Total Liabilities"
+    },
+    {
+      "index": 60,
+      "concept_id": "fs.current_liabilities",
+      "label": "Total Current Liabilities"
+    },
+    {
+      "index": 61,
+      "concept_id": "fs.accounts_payable",
+      "label": "Trade Payables / Accounts Payable"
+    },
+    {
+      "index": 62,
+      "concept_id": "fs.short_term_borrowings",
+      "label": "Short-Term Borrowings / Debt"
+    },
+    {
+      "index": 63,
+      "concept_id": "fs.provisions_current",
+      "label": "Current Provisions"
+    },
+    {
+      "index": 64,
+      "concept_id": "fs.non_current_liabilities",
+      "label": "Total Non-Current / Long-Term Liabilities"
+    },
+    {
+      "index": 65,
+      "concept_id": "fs.long_term_borrowings",
+      "label": "Long-Term Borrowings / Debt"
+    },
+    {
+      "index": 66,
+      "concept_id": "fs.lease_liabilities",
+      "label": "Lease Liabilities"
+    },
+    {
+      "index": 67,
+      "concept_id": "fs.total_debt",
+      "label": "Total Debt"
+    },
+    {
+      "index": 68,
+      "concept_id": "fs.equity",
+      "label": "Total Shareholder's Equity"
+    },
+    {
+      "index": 69,
+      "concept_id": "fs.share_capital",
+      "label": "Share Capital / Common Stock"
+    },
+    {
+      "index": 70,
+      "concept_id": "fs.retained_earnings",
+      "label": "Retained Earnings / Reserves & Surplus"
+    },
+    {
+      "index": 71,
+      "concept_id": "fs.cash_flow_statement",
+      "label": "Statement of Cash Flows"
+    },
+    {
+      "index": 72,
+      "concept_id": "fs.cfo",
+      "label": "Cash Flow from Operating Activities (CFO)"
+    },
+    {
+      "index": 73,
+      "concept_id": "fs.cfi",
+      "label": "Cash Flow from Investing Activities (CFI)"
+    },
+    {
+      "index": 74,
+      "concept_id": "fs.capex",
+      "label": "Capital Expenditures (CapEx)"
+    },
+    {
+      "index": 75,
+      "concept_id": "fs.cff",
+      "label": "Cash Flow from Financing Activities (CFF)"
+    },
+    {
+      "index": 76,
+      "concept_id": "fs.free_cash_flow",
+      "label": "Free Cash Flow (FCF)"
+    },
+    {
+      "index": 77,
+      "concept_id": "cmp.root",
+      "label": "Compliance and Governance"
+    },
+    {
+      "index": 78,
+      "concept_id": "cmp.invoice",
+      "label": "Commercial Invoice"
+    },
+    {
+      "index": 79,
+      "concept_id": "cmp.tax_invoice",
+      "label": "Tax Invoice"
+    },
+    {
+      "index": 80,
+      "concept_id": "cmp.einvoice",
+      "label": "Electronic Invoice (e-Invoice / IRN)"
+    },
+    {
+      "index": 81,
+      "concept_id": "cmp.credit_note",
+      "label": "Credit Note"
+    },
+    {
+      "index": 82,
+      "concept_id": "cmp.debit_note",
+      "label": "Debit Note"
+    },
+    {
+      "index": 83,
+      "concept_id": "cmp.filing",
+      "label": "Statutory Filing / Return"
+    },
+    {
+      "index": 84,
+      "concept_id": "cmp.gst_return",
+      "label": "GST Return (GSTR-1, GSTR-3B, GSTR-9)"
+    },
+    {
+      "index": 85,
+      "concept_id": "cmp.vat_return",
+      "label": "VAT Return"
+    },
+    {
+      "index": 86,
+      "concept_id": "cmp.sec_10k",
+      "label": "SEC Form 10-K"
+    },
+    {
+      "index": 87,
+      "concept_id": "cmp.sec_10q",
+      "label": "SEC Form 10-Q"
+    },
+    {
+      "index": 88,
+      "concept_id": "cmp.audit_report",
+      "label": "Auditor's Report"
+    },
+    {
+      "index": 89,
+      "concept_id": "cmp.directors_report",
+      "label": "Directors' Report / MD&A"
+    },
+    {
+      "index": 90,
+      "concept_id": "cmp.kyc",
+      "label": "Know Your Customer (KYC)"
+    },
+    {
+      "index": 91,
+      "concept_id": "cmp.tax_id",
+      "label": "Tax Identification Number (TIN / PAN / GSTIN / EIN)"
+    },
+    {
+      "index": 92,
+      "concept_id": "cmp.penalty",
+      "label": "Regulatory Penalty & Late Fee"
+    },
+    {
+      "index": 93,
+      "concept_id": "cmp.related_party",
+      "label": "Related Party Disclosures"
+    },
+    {
+      "index": 94,
+      "concept_id": "cmp.contingent_liability",
+      "label": "Contingent Liabilities"
+    },
+    {
+      "index": 95,
+      "concept_id": "tax.dividend_tax",
+      "label": "Dividend Distribution Tax (DDT)"
+    },
+    {
+      "index": 96,
+      "concept_id": "tax.digital_services",
+      "label": "Digital Services Tax / Equalisation Levy"
+    },
+    {
+      "index": 97,
+      "concept_id": "tax.wealth_tax",
+      "label": "Wealth & Net Worth Tax"
+    },
+    {
+      "index": 98,
+      "concept_id": "tax.carbon_tax",
+      "label": "Carbon Emission Tax & CBAM"
+    },
+    {
+      "index": 99,
+      "concept_id": "tax.property_tax",
+      "label": "Real Estate & Municipal Property Tax"
+    },
+    {
+      "index": 100,
+      "concept_id": "tax.fuel_duty",
+      "label": "Mineral Oil & Fuel Excise Duty"
+    },
+    {
+      "index": 101,
+      "concept_id": "tax.customs_valuation",
+      "label": "Customs Tariff Valuation"
+    },
+    {
+      "index": 102,
+      "concept_id": "tax.anti_dumping",
+      "label": "Anti-Dumping & Countervailing Duty"
+    },
+    {
+      "index": 103,
+      "concept_id": "tax.safe_harbour",
+      "label": "Safe Harbour Tax Provisions"
+    },
+    {
+      "index": 104,
+      "concept_id": "tax.beps_pillar2",
+      "label": "Global Minimum Tax (Pillar Two GloBE)"
+    },
+    {
+      "index": 105,
+      "concept_id": "tax.advance_pricing",
+      "label": "Advance Pricing Agreement (APA)"
+    },
+    {
+      "index": 106,
+      "concept_id": "tax.statutory_audit",
+      "label": "Statutory Tax Audit (Section 44AB)"
+    },
+    {
+      "index": 107,
+      "concept_id": "tax.appellate_tribunal",
+      "label": "Tax Appellate Tribunal (ITAT / CESTAT)"
+    },
+    {
+      "index": 108,
+      "concept_id": "tax.advance_ruling",
+      "label": "Authority for Advance Rulings (AAR)"
+    },
+    {
+      "index": 109,
+      "concept_id": "tax.underreporting_penalty",
+      "label": "Penalty for Underreporting of Income"
+    },
+    {
+      "index": 110,
+      "concept_id": "tax.foreign_remittance_tax",
+      "label": "Tax on Foreign Remittances (TCS / Form 15CA)"
+    },
+    {
+      "index": 111,
+      "concept_id": "tax.import_vat_rcm",
+      "label": "Import VAT Reverse Charge Mechanism"
+    },
+    {
+      "index": 112,
+      "concept_id": "tax.statutory_cess",
+      "label": "Education & Health Cess / Surcharge"
+    },
+    {
+      "index": 113,
+      "concept_id": "fs.comprehensive_income",
+      "label": "Statement of Comprehensive Income"
+    },
+    {
+      "index": 114,
+      "concept_id": "fs.oci",
+      "label": "Other Comprehensive Income (OCI)"
+    },
+    {
+      "index": 115,
+      "concept_id": "fs.revaluation_reserve",
+      "label": "Revaluation Surplus Reserve"
+    },
+    {
+      "index": 116,
+      "concept_id": "fs.fctr",
+      "label": "Foreign Currency Translation Reserve"
+    },
+    {
+      "index": 117,
+      "concept_id": "fs.hedging_reserve",
+      "label": "Cash Flow Hedge Reserve"
+    },
+    {
+      "index": 118,
+      "concept_id": "fs.defined_benefit_reserve",
+      "label": "Defined Benefit Pension Plan Actuarial Reserve"
+    },
+    {
+      "index": 119,
+      "concept_id": "fs.minority_interest",
+      "label": "Non-Controlling / Minority Interest"
+    },
+    {
+      "index": 120,
+      "concept_id": "fs.share_premium",
+      "label": "Share Premium / Additional Paid-in Capital"
+    },
+    {
+      "index": 121,
+      "concept_id": "fs.treasury_shares",
+      "label": "Treasury Stock / Shares"
+    },
+    {
+      "index": 122,
+      "concept_id": "fs.esop_reserve",
+      "label": "Share-Based Payment / ESOP Reserve"
+    },
+    {
+      "index": 123,
+      "concept_id": "fs.general_reserve",
+      "label": "General / Statutory Reserve"
+    },
+    {
+      "index": 124,
+      "concept_id": "fs.cwip",
+      "label": "Capital Work-in-Progress (CWIP)"
+    },
+    {
+      "index": 125,
+      "concept_id": "fs.investment_property",
+      "label": "Investment Property"
+    },
+    {
+      "index": 126,
+      "concept_id": "fs.biological_assets",
+      "label": "Biological Assets"
+    },
+    {
+      "index": 127,
+      "concept_id": "fs.rou_assets",
+      "label": "Right-of-Use (ROU) Assets"
+    },
+    {
+      "index": 128,
+      "concept_id": "fs.lease_liabilities_current",
+      "label": "Lease Liabilities - Current Portion"
+    },
+    {
+      "index": 129,
+      "concept_id": "fs.lease_liabilities_noncurrent",
+      "label": "Lease Liabilities - Non-Current Portion"
+    },
+    {
+      "index": 130,
+      "concept_id": "fs.unearned_revenue_current",
+      "label": "Deferred Revenue / Current Contract Liabilities"
+    },
+    {
+      "index": 131,
+      "concept_id": "fs.unearned_revenue_noncurrent",
+      "label": "Non-Current Contract Liabilities"
+    },
+    {
+      "index": 132,
+      "concept_id": "fs.employee_benefit_provisions",
+      "label": "Provisions for Employee Benefits"
+    },
+    {
+      "index": 133,
+      "concept_id": "fs.warranty_provisions",
+      "label": "Warranty & Claims Provisions"
+    },
+    {
+      "index": 134,
+      "concept_id": "fs.restructuring_provision",
+      "label": "Restructuring Provisions"
+    },
+    {
+      "index": 135,
+      "concept_id": "fs.asset_retirement_obligation",
+      "label": "Asset Retirement & Decommissioning Obligation"
+    },
+    {
+      "index": 136,
+      "concept_id": "fs.commercial_paper",
+      "label": "Commercial Paper Outstanding"
+    },
+    {
+      "index": 137,
+      "concept_id": "fs.subordinated_debt",
+      "label": "Subordinated & Mezzanine Debt"
+    },
+    {
+      "index": 138,
+      "concept_id": "fs.preference_shares",
+      "label": "Redeemable Preference Shares"
+    },
+    {
+      "index": 139,
+      "concept_id": "fs.ecl_allowance",
+      "label": "Expected Credit Loss (ECL) Allowance"
+    },
+    {
+      "index": 140,
+      "concept_id": "cmp.xbrl_instance",
+      "label": "iXBRL / XBRL Instance Filing"
+    },
+    {
+      "index": 141,
+      "concept_id": "cmp.board_resolution",
+      "label": "Certified Board Resolution"
+    },
+    {
+      "index": 142,
+      "concept_id": "cmp.mou",
+      "label": "Memorandum of Understanding (MOU)"
+    },
+    {
+      "index": 143,
+      "concept_id": "cmp.nda",
+      "label": "Non-Disclosure Agreement (NDA)"
+    },
+    {
+      "index": 144,
+      "concept_id": "cmp.poa",
+      "label": "Power of Attorney (POA)"
+    },
+    {
+      "index": 145,
+      "concept_id": "cmp.gstin_cert",
+      "label": "GSTIN / VAT Registration Certificate"
+    },
+    {
+      "index": 146,
+      "concept_id": "cmp.lut",
+      "label": "Letter of Undertaking (LUT)"
+    },
+    {
+      "index": 147,
+      "concept_id": "cmp.eway_bill",
+      "label": "Electronic Way Bill (e-Way Bill)"
+    },
+    {
+      "index": 148,
+      "concept_id": "cmp.shipping_bill",
+      "label": "Customs Shipping Bill of Export"
+    },
+    {
+      "index": 149,
+      "concept_id": "cmp.bill_of_entry",
+      "label": "Customs Bill of Entry"
+    }
+  ]
+}

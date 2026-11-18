@@ -217,8 +217,10 @@ class ExcelProcessor:
 
         result, wb = await self.apply_edits(document_id, actual_source, edits)
 
-        if not result.success and not result.edits_applied:
-            raise ValueError(f"No edits applied: {', '.join(result.errors)}")
+        if not result.success:
+            # A partially-applied batch is not a valid version: callers must
+            # correct every invalid reference/value and resubmit the proposal.
+            raise ValueError(f"Edits rejected: {', '.join(result.errors)}")
 
         # Write to temp first
         wc_dir = self.config.working_copies_dir / document_id
@@ -263,13 +265,22 @@ class ExcelProcessor:
         def _validate():
             try:
                 import openpyxl
-                wb = openpyxl.load_workbook(str(path), data_only=True)
-                # Basic validation: file opens and sheets exist
+                # data_only=False preserves formula text so validation can prove
+                # that the requested value/formula was written, not merely that
+                # a cached calculation value happens to exist.
+                wb = openpyxl.load_workbook(str(path), data_only=False)
                 for edit in expected_edits:
-                    if edit.sheet_name in wb.sheetnames:
-                        ws = wb[edit.sheet_name]
-                        cell = ws[edit.cell_ref]
-                        # Value check (data_only=True resolves formulas to cached values)
+                    if edit.sheet_name not in wb.sheetnames:
+                        return False
+                    cell = wb[edit.sheet_name][edit.cell_ref]
+                    expected = edit.new_value
+                    if edit.value_type == "number" and expected not in (None, ""):
+                        expected = float(expected)
+                        actual = float(cell.value)
+                    else:
+                        actual = cell.value
+                    if actual != expected:
+                        return False
                 wb.close()
                 return True
             except Exception as exc:

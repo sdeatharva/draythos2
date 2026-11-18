@@ -1,0 +1,4 @@
+Entity,Line Item,Period,Value,Unit
+Acme Global Inc,Net Income,FY2024,145.0,USD Millions
+Acme Global Inc,Top Line,FY2024,1250.0,USD Millions
+Acme Global Inc,Customer Churn Rate,FY2024,2.4,%
